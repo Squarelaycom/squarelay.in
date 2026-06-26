@@ -1,0 +1,579 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5W0KMMHQSE"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-5W0KMMHQSE');
+    </script>
+
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "v6v62hp0xq");
+    </script>
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1429635655175024');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1429635655175024&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    <meta name="norton-safeweb-site-verification" content="XZYTCIY09LA-D2LJ5TQ0C684I9PBYX6O58MTJO4VJ20NA-3PDZGV8I83Q7KX0NHUFG6W64FXAESGYG-J0-O3ZJIJ2ODGA1DEDRYMVPNH60KIQ9P92H2SYRHN12WMWYTK" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Squarelay | Professional Resume Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'media', 
+            theme: {
+                extend: {
+                    colors: {
+                        rblack: '#050505',
+                        rwhite: '#f5f5f7',
+                        rgray: '#1d1d1f',
+                        rblue: '#007aff'
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 20px rgba(0, 122, 255, 0.4)',
+                        'card-depth': '0 10px 30px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        
+        .apple-nav { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(20px) saturate(180%); 
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        @media (prefers-color-scheme: dark) {
+            .apple-nav { 
+                background: rgba(0, 0, 0, 0.85); 
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+        }
+        
+        .menu-gloss { 
+            background: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(50px); 
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @media (prefers-color-scheme: dark) {
+            .menu-gloss { background: rgba(5, 5, 5, 0.98); }
+        }
+
+        .reveal { opacity: 0; filter: blur(10px); transform: translateY(20px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+        /* Marquee Animation */
+        @keyframes scrollL { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scrollR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .m-track-L { display: flex; animation: scrollL 40s linear infinite; width: max-content; }
+        .m-track-R { display: flex; animation: scrollR 40s linear infinite; width: max-content; }
+        .s-img { width: 120px; height: 160px; margin: 0 6px; border-radius: 8px; object-fit: cover; border: 1px solid #e5e7eb; }
+        @media (prefers-color-scheme: dark) { .s-img { border: 1px solid #333; opacity: 0.9; } }
+
+        /* Buttons & Boxes */
+        .btn-small { 
+            padding: 0.7rem 1.6rem; font-size: 0.85rem; font-weight: 600; 
+            border-radius: 8px; 
+            transition: transform 0.1s, box-shadow 0.2s; display: inline-flex; align-items: center; justify-content: center; 
+        }
+        .btn-small:active { transform: scale(0.97); }
+        
+        .box-sharp { border-radius: 12px; }
+
+        #mobileMenu { transform: translateY(-100%); opacity: 0; }
+        #mobileMenu.active { transform: translateY(0); opacity: 1; }
+
+        /* Text Glow */
+        @keyframes glowText {
+            0%, 100% { text-shadow: 0 0 10px rgba(0, 122, 255, 0.2); }
+            50% { text-shadow: 0 0 20px rgba(0, 122, 255, 0.6); }
+        }
+        .glow-anim { animation: glowText 3s infinite; color: #007aff; }
+
+        /* Notification (Left Side) */
+        #notify-container {
+            position: fixed; bottom: 20px; left: 20px;
+            z-index: 9999; display: flex; flex-direction: column; width: auto;
+            pointer-events: none;
+        }
+        .notify-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 18px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex; align-items: center; gap: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+            width: max-content; max-width: 85vw;
+            animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: auto;
+        }
+        @media (prefers-color-scheme: dark) {
+            .notify-wrapper { background: rgba(20, 20, 20, 0.95); border: 1px solid rgba(255,255,255,0.1); }
+        }
+        @keyframes popUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* FAQ */
+        .faq-ans { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-ans { max-height: 200px; }
+        .faq-item.active svg { transform: rotate(180deg); }
+
+        .nav-arrow { 
+            width: 36px; height: 36px; border-radius: 50%; border: 1px solid #e5e5e5; 
+            display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; 
+        }
+        .nav-arrow:hover { background: #007aff; border-color: #007aff; color: white; }
+        @media (prefers-color-scheme: dark) { .nav-arrow { border-color: #333; color: white; } }
+
+        /* Red Rotating Border Animation */
+        @keyframes spin-border { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .red-anim-box { position: relative; overflow: hidden; border-radius: 12px; }
+        .red-anim-box::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, #ef4444);
+            animation: spin-border 4s linear infinite;
+        }
+        .red-anim-inner { position: relative; z-index: 1; height: 100%; width: 100%; background: inherit; border-radius: inherit; }
+        
+        /* Footer Taj Mahal Overlay - Optimized for both themes */
+        .footer-bg { position: relative; }
+        .footer-bg::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover; background-position: center bottom;
+            opacity: 0.05; pointer-events: none;
+        }
+        @media (prefers-color-scheme: dark) {
+            .footer-bg::before { opacity: 0.2; } /* Increased opacity for visibility in black theme */
+        }
+    </style>
+</head>
+<body class="bg-white text-rgray dark:bg-black dark:text-rwhite transition-colors duration-300">
+
+    <div id="notify-container"></div>
+
+    <nav class="fixed top-0 w-full z-[200] apple-nav">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-lg font-bold tracking-tight text-black dark:text-white">
+                Squarelay<span class="text-rblue">.</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest ml-auto">
+                <a href="index.html" class="hover:text-rblue transition-colors">Home</a>
+                <a href="pricing.html" class="hover:text-rblue transition-colors">Pricing</a>
+                <a href="portfolio.html" class="hover:text-rblue transition-colors">Portfolio</a>
+                <a href="compare.html" class="hover:text-rblue transition-colors">Compare</a>
+                <a href="/contact-us" class="hover:text-rblue transition-colors">Contact Us</a>
+                <a href="https://wa.me/919517369969" class="hover:text-rblue transition-colors border border-gray-200 dark:border-white/20 px-3 py-1.5 rounded-md flex items-center gap-2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-green-500"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <span>+91 9517369969</span>
+                </a>
+            </div>
+
+            <button onclick="toggleMenu()" class="md:hidden nav-btn p-1 flex flex-col justify-center gap-[6px] w-8 h-8">
+                <span class="block w-6 h-[1.5px] bg-black dark:bg-white rounded-full"></span>
+                <span class="block w-6 h-[1.5px] bg-black dark:bg-white rounded-full"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="fixed inset-0 menu-gloss z-[250] px-8 flex flex-col justify-center items-start text-left">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 p-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-black dark:text-white"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="flex flex-col space-y-6 w-full pl-2">
+            <a href="index.html" onclick="toggleMenu()" class="text-2xl font-bold text-black dark:text-white tracking-tight hover:text-rblue">Home</a>
+            <a href="pricing.html" onclick="toggleMenu()" class="text-2xl font-bold text-black dark:text-white tracking-tight hover:text-rblue">Pricing</a>
+            <a href="portfolio.html" onclick="toggleMenu()" class="text-2xl font-bold text-black dark:text-white tracking-tight hover:text-rblue">Portfolio</a>
+            <a href="compare.html" onclick="toggleMenu()" class="text-2xl font-bold text-black dark:text-white tracking-tight hover:text-rblue">Compare</a>
+            <a href="/contact-us" onclick="toggleMenu()" class="text-2xl font-bold text-black dark:text-white tracking-tight hover:text-rblue">Contact Us</a>
+            
+            <div class="mt-8 pt-8 border-t border-gray-200 dark:border-white/10 w-full">
+                <p class="text-xs text-gray-500 uppercase tracking-widest mb-3">Support</p>
+                <a href="https://wa.me/919517369969" class="flex items-center gap-3 bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="text-green-600"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <div>
+                        <p class="text-sm font-bold text-black dark:text-white">Contact Resume Writer</p>
+                        <p class="text-xs text-green-700 dark:text-green-400">+91 9517369969</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <section class="pt-40 pb-16 px-6 text-center reveal">
+        <span class="inline-block py-1.5 px-4 border border-rblue/30 bg-rblue/5 rounded-lg text-[11px] font-bold uppercase tracking-widest mb-6 glow-anim">
+            Professional Resume Writer
+        </span>
+        
+        <h1 class="text-4xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-6 text-black dark:text-white">
+            Zero rejections. <br>Just <span class="text-rblue">interviews.</span>
+        </h1>
+        <p class="text-gray-500 dark:text-gray-400 text-sm md:text-lg max-w-lg mx-auto font-medium mb-10 leading-relaxed">
+            Move beyond generic templates. We architect resumes that capture attention and beat ATS algorithms.
+        </p>
+        <div class="flex justify-center gap-3">
+            <a href="order.html" class="btn-small bg-rblue text-white shadow-glow-blue hover:bg-blue-600">Get Resume</a>
+            <a href="portfolio.html" class="btn-small bg-gray-100 text-black dark:bg-white/10 dark:text-white border border-transparent dark:border-white/10">View Samples</a>
+        </div>
+    </section>
+
+    <section id="samples" class="py-12 bg-gray-50 dark:bg-[#0a0a0a] reveal overflow-hidden border-y border-gray-100 dark:border-white/5">
+        <div class="m-track-L mb-4">
+            <img src="images/s1.jpg" class="s-img"><img src="images/s2.jpg" class="s-img"><img src="images/s3.jpg" class="s-img"><img src="images/s4.jpg" class="s-img">
+            <img src="images/s1.jpg" class="s-img"><img src="images/s2.jpg" class="s-img"><img src="images/s3.jpg" class="s-img"><img src="images/s4.jpg" class="s-img">
+        </div>
+        <div class="m-track-R">
+            <img src="images/s5.jpg" class="s-img"><img src="images/s6.jpg" class="s-img"><img src="images/s7.jpg" class="s-img"><img src="images/s8.jpg" class="s-img">
+            <img src="images/s5.jpg" class="s-img"><img src="images/s6.jpg" class="s-img"><img src="images/s7.jpg" class="s-img"><img src="images/s8.jpg" class="s-img">
+        </div>
+    </section>
+
+    <section id="choice" class="py-24 px-6 reveal">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-16 text-center text-black dark:text-white">You have two paths</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="red-anim-box box-sharp bg-gray-50 dark:bg-[#111] p-[1px]">
+                    <div class="red-anim-inner p-10 bg-gray-50 dark:bg-[#111]">
+                        <h3 class="text-xl font-bold mb-3 text-gray-400 uppercase tracking-wide">The Trap</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+                            Applying with generic templates. Blocked by AI. Ignored by HR. The endless cycle of rejection.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-10 box-sharp bg-white dark:bg-black shadow-card-depth border border-gray-200 dark:border-white/20 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold mb-3 uppercase tracking-wide text-rblue dark:text-rblue">Squarelay</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                            ATS-compliant architecture. Keyword optimized. Direct interview calls. Secure your future today.
+                        </p>
+                        <a href="order.html" class="btn-small bg-black text-white dark:bg-white dark:text-black">Upgrade Career</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="max-w-6xl mx-auto py-24 px-6 reveal">
+        <h2 class="text-2xl md:text-4xl font-bold mb-16 text-center text-black dark:text-white tracking-tight">Invest in your future.</h2>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            
+            <div class="p-8 border border-gray-200 dark:border-white/10 box-sharp bg-white dark:bg-[#111] relative shadow-card-depth flex flex-col">
+                <span class="absolute top-4 right-4 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 px-3 py-1 text-[10px] font-bold rounded-md uppercase tracking-wide">50% OFF</span>
+                <span class="text-[11px] font-extrabold text-gray-400 uppercase tracking-widest mb-4 block">Pro Plan</span>
+                
+                <div class="flex items-end gap-3 mb-8">
+                    <span class="text-gray-400 line-through text-lg font-medium">₹1999</span>
+                    <span class="text-5xl font-bold text-black dark:text-white tracking-tight">₹499</span>
+                </div>
+
+                <ul class="text-[13px] text-gray-600 dark:text-gray-300 space-y-4 mb-10 font-medium flex-1">
+                    <li class="flex gap-3"><span class="text-gray-400 font-bold shrink-0">•</span> ATS Friendly Resume</li>
+                    <li class="flex gap-3"><span class="text-gray-400 font-bold shrink-0">•</span> Professional Layout</li>
+                    <li class="flex gap-3"><span class="text-gray-400 font-bold shrink-0">•</span> Written by Professional Writer</li>
+                    <li class="flex gap-3"><span class="text-gray-400 font-bold shrink-0">•</span> 1 Free Revision</li>
+                    <li class="flex gap-3"><span class="text-black dark:text-white font-bold shrink-0">•</span> 24h Delivery</li>
+                </ul>
+                <a href="order.html" class="btn-small bg-gray-100 text-black dark:bg-white dark:text-black w-full hover:bg-gray-200 transition-colors">Claim Resume</a>
+            </div>
+
+            <div class="p-8 border border-rblue/20 box-sharp bg-gray-50 dark:bg-black relative shadow-glow-blue flex flex-col">
+                <span class="absolute top-4 right-4 bg-rblue text-white px-2 py-1 text-[10px] font-bold rounded-md uppercase tracking-wide">60% OFF</span>
+                <span class="text-[11px] font-extrabold text-rblue uppercase tracking-widest mb-4 block">Ultra Plan</span>
+                
+                <div class="flex items-end gap-3 mb-8">
+                    <span class="text-gray-400 line-through text-lg font-medium">₹2499</span>
+                    <span class="text-5xl font-bold text-black dark:text-white tracking-tight">₹999</span>
+                </div>
+
+                <ul class="text-[13px] text-gray-600 dark:text-gray-300 space-y-4 mb-8 font-medium flex-1">
+                    <li class="flex gap-3"><span class="text-rblue shrink-0">✓</span> <strong>Everything in Pro Plan</strong></li>
+                    <li class="flex gap-3"><span class="text-rblue shrink-0">•</span> Free Portfolio Website</li>
+                    <li class="flex gap-3"><span class="text-rblue shrink-0">•</span> Free Hosting <span class="text-gray-500 dark:text-gray-400 font-normal">*</span></li>
+                    <li class="flex gap-3"><span class="text-rblue shrink-0">•</span> Free Subdomain <span class="text-gray-500 dark:text-gray-400 font-normal">*</span></li>
+                    <li class="flex gap-3"><span class="text-rblue shrink-0">•</span> Connect Custom Domain Anytime</li>
+                    <li class="flex gap-3"><span class="text-rblue shrink-0">•</span> Free Community Access</li>
+                    <li class="flex gap-3"><span class="text-rblue shrink-0">•</span> 12h Superfast Delivery</li>
+                </ul>
+
+                <a href="order.html" class="btn-small bg-black text-white dark:bg-white dark:text-black w-full hover:opacity-90 transition-opacity">Claim Portfolio + Resume</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-gray-50 dark:bg-[#0a0a0a] reveal text-left border-y border-gray-100 dark:border-white/5">
+        <div class="px-6 max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-12">
+                <h2 class="text-2xl font-bold text-black dark:text-white">Clients.</h2>
+                <div class="flex gap-3">
+                    <div class="nav-arrow custom-prev">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                    </div>
+                    <div class="nav-arrow custom-next">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="swiper swiper-testimonials w-full">
+                <div class="swiper-wrapper pb-10">
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=11" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Rohan Sharma</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Software Engineer</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"I was struggling to get calls for 6 months. After Squarelay rewrote my CV, I got interview calls from 3 MNCs in the first week. The design is clean and professional."</p>
+                        </div>
+                    </div>
+                     <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=5" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Ananya Iyer</h5><p class="text-[10px] text-gray-400 font-bold uppercase">UI/UX Designer</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"The Ultra Plan is a game changer. The portfolio website they built is stunning and helped me showcase my design work. HRs were really impressed by the link."</p>
+                        </div>
+                    </div>
+                     <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=32" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Sana Malik</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Data Analyst</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"Shortlisted at Microsoft within 10 days. The keyword optimization is elite level. I highly recommend their services to anyone serious about their career."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=13" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Vikram Singh</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Sales Manager</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"Worth every rupee. The writing style is professional and authoritative. They highlighted my achievements perfectly."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=44" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Priya Das</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Marketing Head</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"Fastest delivery ever. I needed a resume for an urgent opening, and they delivered the Ultra plan in 10 hours. Got the job!"</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=60" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Amit Kumar</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Civil Engineer</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"The support team on WhatsApp is very responsive. They listened to all my requirements and made revisions instantly."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-2xl mx-auto px-6 pb-12 mt-20 reveal">
+        <div class="bg-gray-50 dark:bg-[#111] border border-gray-100 dark:border-white/10 box-sharp p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-center md:text-left">
+                <h4 class="text-lg font-bold text-black dark:text-white">Ready to upgrade?</h4>
+                <p class="text-xs text-gray-500">Don't let your resume hold you back.</p>
+            </div>
+            <a href="order.html" class="btn-small bg-black text-white dark:bg-white dark:text-black hover:opacity-80">Start Now</a>
+        </div>
+    </section>
+
+    <section id="faq" class="max-w-3xl mx-auto py-12 px-6 reveal">
+        <h2 class="text-2xl font-bold mb-12 text-black dark:text-white">FAQ</h2>
+        <div class="space-y-4">
+            <div class="faq-item border-b border-gray-100 dark:border-white/10 pb-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center py-2">
+                    <h4 class="text-sm font-bold text-black dark:text-white">Why is ATS compliance important?</h4>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-xs text-gray-500 dark:text-gray-400 py-2 leading-relaxed">Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Our resumes are designed with correct formatting and keywords to bypass these bots and get you shortlisted.</p></div>
+            </div>
+            <div class="faq-item border-b border-gray-100 dark:border-white/10 pb-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center py-2">
+                    <h4 class="text-sm font-bold text-black dark:text-white">How does the Portfolio Website work?</h4>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-xs text-gray-500 dark:text-gray-400 py-2 leading-relaxed">With the Ultra Plan, we build a personal website for you showcasing your bio, skills, and resume. You get free hosting for 1 year. You can share this link on LinkedIn or with recruiters to stand out.</p></div>
+            </div>
+            <div class="faq-item border-b border-gray-100 dark:border-white/10 pb-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center py-2">
+                    <h4 class="text-sm font-bold text-black dark:text-white">What is the turnaround time?</h4>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-xs text-gray-500 dark:text-gray-400 py-2 leading-relaxed">For the Pro Plan, we deliver the first draft within 24 hours. For the Ultra Plan, we prioritize your order and deliver within 12 hours. Revisions are usually done within a few hours.</p></div>
+            </div>
+            <div class="faq-item border-b border-gray-100 dark:border-white/10 pb-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center py-2">
+                    <h4 class="text-sm font-bold text-black dark:text-white">Do you offer revisions?</h4>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-xs text-gray-500 dark:text-gray-400 py-2 leading-relaxed">Yes, we offer 1 free revision. You can request changes to the layout or content after receiving the first draft.</p></div>
+            </div>
+            <div class="faq-item border-b border-gray-100 dark:border-white/10 pb-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center py-2">
+                    <h4 class="text-sm font-bold text-black dark:text-white">Can I connect my own domain?</h4>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-xs text-gray-500 dark:text-gray-400 py-2 leading-relaxed">Yes! With the Ultra Plan, we provide a free subdomain. If you have a custom domain, we can connect it for you via support/docs (One-time convenience fee of ₹299 applies).</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-6xl mx-auto px-6 pb-4">
+        <div class="text-[10px] text-gray-400 leading-relaxed border-t border-gray-100 dark:border-white/5 pt-6">
+            <p><span class="text-gray-500 dark:text-gray-400 font-normal">*</span> Free hosting for Portfolio Website is valid for 1 year from the date of purchase. Renewal charges of ₹999/year apply thereafter.</p>
+            <p><span class="text-gray-500 dark:text-gray-400 font-normal">*</span> Free subdomain is included in the Ultra Plan. Connecting a custom domain (e.g., yourname.com) requires a one-time technical convenience fee of ₹299 INR.</p>
+            <p><span class="text-gray-500 dark:text-gray-400 font-normal">*</span> You can connect a custom domain anytime with the help of Customer Support or Docs.</p>
+        </div>
+    </section>
+
+    <footer class="footer-bg bg-white dark:bg-black border-t border-gray-100 dark:border-white/10 pt-16 pb-8 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-10 relative z-10">
+            <div>
+                <div class="text-lg font-bold text-black dark:text-white">Squarelay<span class="text-rblue">.</span></div>
+                <div class="mt-4 flex items-center gap-2">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-green-500"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <div>
+                        <p class="text-sm font-bold text-black dark:text-white">Contact Professional Resume Writer</p>
+                        <a href="https://wa.me/919517369969" class="text-sm font-bold text-black dark:text-white hover:text-rblue">+91 9517369969</a>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-[10px] text-gray-900 dark:text-white uppercase font-bold tracking-widest mb-4">Links</h5>
+                <div class="flex flex-col space-y-3 text-xs text-gray-500 dark:text-gray-400">
+                    <a href="index.html" class="hover:text-rblue transition-colors">Home</a>
+                    <a href="pricing.html" class="hover:text-rblue transition-colors">Pricing</a>
+                    <a href="portfolio.html" class="hover:text-rblue transition-colors">Portfolio</a>
+                    <a href="contact.html" class="hover:text-rblue transition-colors">Contact Us</a>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-[10px] text-gray-900 dark:text-white uppercase font-bold tracking-widest mb-4">Legal</h5>
+                <div class="flex flex-col space-y-3 text-xs text-gray-500 dark:text-gray-400">
+                    <a href="/terms" class="hover:text-rblue transition-colors">Terms of Service</a>
+                    <a href="/privacy" class="hover:text-rblue transition-colors">Privacy Policy</a>
+                    <a href="/policies" class="hover:text-rblue transition-colors">Other Policies</a>
+                    <a href="/disclaimer" class="hover:text-rblue transition-colors">Disclaimer</a>
+                </div>
+            </div>
+            <div>
+                 <a href="https://instagram.com/sqaurelaynow" target="_blank" class="block w-max">
+                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400 hover:text-pink-500 transition-colors"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                 </a>
+            </div>
+        </div>
+        <div class="text-[10px] text-gray-300 dark:text-gray-600 font-bold uppercase tracking-widest text-center md:text-left relative z-10">
+            © Squarelay. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        
+        var swiper = new Swiper(".swiper-testimonials", { 
+            slidesPerView: 1.1, 
+            spaceBetween: 15, 
+            loop: true, 
+            navigation: {
+                nextEl: '.custom-next',
+                prevEl: '.custom-prev',
+            },
+            breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 20 } } 
+        });
+
+        function reveal() { 
+            var revs = document.querySelectorAll(".reveal"); 
+            for (var i = 0; i < revs.length; i++) { 
+                var wh = window.innerHeight; 
+                var top = revs[i].getBoundingClientRect().top; 
+                if (top < wh - 50) { revs[i].classList.add("active"); } 
+            } 
+        }
+        window.addEventListener("scroll", reveal); window.onload = reveal;
+
+        // --- OPTIMIZED NOTIFICATION SYSTEM (Left Side) ---
+        const users = [
+            { name: "Mohit P.", loc: "Mumbai" },
+            { name: "Shikha V.", loc: "Delhi" },
+            { name: "Rahul S.", loc: "Bangalore" },
+            { name: "Priya S.", loc: "Pune" },
+            { name: "Amit K.", loc: "Noida" }
+        ];
+
+        function createPopup(user) {
+            const container = document.getElementById('notify-container');
+            container.innerHTML = ''; 
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'notify-wrapper';
+            wrapper.innerHTML = `
+                <div>
+                    <p class="text-[11px] font-bold text-black dark:text-white leading-tight">
+                        ${user.name} just claimed a resume.
+                    </p>
+                    <p class="text-[9px] text-gray-400 font-bold uppercase tracking-wide">${user.loc}</p>
+                </div>
+            `;
+            container.appendChild(wrapper);
+            
+            setTimeout(() => { 
+                if(wrapper.parentNode) wrapper.remove(); 
+            }, 4000);
+        }
+
+        function triggerNotifications() {
+            const u = users[Math.floor(Math.random() * users.length)];
+            createPopup(u);
+            setTimeout(triggerNotifications, Math.random() * 6000 + 6000);
+        }
+
+        setTimeout(triggerNotifications, 2000);
+    </script>
+</body>
+</html>
+
+
