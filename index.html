@@ -104,7 +104,7 @@
 
         /* Notification (Left Side) */
         #notify-container {
-            position: fixed; bottom: 80px; left: 20px; /* adjusted for sticky footer */
+            position: fixed; bottom: 80px; left: 20px;
             z-index: 9999; display: flex; flex-direction: column; width: auto;
             pointer-events: none;
         }
@@ -180,11 +180,15 @@
 
     <div id="notify-container"></div>
 
-    <nav class="fixed top-0 w-full z-[200] apple-nav">
+    <nav class="fixed top-0 w-full z-[200] apple-nav transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="h-6 md:h-8">
+            
+            <div id="nav-logo-image" class="h-12 md:h-16 transition-all duration-300">
                 <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden">
                 <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block">
+            </div>
+            <div id="nav-logo-text" class="hidden text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white transition-all duration-300">
+                Squarelay<span class="text-rblue">.</span>
             </div>
             
             <div class="hidden md:flex items-center gap-8 text-[12px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest ml-auto">
@@ -242,13 +246,16 @@
             Move beyond generic templates. We architect ATS-proof resumes that guarantee direct interview calls from top companies.
         </p>
         
-        <div class="flex flex-col items-center justify-center gap-4">
+        <div class="flex flex-col items-center justify-center gap-6">
             <a href="#pricing" class="btn-small bg-rblue text-white shadow-glow-blue hover:bg-blue-600 text-base py-3 px-8">Claim 50% Off Today</a>
             
-            <div class="flex items-center gap-2 bg-gray-50 dark:bg-[#111] px-4 py-2 rounded-full border border-gray-200 dark:border-white/10">
-                <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                <div class="text-[11px] md:text-xs font-semibold text-gray-700 dark:text-gray-300">
-                    <span id="hero-counter" class="font-bold text-black dark:text-white">0</span>+ Delivered <span class="text-gray-300 dark:text-gray-600 mx-1">|</span> <span class="font-bold text-black dark:text-white">4.9/5</span> Rating
+            <div class="relative rounded-full p-[2px] overflow-hidden group w-max mx-auto mt-2">
+                <div class="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#e5e7eb_0%,#007aff_50%,#e5e7eb_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#222_0%,#007aff_50%,#222_100%)]"></div>
+                <div class="relative flex items-center gap-2 bg-white dark:bg-[#111] px-5 py-2.5 rounded-full z-10">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <div class="text-[11px] md:text-xs font-semibold text-gray-700 dark:text-gray-300">
+                        <span id="hero-counter" class="font-bold text-black dark:text-white">0</span>+ Delivered <span class="text-gray-300 dark:text-gray-700 mx-1">|</span> <span class="font-bold text-black dark:text-white">4.9/5</span> Rating
+                    </div>
                 </div>
             </div>
         </div>
@@ -330,7 +337,21 @@
             <p class="text-gray-500 dark:text-gray-400 text-sm">See and hear what our clients say after getting interviewed.</p>
         </div>
 
-        <div class="m-track-L mb-6">
+        <div class="m-track-L mb-4">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563919/wa1_qz4dwr.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563917/wa2_unr2ly.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563915/wa3_bums1h.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa4_ryooai.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa5_frphpz.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563919/wa1_qz4dwr.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563917/wa2_unr2ly.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563915/wa3_bums1h.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa4_ryooai.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa5_frphpz.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+        </div>
+        
+        <div class="m-track-R mb-6">
             <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563919/wa1_qz4dwr.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
             <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563917/wa2_unr2ly.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
             <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563915/wa3_bums1h.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
@@ -396,10 +417,13 @@
                 <span class="absolute top-4 right-4 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 px-3 py-1 text-[10px] font-bold rounded-md uppercase tracking-wide">50% OFF</span>
                 
                 <span class="text-[13px] font-extrabold text-gray-800 dark:text-gray-200 uppercase tracking-widest block">Professional Package</span>
-                <p class="text-xs text-gray-500 mt-2 mb-6 leading-relaxed border-b border-gray-100 dark:border-gray-800 pb-6">Best for recent graduates and professionals with up to 5 years experience. Build a solid foundation for your career.</p>
+                
+                <div class="bg-gray-50 dark:bg-black/40 rounded-lg p-3 mt-3 mb-6 border-l-4 border-rblue">
+                    <p class="text-[12px] text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Best for recent graduates and professionals with up to 5 years experience. <span class="text-black dark:text-white font-bold block mt-1">Build a solid foundation for your career.</span></p>
+                </div>
                 
                 <div class="flex items-end gap-3 mb-8">
-                    <span class="text-gray-400 line-through text-lg font-medium">₹1999</span>
+                    <span class="text-gray-400 line-through text-lg font-medium">₹999</span>
                     <span class="text-5xl font-bold text-black dark:text-white tracking-tight">₹499</span>
                 </div>
 
@@ -426,7 +450,10 @@
                 <span class="absolute top-4 right-4 bg-rblue text-white px-2 py-1 text-[10px] font-bold rounded-md uppercase tracking-wide">60% OFF</span>
                 
                 <span class="text-[13px] font-extrabold text-rblue uppercase tracking-widest block">Executive Package</span>
-                <p class="text-xs text-gray-500 mt-2 mb-6 leading-relaxed border-b border-gray-200 dark:border-gray-800 pb-6">Perfect for professionals with more than 5 years of experience. Designed to showcase leadership and deep expertise.</p>
+                
+                <div class="bg-gray-100 dark:bg-black/60 rounded-lg p-3 mt-3 mb-6 border-l-4 border-rblue">
+                    <p class="text-[12px] text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Perfect for professionals with more than 5 years of experience. <span class="text-black dark:text-white font-bold block mt-1">Designed to showcase leadership and deep expertise.</span></p>
+                </div>
                 
                 <div class="flex items-end gap-3 mb-8">
                     <span class="text-gray-400 line-through text-lg font-medium">₹2499</span>
@@ -584,7 +611,7 @@
     <footer class="footer-bg bg-white dark:bg-black border-t border-gray-100 dark:border-white/10 pt-16 pb-8 px-6">
         <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-10 relative z-10">
             <div>
-                <div class="h-6 md:h-8 mb-4">
+                <div class="h-12 md:h-16 mb-4">
                     <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden">
                     <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block">
                 </div>
@@ -724,6 +751,19 @@
             countdownEl.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
             if(countdownTime > 0) countdownTime--;
         }, 1000);
+
+        // --- NAVBAR SCROLL SWAP LOGIC ---
+        window.addEventListener('scroll', () => {
+            const logoImgContainer = document.getElementById('nav-logo-image');
+            const textLogo = document.getElementById('nav-logo-text');
+            if (window.scrollY > 50) {
+                logoImgContainer.classList.add('hidden');
+                textLogo.classList.remove('hidden');
+            } else {
+                logoImgContainer.classList.remove('hidden');
+                textLogo.classList.add('hidden');
+            }
+        });
 
         // --- CUSTOM AUDIO PLAYER SCRIPT ---
         const audio = document.getElementById("realAudio");
