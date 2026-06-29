@@ -1,0 +1,828 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1429635655175024');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1429635655175024&ev=PageView&noscript=1"
+    /></noscript>
+    <meta name="norton-safeweb-site-verification" content="XZYTCIY09LA-D2LJ5TQ0C684I9PBYX6O58MTJO4VJ20NA-3PDZGV8I83Q7KX0NHUFG6W64FXAESGYG-J0-O3ZJIJ2ODGA1DEDRYMVPNH60KIQ9P92H2SYRHN12WMWYTK" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Squarelay | Professional Resume Studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'media', 
+            theme: {
+                extend: {
+                    colors: {
+                        rblack: '#050505',
+                        rwhite: '#f5f5f7',
+                        rgray: '#1d1d1f',
+                        rblue: '#007aff'
+                    },
+                    boxShadow: {
+                        'glow-blue': '0 0 20px rgba(0, 122, 255, 0.4)',
+                        'glow-heavy': '0 0 30px rgba(0, 122, 255, 0.6)',
+                        'card-depth': '0 10px 30px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+        
+        .apple-nav { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(20px) saturate(180%); 
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        @media (prefers-color-scheme: dark) {
+            .apple-nav { 
+                background: rgba(0, 0, 0, 0.85); 
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+        }
+        
+        .menu-gloss { 
+            background: rgba(255, 255, 255, 0.98); 
+            backdrop-filter: blur(50px); 
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        @media (prefers-color-scheme: dark) {
+            .menu-gloss { background: rgba(5, 5, 5, 0.98); }
+        }
+
+        .reveal { opacity: 0; filter: blur(10px); transform: translateY(20px); transition: all 0.8s ease; }
+        .reveal.active { opacity: 1; filter: blur(0); transform: translateY(0); }
+
+        /* Marquee Animation */
+        @keyframes scrollL { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scrollR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .m-track-L { display: flex; animation: scrollL 40s linear infinite; width: max-content; }
+        .m-track-R { display: flex; animation: scrollR 40s linear infinite; width: max-content; }
+        .s-img { width: 120px; height: 160px; margin: 0 6px; border-radius: 8px; object-fit: cover; border: 1px solid #e5e7eb; }
+        @media (prefers-color-scheme: dark) { .s-img { border: 1px solid #333; opacity: 0.9; } }
+
+        /* Auto-Scrolling Gallery (from Orange Theme) */
+        @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .scroll-track { display: flex; animation: scrollGallery 30s linear infinite; width: max-content; gap: 15px; padding: 0 15px; }
+        .scroll-item { width: 150px; height: 210px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex-shrink: 0; }
+        @media (min-width: 768px) { .scroll-item { width: 180px; height: 250px; } }
+        @media (prefers-color-scheme: dark) { .scroll-item { border-color: rgba(255,255,255,0.1); opacity: 0.9; } }
+
+        /* Buttons & Boxes */
+        .btn-small { 
+            padding: 0.7rem 1.6rem; font-size: 0.85rem; font-weight: 600; 
+            border-radius: 8px; 
+            transition: transform 0.1s, box-shadow 0.2s; display: inline-flex; align-items: center; justify-content: center; 
+        }
+        .btn-small:active { transform: scale(0.97); }
+        
+        .box-sharp { border-radius: 12px; }
+
+        /* Popup Logic */
+        #mobileMenu { opacity: 0; pointer-events: none; transition: all 0.3s ease; }
+        #mobileMenu.active { opacity: 1; pointer-events: auto; }
+        #mobileMenu .popup-inner { transform: scale(0.95); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        #mobileMenu.active .popup-inner { transform: scale(1); }
+
+        /* Text Glow */
+        @keyframes glowText {
+            0%, 100% { text-shadow: 0 0 10px rgba(0, 122, 255, 0.2); }
+            50% { text-shadow: 0 0 20px rgba(0, 122, 255, 0.6); }
+        }
+        .glow-anim { animation: glowText 3s infinite; color: #007aff; }
+
+        /* Notification (Left Side) */
+        #notify-container {
+            position: fixed; bottom: 80px; left: 20px;
+            z-index: 9999; display: flex; flex-direction: column; width: auto;
+            pointer-events: none;
+        }
+        .notify-wrapper {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 12px 18px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            display: flex; align-items: center; gap: 12px;
+            border: 1px solid rgba(0,0,0,0.05);
+            width: max-content; max-width: 85vw;
+            animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: auto;
+        }
+        @media (prefers-color-scheme: dark) {
+            .notify-wrapper { background: rgba(20, 20, 20, 0.95); border: 1px solid rgba(255,255,255,0.1); }
+        }
+        @keyframes popUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* FAQ */
+        .faq-ans { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-ans { max-height: 200px; }
+        .faq-item.active svg { transform: rotate(180deg); }
+
+        .nav-arrow { 
+            width: 36px; height: 36px; border-radius: 50%; border: 1px solid #e5e5e5; 
+            display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; 
+        }
+        .nav-arrow:hover { background: #007aff; border-color: #007aff; color: white; }
+        @media (prefers-color-scheme: dark) { .nav-arrow { border-color: #333; color: white; } }
+
+        /* Red Rotating Border Animation */
+        @keyframes spin-border { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        .red-anim-box { position: relative; overflow: hidden; border-radius: 12px; }
+        .red-anim-box::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(transparent, transparent, transparent, #ef4444);
+            animation: spin-border 4s linear infinite;
+        }
+        .red-anim-inner { position: relative; z-index: 1; height: 100%; width: 100%; background: inherit; border-radius: inherit; }
+        
+        /* Footer Taj Mahal Overlay */
+        .footer-bg { position: relative; }
+        .footer-bg::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url('https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=2071&auto=format&fit=crop');
+            background-size: cover; background-position: center bottom;
+            opacity: 0.05; pointer-events: none;
+        }
+        @media (prefers-color-scheme: dark) {
+            .footer-bg::before { opacity: 0.2; }
+        }
+
+        /* Modern Apple Glass Audio Player */
+        .glass-player {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(24px) saturate(150%);
+            -webkit-backdrop-filter: blur(24px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+        @media (prefers-color-scheme: dark) {
+            .glass-player {
+                background: rgba(20, 20, 20, 0.6);
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-rgray dark:bg-black dark:text-rwhite transition-colors duration-300 pb-20">
+
+    <div id="notify-container"></div>
+
+    <nav class="fixed top-0 w-full z-[200] apple-nav transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            
+            <div id="nav-logo-image" class="h-12 md:h-16 transition-all duration-300">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden object-contain">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block object-contain">
+            </div>
+            <div id="nav-logo-text" class="hidden text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white transition-all duration-300">
+                Squarelay<span class="text-rblue">.</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-[12px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest ml-auto">
+                <a href="index.html" class="hover:text-rblue transition-colors">Home</a>
+                <a href="pricing.html" class="hover:text-rblue transition-colors">Pricing</a>
+                <a href="portfolio.html" class="hover:text-rblue transition-colors">Portfolio</a>
+                <a href="compare.html" class="hover:text-rblue transition-colors">Compare</a>
+                <a href="/contact-us" class="hover:text-rblue transition-colors">Contact Us</a>
+                <a href="https://wa.me/919517369969" class="hover:text-rblue transition-colors border border-gray-200 dark:border-white/20 px-3 py-1.5 rounded-md flex items-center gap-2">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-gray-600 dark:text-gray-300"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <span>+91 9517369969</span>
+                </a>
+            </div>
+
+            <button onclick="toggleMenu()" class="md:hidden nav-btn p-1 flex flex-col justify-center gap-[6px] w-8 h-8">
+                <span class="block w-6 h-[1.5px] bg-black dark:bg-white rounded-full"></span>
+                <span class="block w-6 h-[1.5px] bg-black dark:bg-white rounded-full"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="fixed inset-0 bg-black/70 backdrop-blur-md z-[250] p-4 flex flex-col justify-center items-center overflow-y-auto">
+        <div class="popup-inner w-full max-w-sm bg-white dark:bg-[#111] rounded-3xl p-8 relative shadow-2xl border border-gray-100 dark:border-white/10 m-auto">
+            
+            <button onclick="toggleMenu()" class="absolute top-5 right-5 p-2 text-gray-400 hover:text-black dark:hover:text-white transition-colors outline-none rounded-full bg-gray-50 dark:bg-black">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </button>
+            
+            <div class="h-12 mb-6 mx-auto flex justify-center w-full">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden object-contain">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block object-contain">
+            </div>
+            
+            <div class="text-center mb-8">
+                <h3 class="text-[22px] font-extrabold text-black dark:text-white tracking-tight leading-tight">Leader in Resume Drafting</h3>
+                <p class="text-[13px] text-gray-500 dark:text-gray-400 mt-2 font-medium">Get your professional, ATS-proof resume today. Fill your details to get started.</p>
+            </div>
+            
+            <form action="order.html" class="space-y-4">
+                <input type="text" placeholder="Full Name" required class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 text-black dark:text-white rounded-xl px-4 py-3.5 text-sm outline-none focus:border-rblue transition-colors placeholder-gray-400">
+                
+                <input type="tel" placeholder="Mobile Number" required class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 text-black dark:text-white rounded-xl px-4 py-3.5 text-sm outline-none focus:border-rblue transition-colors placeholder-gray-400">
+                
+                <input type="email" placeholder="Email Address" required class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 text-black dark:text-white rounded-xl px-4 py-3.5 text-sm outline-none focus:border-rblue transition-colors placeholder-gray-400">
+                
+                <button type="submit" class="btn-small bg-rblue text-white w-full hover:bg-blue-600 transition-colors shadow-glow-blue py-3.5 mt-2 text-sm uppercase tracking-wide">Order Now</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="pt-40 pb-12 px-6 text-center reveal">
+        <span class="inline-block py-1.5 px-4 border border-rblue/30 bg-rblue/5 rounded-lg text-[11px] font-bold uppercase tracking-widest mb-6 glow-anim">
+            Professional Resume Writer
+        </span>
+        
+        <h1 class="text-4xl md:text-7xl font-bold tracking-tighter leading-[1.1] mb-6 text-black dark:text-white">
+            Get <span class="text-rblue">2X Salary Hikes</span><br>with a Pro Resume.
+        </h1>
+        <p class="text-gray-500 dark:text-gray-400 text-sm md:text-lg max-w-lg mx-auto font-medium mb-10 leading-relaxed">
+            Move beyond generic templates. We architect ATS-proof resumes that guarantee direct interview calls from top companies.
+        </p>
+        
+        <div class="flex flex-col items-center justify-center gap-6">
+            <a href="#pricing" class="btn-small bg-rblue text-white shadow-glow-blue hover:bg-blue-600 text-base py-3 px-8">Claim 50% Off Today</a>
+            
+            <div class="relative rounded-full p-[2px] overflow-hidden group w-max mx-auto mt-2">
+                <div class="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#e5e7eb_0%,#007aff_50%,#e5e7eb_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#222_0%,#007aff_50%,#222_100%)]"></div>
+                <div class="relative flex items-center gap-2 bg-white dark:bg-[#111] px-5 py-2.5 rounded-full z-10">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <div class="text-[11px] md:text-xs font-semibold text-gray-700 dark:text-gray-300">
+                        <span id="hero-counter" class="font-bold text-black dark:text-white">0</span>+ Delivered <span class="text-gray-300 dark:text-gray-700 mx-1">|</span> <span class="font-bold text-black dark:text-white">4.9/5</span> Rating
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-8 border-y border-gray-100 dark:border-white/5 bg-gray-50 dark:bg-[#0a0a0a] reveal overflow-hidden">
+        <p class="text-center text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-6">Our Clients Work At</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-60 grayscale max-w-5xl mx-auto px-4">
+            <span class="text-xl md:text-2xl font-bold font-sans text-black dark:text-white">Google</span>
+            <span class="text-xl md:text-2xl font-bold font-sans text-black dark:text-white">Microsoft</span>
+            <span class="text-xl md:text-2xl font-bold font-sans text-black dark:text-white">OpenAI</span>
+            <span class="text-xl md:text-2xl font-bold font-sans text-black dark:text-white">Shopify</span>
+            <span class="text-xl md:text-2xl font-bold font-sans text-black dark:text-white">Amazon</span>
+        </div>
+    </section>
+
+    <section id="samples" class="py-12 bg-white dark:bg-black reveal overflow-hidden">
+        <div class="max-w-5xl mx-auto overflow-hidden rounded-xl py-4 relative">
+            <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
+            <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
+            <div class="scroll-track">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567269/R11_f7o75u.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567268/R12_ettyin.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567267/R13_bdstta.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567266/R14_yz4iuj.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567265/R15_v0hv0u.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567264/R16_tsvduv.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567263/R17_smghrz.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567262/R18_jsnj1u.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567259/R20_fbu6ez.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567269/R11_f7o75u.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567268/R12_ettyin.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567267/R13_bdstta.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567266/R14_yz4iuj.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567265/R15_v0hv0u.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567264/R16_tsvduv.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567263/R17_smghrz.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567262/R18_jsnj1u.jpg" class="scroll-item" alt="Resume">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567259/R20_fbu6ez.jpg" class="scroll-item" alt="Resume">
+            </div>
+        </div>
+    </section>
+
+    <section id="choice" class="py-24 px-6 reveal">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-16 text-center text-black dark:text-white">You have two paths</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="red-anim-box box-sharp bg-gray-50 dark:bg-[#111] p-[1px]">
+                    <div class="red-anim-inner p-10 bg-gray-50 dark:bg-[#111]">
+                        <h3 class="text-xl font-bold mb-3 text-gray-400 uppercase tracking-wide">The Trap</h3>
+                        <p class="text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+                            Applying with generic templates. Blocked by AI. Ignored by HR. The endless cycle of rejection.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="p-10 box-sharp bg-white dark:bg-black shadow-card-depth border border-gray-200 dark:border-white/20 relative overflow-hidden">
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold mb-3 uppercase tracking-wide text-rblue dark:text-rblue">Squarelay</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
+                            ATS-compliant architecture. Keyword optimized. Direct interview calls. Secure your future today.
+                        </p>
+                        <a href="order.html" class="btn-small bg-black text-white dark:bg-white dark:text-black">Upgrade Career</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 reveal max-w-6xl mx-auto text-center border-t border-gray-100 dark:border-white/5">
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-12 text-black dark:text-white">How we do it?</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-8 box-sharp bg-gray-50 dark:bg-[#111] border border-transparent hover:border-gray-200 dark:hover:border-white/10 transition-colors">
+                <div class="text-rblue font-black text-4xl mb-4">1</div>
+                <h3 class="font-bold text-lg text-black dark:text-white mb-2">Pick a Package</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Select a plan below and complete your secure payment to book your slot.</p>
+            </div>
+            <div class="p-8 box-sharp bg-gray-50 dark:bg-[#111] border border-transparent hover:border-gray-200 dark:hover:border-white/10 transition-colors">
+                <div class="text-rblue font-black text-4xl mb-4">2</div>
+                <h3 class="font-bold text-lg text-black dark:text-white mb-2">Connect on WhatsApp</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Our expert resume writer will connect with you on WhatsApp to gather your details.</p>
+            </div>
+            <div class="p-8 box-sharp bg-gray-50 dark:bg-[#111] border border-transparent hover:border-gray-200 dark:hover:border-white/10 transition-colors">
+                <div class="text-rblue font-black text-4xl mb-4">3</div>
+                <h3 class="font-bold text-lg text-black dark:text-white mb-2">Get Shortlisted</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400">Receive your expertly crafted, ATS-proof resume in just 24-48 Hours.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-gray-50 dark:bg-[#0a0a0a] reveal overflow-hidden border-t border-gray-100 dark:border-white/5">
+        <div class="text-center mb-10 px-6">
+            <h2 class="text-3xl font-bold tracking-tight text-black dark:text-white mb-4">Real Results. Real Chats.</h2>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">See and hear what our clients say after getting interviewed.</p>
+        </div>
+
+        <div class="m-track-L mb-4">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563919/wa1_qz4dwr.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563917/wa2_unr2ly.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563915/wa3_bums1h.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa4_ryooai.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa5_frphpz.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563919/wa1_qz4dwr.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563917/wa2_unr2ly.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563915/wa3_bums1h.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa4_ryooai.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa5_frphpz.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+        </div>
+        
+        <div class="m-track-R mb-6">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563919/wa1_qz4dwr.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563917/wa2_unr2ly.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563915/wa3_bums1h.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa4_ryooai.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa5_frphpz.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563919/wa1_qz4dwr.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563917/wa2_unr2ly.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563915/wa3_bums1h.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa4_ryooai.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563914/wa5_frphpz.jpg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+        </div>
+        
+        <div class="max-w-md mx-auto mt-12 px-6">
+            <div class="relative rounded-[18px] p-[2px] overflow-hidden group">
+                <div class="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#e5e7eb_0%,#007aff_50%,#e5e7eb_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#222_0%,#007aff_50%,#222_100%)]"></div>
+                <div class="glass-player bg-white/95 dark:bg-[#111]/95 rounded-2xl p-4 flex flex-col gap-3 relative z-10 w-full overflow-hidden">
+                    <div class="flex items-center gap-4 relative z-10">
+                        <button id="customPlayBtn" class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-rblue flex items-center justify-center shrink-0 shadow-glow-blue cursor-pointer transition-transform hover:scale-105 active:scale-95 outline-none border-none">
+                            <svg id="playIcon" width="18" height="18" viewBox="0 0 24 24" fill="white" class="ml-1"><path d="M8 5v14l11-7z"/></svg>
+                            <svg id="pauseIcon" width="18" height="18" viewBox="0 0 24 24" fill="white" class="hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                        <div class="flex-1">
+                            <p class="text-[12px] font-bold text-gray-800 dark:text-gray-100 tracking-wide">Client Voice Note</p>
+                            <p class="text-[10px] text-gray-500 font-medium">"Got shortlisted at Microsoft!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 relative z-10 w-full mt-1">
+                        <span id="currentTimeDisplay" class="text-[9px] font-bold text-gray-400 w-6 text-right">0:00</span>
+                        <div class="flex-1 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full cursor-pointer relative" id="progressBarContainer">
+                            <div id="progressBarFill" class="absolute top-0 left-0 h-full bg-rblue rounded-full" style="width: 0%;"></div>
+                        </div>
+                        <span id="durationDisplay" class="text-[9px] font-bold text-gray-400 w-6">0:24</span>
+                    </div>
+                    
+                    <audio id="realAudio" class="hidden">
+                        <source src="https://res.cloudinary.com/dy56crhy5/video/upload/v1782563920/Voice_g4id9c.ogg" type="audio/ogg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 px-6 bg-white dark:bg-black reveal text-center border-t border-gray-100 dark:border-white/5">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-black dark:text-white">Our Impact.</h2>
+            <div class="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-2xl mx-auto border border-gray-100 dark:border-white/10 rounded-3xl p-8 md:p-12 box-sharp bg-gray-50 dark:bg-[#111]">
+                <div>
+                    <div class="text-4xl md:text-6xl font-black text-black dark:text-white mb-2">10K<span class="text-rblue">+</span></div>
+                    <p class="text-xs md:text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest">Resumes Delivered</p>
+                </div>
+                <div class="border-l border-gray-200 dark:border-gray-800 pl-8">
+                    <div class="text-4xl md:text-6xl font-black text-black dark:text-white mb-2">4.9<span class="text-rblue">/5</span></div>
+                    <p class="text-xs md:text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest">Star Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="max-w-6xl mx-auto py-24 px-6 reveal">
+        <h2 class="text-2xl md:text-4xl font-bold mb-16 text-center text-black dark:text-white tracking-tight">Invest in your future.</h2>
+        
+        <div class="max-w-md mx-auto">
+            <div class="p-8 border border-rblue/30 box-sharp bg-white dark:bg-[#111] relative shadow-glow-heavy flex flex-col hover:-translate-y-1 transition-transform">
+                <span class="absolute top-4 right-4 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 px-3 py-1 text-[10px] font-bold rounded-md uppercase tracking-wide">70% OFF</span>
+                
+                <span class="text-[13px] font-extrabold text-rblue uppercase tracking-widest block">Professional Package</span>
+                
+                <div class="bg-gray-50 dark:bg-black/40 rounded-lg p-3 mt-3 mb-6 border-l-4 border-rblue">
+                    <p class="text-[12px] text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Best for recent graduates and professionals with up to 5 years experience. <span class="text-black dark:text-white font-bold block mt-1">Build a solid foundation for your career.</span></p>
+                </div>
+                
+                <div class="flex items-end gap-3 mb-8">
+                    <span class="text-gray-400 line-through text-lg font-medium">₹999</span>
+                    <span class="text-5xl font-bold text-black dark:text-white tracking-tight">₹299</span>
+                </div>
+
+                <ul class="text-[13px] text-gray-600 dark:text-gray-300 space-y-5 mb-10 font-medium flex-1">
+                    <li class="flex items-start gap-3"><span class="text-rblue font-bold shrink-0 mt-0.5">•</span> <span>ATS Optimise resume keyword free</span></li>
+                    <li class="flex items-start gap-3"><span class="text-rblue font-bold shrink-0 mt-0.5">•</span> <span>Editable .docs file included</span></li>
+                    <li class="flex items-start gap-3"><span class="text-rblue font-bold shrink-0 mt-0.5">•</span> <span>Professional Layout & Formatting</span></li>
+                    
+                    <li class="flex items-start gap-3 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-100 dark:border-blue-800/50">
+                        <div class="relative flex items-center justify-center w-5 h-5 shrink-0 mt-0.5">
+                            <div class="absolute inset-0 border-[1.5px] border-rblue border-dashed rounded-full animate-[spin_4s_linear_infinite]"></div>
+                            <span class="text-rblue text-[10px] font-bold">✓</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-black dark:text-white">Unlimited revisions</span>
+                            <span class="text-[10px] text-gray-500 dark:text-gray-400 block leading-tight mt-1 font-normal">to ensure you are completely satisfied</span>
+                        </div>
+                    </li>
+                </ul>
+                <a href="order.html" class="btn-small bg-rblue text-white w-full hover:bg-blue-600 transition-colors shadow-[0_0_20px_rgba(0,122,255,0.6)]">Order Now</a>
+            </div>
+        </div>
+        
+        <p class="text-center text-[12px] font-bold text-red-500 mt-8 animate-pulse">🔥 Only 6/50 slots left for this month!</p>
+        
+        <div class="text-center mt-6">
+            <a href="#clients" class="text-xs text-gray-500 hover:text-rblue underline transition-colors">Click to see reviews</a>
+        </div>
+    </section>
+
+    <section id="clients" class="py-24 bg-gray-50 dark:bg-[#0a0a0a] reveal text-left border-y border-gray-100 dark:border-white/5">
+        <div class="px-6 max-w-7xl mx-auto">
+            <div class="flex items-center justify-between mb-12">
+                <h2 class="text-2xl font-bold text-black dark:text-white">Clients.</h2>
+                <div class="flex gap-3">
+                    <div class="nav-arrow custom-prev">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                    </div>
+                    <div class="nav-arrow custom-next">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="swiper swiper-testimonials w-full">
+                <div class="swiper-wrapper pb-10">
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=11" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Rohan Sharma</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Software Engineer</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"I was struggling to get calls for 6 months. After Squarelay rewrote my CV, I got interview calls from 3 MNCs in the first week. The design is clean and professional."</p>
+                        </div>
+                    </div>
+                     <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=5" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Ananya Iyer</h5><p class="text-[10px] text-gray-400 font-bold uppercase">UI/UX Designer</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"The Executive Plan is a game changer. The professional format they built is stunning and helped me showcase my work. HRs were really impressed."</p>
+                        </div>
+                    </div>
+                     <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=32" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Sana Malik</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Data Analyst</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"Shortlisted at Microsoft within 10 days. The keyword optimization is elite level. I highly recommend their services to anyone serious about their career."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=13" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Vikram Singh</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Sales Manager</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"Worth every rupee. The writing style is professional and authoritative. They highlighted my achievements perfectly."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=44" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Priya Das</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Marketing Head</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"Fastest delivery ever. I needed a resume for an urgent opening, and they delivered the Executive plan in 24 hours. Got the job!"</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-[#111] p-10 box-sharp border border-gray-100 dark:border-white/10 h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=60" class="w-12 h-12 rounded-full border border-gray-100">
+                                <div><h5 class="text-[12px] font-bold text-black dark:text-white uppercase tracking-wider">Amit Kumar</h5><p class="text-[10px] text-gray-400 font-bold uppercase">Civil Engineer</p></div>
+                            </div>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">"The support team on WhatsApp is very responsive. They listened to all my requirements and made revisions instantly."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="max-w-2xl mx-auto px-6 pb-12 mt-20 reveal">
+        <div class="bg-gray-50 dark:bg-[#111] border border-gray-100 dark:border-white/10 box-sharp p-6 flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-center md:text-left">
+                <h4 class="text-lg font-bold text-black dark:text-white">Ready to upgrade?</h4>
+                <p class="text-xs text-gray-500">Don't let your resume hold you back.</p>
+            </div>
+            <a href="order.html" class="btn-small bg-black text-white dark:bg-white dark:text-black hover:opacity-80 shadow-[0_0_15px_rgba(255,255,255,0.2)]">Start Now</a>
+        </div>
+    </section>
+
+    <section id="faq" class="max-w-3xl mx-auto py-12 px-6 reveal">
+        <h2 class="text-2xl font-bold mb-12 text-black dark:text-white">FAQ</h2>
+        <div class="space-y-4">
+            <div class="faq-item border-b border-gray-100 dark:border-white/10 pb-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center py-2">
+                    <h4 class="text-sm font-bold text-black dark:text-white">Why is ATS compliance important?</h4>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-xs text-gray-500 dark:text-gray-400 py-2 leading-relaxed">Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Our resumes are designed with correct formatting and keywords to bypass these bots and get you shortlisted.</p></div>
+            </div>
+            <div class="faq-item border-b border-gray-100 dark:border-white/10 pb-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center py-2">
+                    <h4 class="text-sm font-bold text-black dark:text-white">How will you collect my details?</h4>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-xs text-gray-500 dark:text-gray-400 py-2 leading-relaxed">Once you complete the payment, you will be redirected to a secure form to upload your old resume. Our expert will also connect with you on WhatsApp for any specific requirements.</p></div>
+            </div>
+            <div class="faq-item border-b border-gray-100 dark:border-white/10 pb-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center py-2">
+                    <h4 class="text-sm font-bold text-black dark:text-white">What is the turnaround time?</h4>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-xs text-gray-500 dark:text-gray-400 py-2 leading-relaxed">We usually deliver the first draft within 24 to 48 hours depending on the complexity of your profile and the package selected.</p></div>
+            </div>
+            <div class="faq-item border-b border-gray-100 dark:border-white/10 pb-4 cursor-pointer" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center py-2">
+                    <h4 class="text-sm font-bold text-black dark:text-white">Do you offer revisions?</h4>
+                    <svg class="w-4 h-4 text-gray-400 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-xs text-gray-500 dark:text-gray-400 py-2 leading-relaxed">Yes! Both of our plans come with unlimited revisions. We work closely with you until you are completely satisfied with the final resume.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-bg bg-white dark:bg-black border-t border-gray-100 dark:border-white/10 pt-16 pb-8 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-10 relative z-10">
+            <div>
+                <div class="h-12 md:h-16 mb-4">
+                    <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden object-contain">
+                    <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block object-contain">
+                </div>
+            </div>
+            <div>
+                <h5 class="text-[10px] text-gray-900 dark:text-white uppercase font-bold tracking-widest mb-4">Links</h5>
+                <div class="flex flex-col space-y-3 text-xs text-gray-500 dark:text-gray-400">
+                    <a href="index.html" class="hover:text-rblue transition-colors">Home</a>
+                    <a href="pricing.html" class="hover:text-rblue transition-colors">Pricing</a>
+                    <a href="portfolio.html" class="hover:text-rblue transition-colors">Portfolio</a>
+                    <a href="contact.html" class="hover:text-rblue transition-colors">Contact Us</a>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-[10px] text-gray-900 dark:text-white uppercase font-bold tracking-widest mb-4">Legal</h5>
+                <div class="flex flex-col space-y-3 text-xs text-gray-500 dark:text-gray-400">
+                    <a href="/terms" class="hover:text-rblue transition-colors">Terms of Service</a>
+                    <a href="/privacy" class="hover:text-rblue transition-colors">Privacy Policy</a>
+                    <a href="/policies" class="hover:text-rblue transition-colors">Other Policies</a>
+                    <a href="/disclaimer" class="hover:text-rblue transition-colors">Disclaimer</a>
+                </div>
+            </div>
+            <div>
+                 <a href="https://instagram.com/sqaurelaynow" target="_blank" class="block w-max">
+                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400 hover:text-pink-500 transition-colors"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                 </a>
+            </div>
+        </div>
+        <div class="text-[10px] text-gray-300 dark:text-gray-600 font-bold uppercase tracking-widest text-center md:text-left relative z-10">
+            © Squarelay. All Rights Reserved.
+        </div>
+    </footer>
+
+    <div id="sticky-footer" class="fixed bottom-0 left-0 w-full z-[300] shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
+        <div class="bg-red-500 text-white text-center py-1.5 text-[10px] md:text-xs font-bold uppercase tracking-widest">
+            Get Flat 70% Off - Ends in <span id="countdown-timer">30:00</span>
+        </div>
+        <div class="bg-white/95 dark:bg-[#111]/95 backdrop-blur-xl border-t border-gray-200 dark:border-white/10 px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-2 md:gap-4">
+                <div class="flex items-center gap-1 text-gray-500 dark:text-gray-400">
+                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </div>
+                <div>
+                    <p class="text-[10px] md:text-xs font-bold text-black dark:text-white leading-tight">4.9/5 Rating</p>
+                    <p class="text-[9px] text-red-500 font-bold uppercase tracking-wide">6/50 Slots Left</p>
+                </div>
+            </div>
+            <a href="#pricing" class="btn-small bg-rblue text-white py-2 px-6 shadow-[0_0_15px_rgba(0,122,255,0.5)] hover:bg-blue-600">Order Now</a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        
+        var swiper = new Swiper(".swiper-testimonials", { 
+            slidesPerView: 1.1, 
+            spaceBetween: 15, 
+            loop: true, 
+            navigation: {
+                nextEl: '.custom-next',
+                prevEl: '.custom-prev',
+            },
+            breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 20 } } 
+        });
+
+        function reveal() { 
+            var revs = document.querySelectorAll(".reveal"); 
+            for (var i = 0; i < revs.length; i++) { 
+                var wh = window.innerHeight; 
+                var top = revs[i].getBoundingClientRect().top; 
+                if (top < wh - 50) { revs[i].classList.add("active"); } 
+            } 
+        }
+        window.addEventListener("scroll", reveal); window.onload = reveal;
+
+        // --- OPTIMIZED NOTIFICATION SYSTEM (Left Side) ---
+        const users = [
+            { name: "Mohit P.", loc: "Mumbai" },
+            { name: "Shikha V.", loc: "Delhi" },
+            { name: "Rahul S.", loc: "Bangalore" },
+            { name: "Priya S.", loc: "Pune" },
+            { name: "Amit K.", loc: "Noida" }
+        ];
+
+        function createPopup(user) {
+            const container = document.getElementById('notify-container');
+            container.innerHTML = ''; 
+
+            const wrapper = document.createElement('div');
+            wrapper.className = 'notify-wrapper';
+            wrapper.innerHTML = `
+                <div>
+                    <p class="text-[11px] font-bold text-black dark:text-white leading-tight">
+                        ${user.name} just claimed a resume.
+                    </p>
+                    <p class="text-[9px] text-gray-400 font-bold uppercase tracking-wide">${user.loc}</p>
+                </div>
+            `;
+            container.appendChild(wrapper);
+            
+            setTimeout(() => { 
+                if(wrapper.parentNode) wrapper.remove(); 
+            }, 4000);
+        }
+
+        function triggerNotifications() {
+            const u = users[Math.floor(Math.random() * users.length)];
+            createPopup(u);
+            setTimeout(triggerNotifications, Math.random() * 6000 + 6000);
+        }
+        setTimeout(triggerNotifications, 2000);
+
+        // --- ANIMATED COUNTER LOGIC (10,000+) ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const counterEl = document.getElementById("hero-counter");
+            let count = 0;
+            const target = 10000;
+            const increment = target / 50; 
+            
+            const timer = setInterval(() => {
+                count += increment;
+                if(count >= target) {
+                    count = target;
+                    clearInterval(timer);
+                }
+                counterEl.innerText = count.toLocaleString();
+            }, 30);
+        });
+
+        // --- COUNTDOWN TIMER ---
+        let countdownTime = 1800; // 30 mins in seconds
+        const countdownEl = document.getElementById('countdown-timer');
+        setInterval(() => {
+            let m = Math.floor(countdownTime / 60);
+            let s = countdownTime % 60;
+            countdownEl.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;
+            if(countdownTime > 0) countdownTime--;
+        }, 1000);
+
+        // --- NAVBAR SCROLL SWAP LOGIC ---
+        window.addEventListener('scroll', () => {
+            const logoImgContainer = document.getElementById('nav-logo-image');
+            const textLogo = document.getElementById('nav-logo-text');
+            if (window.scrollY > 50) {
+                logoImgContainer.classList.add('hidden');
+                textLogo.classList.remove('hidden');
+            } else {
+                logoImgContainer.classList.remove('hidden');
+                textLogo.classList.add('hidden');
+            }
+        });
+
+        // --- CUSTOM AUDIO PLAYER SCRIPT ---
+        const audio = document.getElementById("realAudio");
+        const playBtn = document.getElementById("customPlayBtn");
+        const playIcon = document.getElementById("playIcon");
+        const pauseIcon = document.getElementById("pauseIcon");
+        const progressBarFill = document.getElementById("progressBarFill");
+        const progressBarContainer = document.getElementById("progressBarContainer");
+        const currentTimeDisplay = document.getElementById("currentTimeDisplay");
+        const durationDisplay = document.getElementById("durationDisplay");
+
+        // Format time helper
+        function formatTime(seconds) {
+            let min = Math.floor(seconds / 60);
+            let sec = Math.floor(seconds % 60);
+            return min + ":" + (sec < 10 ? "0" : "") + sec;
+        }
+
+        // Toggle Play/Pause
+        playBtn.addEventListener("click", () => {
+            if (audio.paused) {
+                audio.play();
+                playIcon.classList.add("hidden");
+                pauseIcon.classList.remove("hidden");
+            } else {
+                audio.pause();
+                playIcon.classList.remove("hidden");
+                pauseIcon.classList.add("hidden");
+            }
+        });
+
+        // Update Progress Bar & Current Time
+        audio.addEventListener("timeupdate", () => {
+            if(audio.duration){
+                const progressPercent = (audio.currentTime / audio.duration) * 100;
+                progressBarFill.style.width = progressPercent + "%";
+                currentTimeDisplay.textContent = formatTime(audio.currentTime);
+            }
+        });
+
+        // Set Duration when audio loads
+        audio.addEventListener("loadedmetadata", () => {
+            durationDisplay.textContent = formatTime(audio.duration);
+        });
+
+        // Click on progress bar to seek
+        progressBarContainer.addEventListener("click", (e) => {
+            const width = progressBarContainer.clientWidth;
+            const clickX = e.offsetX;
+            const newTime = (clickX / width) * audio.duration;
+            audio.currentTime = newTime;
+        });
+
+        // Reset icon when audio ends
+        audio.addEventListener("ended", () => {
+            playIcon.classList.remove("hidden");
+            pauseIcon.classList.add("hidden");
+            progressBarFill.style.width = "0%";
+            currentTimeDisplay.textContent = "0:00";
+        });
+    </script>
+</body>
+</html>
