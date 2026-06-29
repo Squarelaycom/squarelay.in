@@ -73,20 +73,19 @@
         .reveal { opacity: 0; filter: blur(10px); transform: translateY(20px); transition: all 0.8s ease; }
         .reveal.active { opacity: 1; filter: blur(0); transform: translateY(0); }
 
-        /* Auto-Scrolling Gallery (From Orange Theme) */
-        @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 7.5px)); } }
-        .scroll-track { 
-            display: flex; 
-            width: calc(150px * 10 + 15px * 9); 
-            animation: scrollGallery 25s linear infinite; 
-            gap: 15px; 
-            padding-left: 20px; 
-        }
-        .scroll-item { width: 150px; height: 210px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex: 0 0 150px; }
-        @media (min-width: 768px) { 
-            .scroll-track { width: calc(180px * 10 + 15px * 9); } 
-            .scroll-item { width: 180px; height: 250px; flex: 0 0 180px; } 
-        }
+        /* Marquee Animation */
+        @keyframes scrollL { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scrollR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        .m-track-L { display: flex; animation: scrollL 40s linear infinite; width: max-content; }
+        .m-track-R { display: flex; animation: scrollR 40s linear infinite; width: max-content; }
+        .s-img { width: 120px; height: 160px; margin: 0 6px; border-radius: 8px; object-fit: cover; border: 1px solid #e5e7eb; }
+        @media (prefers-color-scheme: dark) { .s-img { border: 1px solid #333; opacity: 0.9; } }
+
+        /* Auto-Scrolling Gallery */
+        @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .scroll-track { display: flex; animation: scrollGallery 30s linear infinite; width: max-content; gap: 15px; padding: 0 15px; }
+        .scroll-item { width: 150px; height: 210px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex-shrink: 0; }
+        @media (min-width: 768px) { .scroll-item { width: 180px; height: 250px; } }
         @media (prefers-color-scheme: dark) { .scroll-item { border-color: rgba(255,255,255,0.1); opacity: 0.9; } }
 
         /* Buttons & Boxes */
@@ -181,32 +180,31 @@
         }
     </style>
 </head>
-<body class="bg-white text-rgray dark:bg-black dark:text-rwhite transition-colors duration-300 pb-20">
+<body id="home" class="bg-white text-rgray dark:bg-black dark:text-rwhite transition-colors duration-300 pb-20">
 
     <div id="notify-container"></div>
 
     <nav class="fixed top-0 w-full z-[200] apple-nav transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             
-            <div class="flex items-center gap-1.5 h-10 md:h-12">
+            <div class="flex items-center gap-1.5 h-9 md:h-11">
                 <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden object-contain">
                 <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block object-contain">
-                <span class="text-xl md:text-2xl font-black text-black dark:text-white tracking-tight pl-1 opacity-80">| Go</span>
+                <span class="text-lg md:text-xl font-black text-black dark:text-white tracking-tight pl-1 opacity-80">| Go</span>
             </div>
             
             <div class="hidden md:flex items-center gap-8 text-[12px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest ml-auto">
-                <a href="index.html" class="hover:text-rorange transition-colors">Home</a>
-                <a href="pricing.html" class="hover:text-rorange transition-colors">Pricing</a>
-                <a href="portfolio.html" class="hover:text-rorange transition-colors">Portfolio</a>
-                <a href="compare.html" class="hover:text-rorange transition-colors">Compare</a>
-                <a href="/contact-us" class="hover:text-rorange transition-colors">Contact Us</a>
-                <a href="https://wa.me/919517369969" class="hover:text-rorange transition-colors border border-gray-200 dark:border-white/20 px-3 py-1.5 rounded-md flex items-center gap-2">
+                <a href="#home" class="hover:text-rorange transition-colors">Home</a>
+                <a href="#pricing" class="hover:text-rorange transition-colors">Pricing</a>
+                <a href="#samples" class="hover:text-rorange transition-colors">Samples</a>
+                <a href="#clients" class="hover:text-rorange transition-colors">Reviews</a>
+                <a href="https://wa.me/919517369969" target="_blank" class="hover:text-rorange transition-colors border border-gray-200 dark:border-white/20 px-3 py-1.5 rounded-md flex items-center gap-2">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" class="text-gray-600 dark:text-gray-300"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                    <span>+91 9517369969</span>
+                    <span>Contact Writer</span>
                 </a>
             </div>
 
-            <button onclick="toggleMenu()" class="md:hidden nav-btn p-1 flex flex-col justify-center gap-[6px] w-8 h-8">
+            <button onclick="toggleMenu()" class="md:hidden nav-btn p-1 flex flex-col justify-center gap-[6px] w-8 h-8 z-50">
                 <span class="block w-6 h-[1.5px] bg-black dark:bg-white rounded-full"></span>
                 <span class="block w-6 h-[1.5px] bg-black dark:bg-white rounded-full"></span>
             </button>
@@ -226,9 +224,16 @@
                 <span class="text-lg md:text-xl font-black text-black dark:text-white tracking-tight pl-1 opacity-80">| Go</span>
             </div>
             
-            <div class="text-center mb-8">
-                <h3 class="text-[22px] font-extrabold text-black dark:text-white tracking-tight leading-tight">Leader in Resume Drafting</h3>
-                <p class="text-[13px] text-gray-500 dark:text-gray-400 mt-2 font-medium">Get your professional, ATS-proof resume today. Fill your details to get started.</p>
+            <div class="flex flex-col space-y-4 w-full mb-8 text-center md:hidden border-b border-gray-100 dark:border-white/10 pb-6">
+                <a href="#home" onclick="toggleMenu()" class="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest hover:text-rorange">Home</a>
+                <a href="#pricing" onclick="toggleMenu()" class="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest hover:text-rorange">Pricing</a>
+                <a href="#samples" onclick="toggleMenu()" class="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest hover:text-rorange">Samples</a>
+                <a href="#clients" onclick="toggleMenu()" class="text-sm font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest hover:text-rorange">Reviews</a>
+            </div>
+
+            <div class="text-center mb-6">
+                <h3 class="text-[20px] font-extrabold text-black dark:text-white tracking-tight leading-tight">Secure Your Slot</h3>
+                <p class="text-[12px] text-gray-500 dark:text-gray-400 mt-2 font-medium">Get your professional, ATS-proof resume today.</p>
             </div>
             
             <form action="order.html" class="space-y-4">
@@ -238,12 +243,12 @@
                 
                 <input type="email" placeholder="Email Address" required class="w-full bg-gray-50 dark:bg-black border border-gray-200 dark:border-gray-800 text-black dark:text-white rounded-xl px-4 py-3.5 text-sm outline-none focus:border-rorange transition-colors placeholder-gray-400">
                 
-                <button type="submit" class="btn-small bg-rorange text-white w-full hover:bg-orange-600 transition-colors shadow-glow-orange py-3.5 mt-2 text-sm uppercase tracking-wide">Order Now</button>
+                <button type="submit" class="btn-small bg-rorange text-white w-full hover:bg-orange-600 transition-colors shadow-glow-orange py-3.5 mt-2 text-sm uppercase tracking-wide">Continue to Pay</button>
             </form>
         </div>
     </div>
 
-    <section class="pt-40 pb-12 px-6 text-center reveal">
+    <section class="pt-36 pb-12 px-6 text-center reveal">
         <span class="inline-block py-1.5 px-4 border border-rorange/30 bg-rorange/5 rounded-lg text-[11px] font-bold uppercase tracking-widest mb-6 glow-anim">
             Professional Resume Writer
         </span>
@@ -256,7 +261,7 @@
         </p>
         
         <div class="flex flex-col items-center justify-center gap-6">
-            <a href="#pricing" class="btn-small bg-rorange text-white shadow-glow-orange hover:bg-orange-600 text-base py-3 px-8">Claim 50% Off Today</a>
+            <a href="#pricing" class="btn-small bg-rorange text-white shadow-glow-orange hover:bg-orange-600 text-base py-3.5 px-8">Claim 60% Off Today</a>
             
             <div class="relative rounded-full p-[2px] overflow-hidden group w-max mx-auto mt-2">
                 <div class="absolute inset-[-1000%] animate-[spin_4s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#e5e7eb_0%,#f97316_50%,#e5e7eb_100%)] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#222_0%,#f97316_50%,#222_100%)]"></div>
@@ -282,20 +287,23 @@
     </section>
 
     <section id="samples" class="py-12 bg-white dark:bg-black reveal overflow-hidden">
+        <div class="text-center mb-8 px-6">
+            <h2 class="text-2xl md:text-3xl font-bold tracking-tight text-black dark:text-white">Our Premium Samples</h2>
+        </div>
         <div class="max-w-5xl mx-auto overflow-hidden rounded-xl py-4 relative">
             <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
             <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
             <div class="scroll-track">
-                <img src="images/r1.jpg?v=2" class="scroll-item" alt="Resume 1">
-                <img src="images/r2.jpg?v=2" class="scroll-item" alt="Resume 2">
-                <img src="images/r3.jpg?v=2" class="scroll-item" alt="Resume 3">
-                <img src="images/r4.jpg?v=2" class="scroll-item" alt="Resume 4">
-                <img src="images/r5.jpg?v=2" class="scroll-item" alt="Resume 5">
-                <img src="images/r1.jpg?v=2" class="scroll-item" alt="Resume 1">
-                <img src="images/r2.jpg?v=2" class="scroll-item" alt="Resume 2">
-                <img src="images/r3.jpg?v=2" class="scroll-item" alt="Resume 3">
-                <img src="images/r4.jpg?v=2" class="scroll-item" alt="Resume 4">
-                <img src="images/r5.jpg?v=2" class="scroll-item" alt="Resume 5">
+                <img src="https://career.squarelay.com/images/r1.jpg" class="scroll-item" alt="Resume Sample 1">
+                <img src="https://career.squarelay.com/images/r2.jpg" class="scroll-item" alt="Resume Sample 2">
+                <img src="https://career.squarelay.com/images/r3.jpg" class="scroll-item" alt="Resume Sample 3">
+                <img src="https://career.squarelay.com/images/r4.jpg" class="scroll-item" alt="Resume Sample 4">
+                <img src="https://career.squarelay.com/images/r5.jpg" class="scroll-item" alt="Resume Sample 5">
+                <img src="https://career.squarelay.com/images/r1.jpg" class="scroll-item" alt="Resume Sample 1">
+                <img src="https://career.squarelay.com/images/r2.jpg" class="scroll-item" alt="Resume Sample 2">
+                <img src="https://career.squarelay.com/images/r3.jpg" class="scroll-item" alt="Resume Sample 3">
+                <img src="https://career.squarelay.com/images/r4.jpg" class="scroll-item" alt="Resume Sample 4">
+                <img src="https://career.squarelay.com/images/r5.jpg" class="scroll-item" alt="Resume Sample 5">
             </div>
         </div>
     </section>
@@ -320,7 +328,7 @@
                         <p class="text-sm text-gray-600 dark:text-gray-300 leading-relaxed mb-8">
                             ATS-compliant architecture. Keyword optimized. Direct interview calls. Secure your future today.
                         </p>
-                        <a href="#pricing" class="btn-small bg-black text-white dark:bg-white dark:text-black hover:opacity-80">Upgrade Career</a>
+                        <a href="#pricing" class="btn-small bg-black text-white dark:bg-white dark:text-black hover:opacity-80 transition-opacity">Upgrade Career</a>
                     </div>
                 </div>
             </div>
@@ -348,7 +356,7 @@
         </div>
     </section>
 
-    <section class="py-20 bg-gray-50 dark:bg-[#0a0a0a] reveal overflow-hidden border-t border-gray-100 dark:border-white/5">
+    <section id="clients" class="py-20 bg-gray-50 dark:bg-[#0a0a0a] reveal overflow-hidden border-t border-gray-100 dark:border-white/5">
         <div class="text-center mb-10 px-6">
             <h2 class="text-3xl font-bold tracking-tight text-black dark:text-white mb-4">Real Results. Real Chats.</h2>
             <p class="text-gray-500 dark:text-gray-400 text-sm">See and hear what our clients say after getting interviewed.</p>
@@ -413,7 +421,7 @@
         </div>
     </section>
 
-    <section class="py-20 px-6 bg-white dark:bg-black reveal text-center border-t border-gray-100 dark:border-white/5">
+    <section id="impact" class="py-20 px-6 bg-white dark:bg-black reveal text-center border-t border-gray-100 dark:border-white/5">
         <div class="max-w-4xl mx-auto">
             <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-black dark:text-white">Our Impact.</h2>
             <div class="grid grid-cols-2 md:grid-cols-2 gap-8 max-w-2xl mx-auto border border-gray-100 dark:border-white/10 rounded-3xl p-8 md:p-12 box-sharp bg-gray-50 dark:bg-[#111]">
@@ -430,37 +438,29 @@
     </section>
 
     <section id="pricing" class="max-w-6xl mx-auto py-24 px-6 reveal">
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-5xl font-extrabold text-black dark:text-white tracking-tight">Invest in your career.</h2>
-            <p class="text-gray-500 dark:text-gray-400 mt-4 font-medium">Simple pricing. No hidden fees. Direct results.</p>
-        </div>
+        <h2 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-16 text-center text-black dark:text-white">Invest in your career.</h2>
         
         <div class="max-w-md mx-auto">
-            <div class="p-8 md:p-10 border-2 border-rorange/20 box-sharp bg-white dark:bg-[#111] relative shadow-[0_20px_50px_-12px_rgba(249,115,22,0.15)] flex flex-col transition-transform hover:-translate-y-2 duration-300">
+            <div class="p-8 md:p-10 border-2 border-rorange box-sharp bg-white dark:bg-[#111] relative shadow-[0_0_30px_rgba(249,115,22,0.15)] flex flex-col hover:-translate-y-2 transition-all duration-300">
+                <span class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-rorange text-white px-4 py-1 text-[11px] font-black rounded-full uppercase tracking-widest shadow-md whitespace-nowrap">60% OFF - TODAY ONLY</span>
                 
-                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-rorange text-white px-4 py-1.5 text-xs font-black rounded-full uppercase tracking-widest shadow-lg">
-                    Limited Time 50% Off
+                <div class="text-center mb-6 mt-2">
+                    <span class="text-sm font-extrabold text-rorange uppercase tracking-widest block">Premium ATS Bundle</span>
                 </div>
                 
-                <div class="text-center mb-6 mt-4">
-                    <span class="text-sm font-extrabold text-rorange uppercase tracking-widest">ATS-Proof Bundle</span>
-                </div>
-                
-                <div class="flex items-center justify-center gap-4 mb-8">
-                    <span class="text-gray-400 line-through text-2xl font-bold decoration-red-500/50">₹799</span>
+                <div class="flex items-center justify-center gap-3 mb-6">
+                    <span class="text-gray-400 line-through text-2xl font-bold decoration-red-500/50">₹999</span>
                     <span class="text-6xl font-black text-black dark:text-white tracking-tighter">₹399</span>
                 </div>
 
-                <div class="bg-orange-50 dark:bg-orange-900/10 rounded-xl p-5 mb-8 border border-orange-100 dark:border-orange-900/30">
-                    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-semibold text-center">
-                        The ultimate package to bypass HR bots and get direct interview calls.
-                    </p>
+                <div class="bg-orange-50 dark:bg-orange-900/10 rounded-xl p-4 mb-8 border border-orange-100 dark:border-orange-800/30 text-center">
+                    <p class="text-xs md:text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-semibold">The complete package to bypass HR bots and secure direct interview calls effortlessly.</p>
                 </div>
 
-                <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-4 mb-10 font-medium">
+                <ul class="text-[13px] md:text-sm text-gray-700 dark:text-gray-300 space-y-4 mb-10 font-medium flex-1">
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                        <span><strong>100% ATS Optimized</strong> Architecture</span>
+                        <span><strong>100% ATS-Proof</strong> Architecture</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
@@ -468,21 +468,25 @@
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                        <span>Clean, Professional Layout</span>
+                        <span>Editable <strong>Source File (.docx)</strong></span>
                     </li>
                     <li class="flex items-start gap-3">
                         <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                        <span>Delivery in <strong>24-48 Hours</strong></span>
+                        <span>Premium Industry Formatting</span>
                     </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
-                        <span>Direct WhatsApp Support</span>
+                    
+                    <li class="flex items-start gap-3 bg-orange-50 dark:bg-orange-900/20 p-3 rounded-lg border border-orange-100 dark:border-orange-800/50 mt-4">
+                        <div class="relative flex items-center justify-center w-5 h-5 shrink-0 mt-0.5">
+                            <div class="absolute inset-0 border-[1.5px] border-rorange border-dashed rounded-full animate-[spin_4s_linear_infinite]"></div>
+                            <span class="text-rorange text-[10px] font-bold">✓</span>
+                        </div>
+                        <div>
+                            <span class="font-bold text-black dark:text-white">Unlimited Revisions</span>
+                            <span class="text-[10px] text-gray-500 dark:text-gray-400 block leading-tight mt-1 font-normal">We work until you are 100% satisfied.</span>
+                        </div>
                     </li>
                 </ul>
-                
-                <a href="order.html" class="w-full bg-rorange text-white hover:bg-orange-600 transition-colors shadow-glow-orange py-4 rounded-xl font-bold text-base text-center uppercase tracking-wide">
-                    Claim Slot For ₹399
-                </a>
+                <a href="#mobileMenu" onclick="toggleMenu()" class="btn-small bg-rorange text-white w-full hover:bg-orange-600 transition-colors shadow-glow-orange py-4 text-[15px] font-bold tracking-wide uppercase rounded-xl">Claim Slot For ₹399</a>
             </div>
         </div>
         
@@ -505,22 +509,18 @@
                 </div>
             </div>
             <div>
-                <h5 class="text-[10px] text-gray-900 dark:text-white uppercase font-bold tracking-widest mb-4">Links</h5>
-                <div class="flex flex-col space-y-3 text-xs text-gray-500 dark:text-gray-400">
-                    <a href="index.html" class="hover:text-rorange transition-colors">Home</a>
-                    <a href="pricing.html" class="hover:text-rorange transition-colors">Pricing</a>
-                    <a href="portfolio.html" class="hover:text-rorange transition-colors">Portfolio</a>
-                    <a href="compare.html" class="hover:text-rorange transition-colors">Compare</a>
-                    <a href="/contact-us" class="hover:text-rorange transition-colors">Contact Us</a>
+                <h5 class="text-[10px] text-gray-900 dark:text-white uppercase font-bold tracking-widest mb-4">Quick Links</h5>
+                <div class="flex flex-col space-y-3 text-xs text-gray-500 dark:text-gray-400 font-medium">
+                    <a href="#home" class="hover:text-rorange transition-colors">Home</a>
+                    <a href="#pricing" class="hover:text-rorange transition-colors">Pricing</a>
+                    <a href="#clients" class="hover:text-rorange transition-colors">Client Reviews</a>
+                    <a href="#impact" class="hover:text-rorange transition-colors">Our Impact</a>
                 </div>
             </div>
             <div>
                 <h5 class="text-[10px] text-gray-900 dark:text-white uppercase font-bold tracking-widest mb-4">Legal</h5>
-                <div class="flex flex-col space-y-3 text-xs text-gray-500 dark:text-gray-400">
-                    <a href="/terms" class="hover:text-rorange transition-colors">Terms of Service</a>
-                    <a href="/privacy" class="hover:text-rorange transition-colors">Privacy Policy</a>
-                    <a href="/refund" class="hover:text-rorange transition-colors">Refund Policy</a>
-                    <a href="/disclaimer" class="hover:text-rorange transition-colors">Disclaimer</a>
+                <div class="flex flex-col space-y-3 text-xs text-gray-500 dark:text-gray-400 font-medium">
+                    <a href="https://squarelay.com/policies" target="_blank" class="hover:text-rorange transition-colors">Policies</a>
                 </div>
             </div>
         </div>
@@ -531,7 +531,7 @@
 
     <div id="sticky-footer" class="fixed bottom-0 left-0 w-full z-[300] shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
         <div class="bg-red-500 text-white text-center py-1.5 text-[10px] md:text-xs font-bold uppercase tracking-widest">
-            Get 50% Off - Ends in <span id="countdown-timer">30:00</span>
+            Get 60% Off - Ends in <span id="countdown-timer">30:00</span>
         </div>
         <div class="bg-white/95 dark:bg-[#111]/95 backdrop-blur-xl border-t border-gray-200 dark:border-white/10 px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2 md:gap-4">
@@ -543,7 +543,7 @@
                     <p class="text-[9px] text-red-500 font-bold uppercase tracking-wide">6/50 Slots Left</p>
                 </div>
             </div>
-            <a href="#pricing" class="btn-small bg-rorange text-white py-2 px-6 shadow-[0_0_15px_rgba(249,115,22,0.5)] hover:bg-orange-600">Order Now</a>
+            <a href="#mobileMenu" onclick="toggleMenu()" class="btn-small bg-rorange text-white py-2 px-6 shadow-[0_0_15px_rgba(249,115,22,0.5)] hover:bg-orange-600">Order Now</a>
         </div>
     </div>
 
