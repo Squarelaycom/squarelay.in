@@ -73,19 +73,20 @@
         .reveal { opacity: 0; filter: blur(10px); transform: translateY(20px); transition: all 0.8s ease; }
         .reveal.active { opacity: 1; filter: blur(0); transform: translateY(0); }
 
-        /* Marquee Animation */
-        @keyframes scrollL { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        @keyframes scrollR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-        .m-track-L { display: flex; animation: scrollL 40s linear infinite; width: max-content; }
-        .m-track-R { display: flex; animation: scrollR 40s linear infinite; width: max-content; }
-        .s-img { width: 120px; height: 160px; margin: 0 6px; border-radius: 8px; object-fit: cover; border: 1px solid #e5e7eb; }
-        @media (prefers-color-scheme: dark) { .s-img { border: 1px solid #333; opacity: 0.9; } }
-
-        /* Auto-Scrolling Gallery */
-        @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-        .scroll-track { display: flex; animation: scrollGallery 30s linear infinite; width: max-content; gap: 15px; padding: 0 15px; }
-        .scroll-item { width: 150px; height: 210px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex-shrink: 0; }
-        @media (min-width: 768px) { .scroll-item { width: 180px; height: 250px; } }
+        /* Auto-Scrolling Gallery (From Orange Theme) */
+        @keyframes scrollGallery { 0% { transform: translateX(0); } 100% { transform: translateX(calc(-50% - 7.5px)); } }
+        .scroll-track { 
+            display: flex; 
+            width: calc(150px * 10 + 15px * 9); 
+            animation: scrollGallery 25s linear infinite; 
+            gap: 15px; 
+            padding-left: 20px; 
+        }
+        .scroll-item { width: 150px; height: 210px; border-radius: 8px; object-fit: cover; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 4px 15px rgba(0,0,0,0.05); flex: 0 0 150px; }
+        @media (min-width: 768px) { 
+            .scroll-track { width: calc(180px * 10 + 15px * 9); } 
+            .scroll-item { width: 180px; height: 250px; flex: 0 0 180px; } 
+        }
         @media (prefers-color-scheme: dark) { .scroll-item { border-color: rgba(255,255,255,0.1); opacity: 0.9; } }
 
         /* Buttons & Boxes */
@@ -187,10 +188,10 @@
     <nav class="fixed top-0 w-full z-[200] apple-nav transition-all duration-300">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             
-            <div class="flex items-center gap-2 h-12 md:h-16">
+            <div class="flex items-center gap-1.5 h-10 md:h-12">
                 <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden object-contain">
                 <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block object-contain">
-                <span class="text-2xl md:text-3xl font-black text-black dark:text-white tracking-tight pl-1">| Go</span>
+                <span class="text-xl md:text-2xl font-black text-black dark:text-white tracking-tight pl-1 opacity-80">| Go</span>
             </div>
             
             <div class="hidden md:flex items-center gap-8 text-[12px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest ml-auto">
@@ -219,10 +220,10 @@
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </button>
             
-            <div class="flex justify-center items-center gap-2 h-12 mb-6 w-full">
+            <div class="flex justify-center items-center gap-1.5 h-10 mb-6 w-full">
                 <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden object-contain">
                 <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block object-contain">
-                <span class="text-xl md:text-2xl font-black text-black dark:text-white tracking-tight pl-1">| Go</span>
+                <span class="text-lg md:text-xl font-black text-black dark:text-white tracking-tight pl-1 opacity-80">| Go</span>
             </div>
             
             <div class="text-center mb-8">
@@ -285,24 +286,16 @@
             <div class="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
             <div class="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white dark:from-black to-transparent z-10 pointer-events-none"></div>
             <div class="scroll-track">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567269/R11_f7o75u.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567268/R12_ettyin.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567267/R13_bdstta.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567266/R14_yz4iuj.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567265/R15_v0hv0u.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567264/R16_tsvduv.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567263/R17_smghrz.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567262/R18_jsnj1u.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567259/R20_fbu6ez.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567269/R11_f7o75u.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567268/R12_ettyin.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567267/R13_bdstta.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567266/R14_yz4iuj.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567265/R15_v0hv0u.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567264/R16_tsvduv.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567263/R17_smghrz.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567262/R18_jsnj1u.jpg" class="scroll-item" alt="Resume">
-                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782567259/R20_fbu6ez.jpg" class="scroll-item" alt="Resume">
+                <img src="images/r1.jpg?v=2" class="scroll-item" alt="Resume 1">
+                <img src="images/r2.jpg?v=2" class="scroll-item" alt="Resume 2">
+                <img src="images/r3.jpg?v=2" class="scroll-item" alt="Resume 3">
+                <img src="images/r4.jpg?v=2" class="scroll-item" alt="Resume 4">
+                <img src="images/r5.jpg?v=2" class="scroll-item" alt="Resume 5">
+                <img src="images/r1.jpg?v=2" class="scroll-item" alt="Resume 1">
+                <img src="images/r2.jpg?v=2" class="scroll-item" alt="Resume 2">
+                <img src="images/r3.jpg?v=2" class="scroll-item" alt="Resume 3">
+                <img src="images/r4.jpg?v=2" class="scroll-item" alt="Resume 4">
+                <img src="images/r5.jpg?v=2" class="scroll-item" alt="Resume 5">
             </div>
         </div>
     </section>
@@ -437,47 +430,78 @@
     </section>
 
     <section id="pricing" class="max-w-6xl mx-auto py-24 px-6 reveal">
-        <h2 class="text-2xl md:text-4xl font-bold mb-16 text-center text-black dark:text-white tracking-tight">Invest in your future.</h2>
+        <div class="text-center mb-12">
+            <h2 class="text-3xl md:text-5xl font-extrabold text-black dark:text-white tracking-tight">Invest in your career.</h2>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 font-medium">Simple pricing. No hidden fees. Direct results.</p>
+        </div>
         
         <div class="max-w-md mx-auto">
-            <div class="p-8 border border-gray-200 dark:border-gray-800 box-sharp bg-white dark:bg-[#111] relative shadow-card-depth flex flex-col hover:-translate-y-1 transition-transform">
-                <span class="absolute top-4 right-4 bg-orange-100 dark:bg-orange-900/30 text-rorange px-3 py-1 text-[10px] font-bold rounded-md uppercase tracking-wide">70% OFF</span>
+            <div class="p-8 md:p-10 border-2 border-rorange/20 box-sharp bg-white dark:bg-[#111] relative shadow-[0_20px_50px_-12px_rgba(249,115,22,0.15)] flex flex-col transition-transform hover:-translate-y-2 duration-300">
                 
-                <span class="text-[13px] font-extrabold text-rorange uppercase tracking-widest block">Professional Package</span>
-                
-                <div class="bg-gray-50 dark:bg-black/40 rounded-lg p-3 mt-3 mb-6 border-l-4 border-rorange">
-                    <p class="text-[12px] text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Best for recent graduates and professionals with up to 5 years experience. <span class="text-black dark:text-white font-bold block mt-1">Build a solid foundation for your career.</span></p>
+                <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-rorange text-white px-4 py-1.5 text-xs font-black rounded-full uppercase tracking-widest shadow-lg">
+                    Limited Time 50% Off
                 </div>
                 
-                <div class="flex items-end gap-3 mb-8">
-                    <span class="text-gray-400 line-through text-lg font-medium">₹999</span>
-                    <span class="text-5xl font-bold text-black dark:text-white tracking-tight">₹299</span>
+                <div class="text-center mb-6 mt-4">
+                    <span class="text-sm font-extrabold text-rorange uppercase tracking-widest">ATS-Proof Bundle</span>
+                </div>
+                
+                <div class="flex items-center justify-center gap-4 mb-8">
+                    <span class="text-gray-400 line-through text-2xl font-bold decoration-red-500/50">₹799</span>
+                    <span class="text-6xl font-black text-black dark:text-white tracking-tighter">₹399</span>
                 </div>
 
-                <ul class="text-[13px] text-gray-600 dark:text-gray-300 space-y-5 mb-10 font-medium flex-1">
-                    <li class="flex items-start gap-3"><span class="text-rorange font-bold shrink-0 mt-0.5">•</span> <span>ATS Optimized Resume</span></li>
-                    <li class="flex items-start gap-3"><span class="text-rorange font-bold shrink-0 mt-0.5">•</span> <span>Editable .docs File Included</span></li>
-                    <li class="flex items-start gap-3"><span class="text-rorange font-bold shrink-0 mt-0.5">•</span> <span>Professional Layout & Formatting</span></li>
-                    <li class="flex items-start gap-3"><span class="text-rorange font-bold shrink-0 mt-0.5">•</span> <span>Targeted Keyword Injection</span></li>
+                <div class="bg-orange-50 dark:bg-orange-900/10 rounded-xl p-5 mb-8 border border-orange-100 dark:border-orange-900/30">
+                    <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-semibold text-center">
+                        The ultimate package to bypass HR bots and get direct interview calls.
+                    </p>
+                </div>
+
+                <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-4 mb-10 font-medium">
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span><strong>100% ATS Optimized</strong> Architecture</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Strategic <strong>Keyword Injection</strong></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Clean, Professional Layout</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Delivery in <strong>24-48 Hours</strong></span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-rorange shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span>Direct WhatsApp Support</span>
+                    </li>
                 </ul>
-                <a href="order.html" class="btn-small bg-rorange text-white w-full hover:bg-orange-600 transition-colors shadow-none py-4 text-sm tracking-wide">Order Now</a>
+                
+                <a href="order.html" class="w-full bg-rorange text-white hover:bg-orange-600 transition-colors shadow-glow-orange py-4 rounded-xl font-bold text-base text-center uppercase tracking-wide">
+                    Claim Slot For ₹399
+                </a>
             </div>
         </div>
         
-        <p class="text-center text-[12px] font-bold text-red-500 mt-8 animate-pulse">🔥 Only 6/50 slots left for this month!</p>
-        
-        <div class="text-center mt-6">
-            <a href="#clients" class="text-xs text-gray-500 hover:text-rorange underline transition-colors">Click to see reviews</a>
-        </div>
+        <p class="text-center text-[12px] font-bold text-red-500 mt-8 flex items-center justify-center gap-2">
+            <span class="relative flex h-3 w-3">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+            </span>
+            Only 6/50 slots left for today!
+        </p>
     </section>
 
-    <footer class="footer-bg bg-white dark:bg-black border-t border-gray-100 dark:border-white/10 pt-16 pb-8 px-6">
-        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-10 relative z-10">
+    <footer class="footer-bg bg-white dark:bg-black border-t border-gray-100 dark:border-white/10 pt-16 pb-24 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 relative z-10">
             <div>
-                <div class="flex items-center gap-2 h-12 md:h-16 mb-4">
+                <div class="flex items-center gap-1.5 h-10 md:h-12 mb-4">
                     <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden object-contain">
                     <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block object-contain">
-                    <span class="text-2xl md:text-3xl font-black text-black dark:text-white tracking-tight pl-1">| Go</span>
+                    <span class="text-xl md:text-2xl font-black text-black dark:text-white tracking-tight pl-1 opacity-80">| Go</span>
                 </div>
             </div>
             <div>
@@ -486,7 +510,8 @@
                     <a href="index.html" class="hover:text-rorange transition-colors">Home</a>
                     <a href="pricing.html" class="hover:text-rorange transition-colors">Pricing</a>
                     <a href="portfolio.html" class="hover:text-rorange transition-colors">Portfolio</a>
-                    <a href="contact.html" class="hover:text-rorange transition-colors">Contact Us</a>
+                    <a href="compare.html" class="hover:text-rorange transition-colors">Compare</a>
+                    <a href="/contact-us" class="hover:text-rorange transition-colors">Contact Us</a>
                 </div>
             </div>
             <div>
@@ -494,24 +519,19 @@
                 <div class="flex flex-col space-y-3 text-xs text-gray-500 dark:text-gray-400">
                     <a href="/terms" class="hover:text-rorange transition-colors">Terms of Service</a>
                     <a href="/privacy" class="hover:text-rorange transition-colors">Privacy Policy</a>
-                    <a href="/policies" class="hover:text-rorange transition-colors">Other Policies</a>
+                    <a href="/refund" class="hover:text-rorange transition-colors">Refund Policy</a>
                     <a href="/disclaimer" class="hover:text-rorange transition-colors">Disclaimer</a>
                 </div>
             </div>
-            <div>
-                 <a href="https://instagram.com/sqaurelaynow" target="_blank" class="block w-max">
-                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-gray-400 hover:text-pink-500 transition-colors"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                 </a>
-            </div>
         </div>
-        <div class="text-[10px] text-gray-300 dark:text-gray-600 font-bold uppercase tracking-widest text-center md:text-left relative z-10">
+        <div class="max-w-6xl mx-auto mt-12 text-[10px] text-gray-400 dark:text-gray-600 font-bold uppercase tracking-widest text-center md:text-left relative z-10">
             © Squarelay. All Rights Reserved.
         </div>
     </footer>
 
     <div id="sticky-footer" class="fixed bottom-0 left-0 w-full z-[300] shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
         <div class="bg-red-500 text-white text-center py-1.5 text-[10px] md:text-xs font-bold uppercase tracking-widest">
-            Get Flat 70% Off - Ends in <span id="countdown-timer">30:00</span>
+            Get 50% Off - Ends in <span id="countdown-timer">30:00</span>
         </div>
         <div class="bg-white/95 dark:bg-[#111]/95 backdrop-blur-xl border-t border-gray-200 dark:border-white/10 px-4 py-3 flex items-center justify-between">
             <div class="flex items-center gap-2 md:gap-4">
@@ -527,20 +547,8 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
-        
-        var swiper = new Swiper(".swiper-testimonials", { 
-            slidesPerView: 1.1, 
-            spaceBetween: 15, 
-            loop: true, 
-            navigation: {
-                nextEl: '.custom-next',
-                prevEl: '.custom-prev',
-            },
-            breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 20 } } 
-        });
 
         function reveal() { 
             var revs = document.querySelectorAll(".reveal"); 
@@ -634,47 +642,49 @@
         }
 
         // Toggle Play/Pause
-        playBtn.addEventListener("click", () => {
-            if (audio.paused) {
-                audio.play();
-                playIcon.classList.add("hidden");
-                pauseIcon.classList.remove("hidden");
-            } else {
-                audio.pause();
+        if (playBtn && audio) {
+            playBtn.addEventListener("click", () => {
+                if (audio.paused) {
+                    audio.play();
+                    playIcon.classList.add("hidden");
+                    pauseIcon.classList.remove("hidden");
+                } else {
+                    audio.pause();
+                    playIcon.classList.remove("hidden");
+                    pauseIcon.classList.add("hidden");
+                }
+            });
+
+            // Update Progress Bar & Current Time
+            audio.addEventListener("timeupdate", () => {
+                if(audio.duration){
+                    const progressPercent = (audio.currentTime / audio.duration) * 100;
+                    progressBarFill.style.width = progressPercent + "%";
+                    currentTimeDisplay.textContent = formatTime(audio.currentTime);
+                }
+            });
+
+            // Set Duration when audio loads
+            audio.addEventListener("loadedmetadata", () => {
+                durationDisplay.textContent = formatTime(audio.duration);
+            });
+
+            // Click on progress bar to seek
+            progressBarContainer.addEventListener("click", (e) => {
+                const width = progressBarContainer.clientWidth;
+                const clickX = e.offsetX;
+                const newTime = (clickX / width) * audio.duration;
+                audio.currentTime = newTime;
+            });
+
+            // Reset icon when audio ends
+            audio.addEventListener("ended", () => {
                 playIcon.classList.remove("hidden");
                 pauseIcon.classList.add("hidden");
-            }
-        });
-
-        // Update Progress Bar & Current Time
-        audio.addEventListener("timeupdate", () => {
-            if(audio.duration){
-                const progressPercent = (audio.currentTime / audio.duration) * 100;
-                progressBarFill.style.width = progressPercent + "%";
-                currentTimeDisplay.textContent = formatTime(audio.currentTime);
-            }
-        });
-
-        // Set Duration when audio loads
-        audio.addEventListener("loadedmetadata", () => {
-            durationDisplay.textContent = formatTime(audio.duration);
-        });
-
-        // Click on progress bar to seek
-        progressBarContainer.addEventListener("click", (e) => {
-            const width = progressBarContainer.clientWidth;
-            const clickX = e.offsetX;
-            const newTime = (clickX / width) * audio.duration;
-            audio.currentTime = newTime;
-        });
-
-        // Reset icon when audio ends
-        audio.addEventListener("ended", () => {
-            playIcon.classList.remove("hidden");
-            pauseIcon.classList.add("hidden");
-            progressBarFill.style.width = "0%";
-            currentTimeDisplay.textContent = "0:00";
-        });
+                progressBarFill.style.width = "0%";
+                currentTimeDisplay.textContent = "0:00";
+            });
+        }
     </script>
 </body>
 </html>
