@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '876931512035688');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Squarelay | Order Confirmed</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'media', 
+            theme: {
+                extend: {
+                    colors: {
+                        rblack: '#050505',
+                        rwhite: '#f5f5f7',
+                        rgray: '#1d1d1f',
+                        rblue: '#007aff',
+                        rgreen: '#34c759'
+                    },
+                    boxShadow: {
+                        'glow-green': '0 0 30px rgba(52, 199, 89, 0.4)',
+                        'card-depth': '0 10px 30px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        .apple-nav { 
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(20px) saturate(180%); 
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        @media (prefers-color-scheme: dark) {
+            .apple-nav { 
+                background: rgba(0, 0, 0, 0.85); 
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+            }
+        }
+
+        .box-sharp { border-radius: 16px; }
+        .btn-small { 
+            padding: 0.8rem 1.8rem; font-size: 0.9rem; font-weight: 600; 
+            border-radius: 10px; 
+            transition: transform 0.1s, box-shadow 0.2s; display: inline-flex; align-items: center; justify-content: center; 
+        }
+        .btn-small:active { transform: scale(0.97); }
+
+        /* Success Animation */
+        .success-circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            animation: drawCircle 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+        .success-check {
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: drawCheck 0.4s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+        }
+        @keyframes drawCircle { 100% { stroke-dashoffset: 0; } }
+        @keyframes drawCheck { 100% { stroke-dashoffset: 0; } }
+    </style>
+</head>
+<body class="bg-white text-rgray dark:bg-black dark:text-rwhite transition-colors duration-300">
+
+    <nav class="fixed top-0 w-full z-[200] apple-nav transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="h-12 md:h-16 transition-all duration-300">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563924/black_logo_hkvvnk.png" alt="Squarelay" class="h-full w-auto block dark:hidden">
+                <img src="https://res.cloudinary.com/dy56crhy5/image/upload/v1782563922/white_logo_rkia8w.png" alt="Squarelay" class="h-full w-auto hidden dark:block">
+            </div>
+            
+            <div class="flex items-center">
+                <a href="https://wa.me/919517369969" class="hover:text-rblue transition-colors border border-gray-200 dark:border-white/20 px-4 py-2 rounded-lg flex items-center gap-2 text-xs font-bold">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="text-green-500"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Need Help?
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center justify-center pt-32 pb-20 px-6">
+        <div class="max-w-2xl w-full box-sharp p-10 md:p-16 border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-[#0a0a0a] shadow-card-depth text-center relative overflow-hidden">
+            
+            <!-- Glow background effect -->
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-64 bg-green-500/10 dark:bg-green-500/20 blur-[60px] rounded-full pointer-events-none"></div>
+
+            <div class="relative z-10 flex flex-col items-center">
+                <!-- SVG Animated Checkmark -->
+                <div class="w-24 h-24 mb-8 text-rgreen shadow-glow-green rounded-full bg-white dark:bg-[#111] flex items-center justify-center border border-gray-100 dark:border-white/10">
+                    <svg width="48" height="48" viewBox="0 0 52 52" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                        <circle class="success-circle" cx="26" cy="26" r="24" stroke="currentColor" fill="none" opacity="0.2"/>
+                        <path class="success-check" d="M14 27 l8 8 l16 -16" stroke="currentColor" stroke-width="4"/>
+                    </svg>
+                </div>
+
+                <h1 class="text-3xl md:text-5xl font-black tracking-tight text-black dark:text-white mb-4">Payment Successful!</h1>
+                
+                <p class="text-base md:text-lg text-gray-600 dark:text-gray-300 leading-relaxed font-medium mb-8 max-w-lg">
+                    Thank you for choosing Squarelay. 
+                    <strong class="text-black dark:text-white block mt-2">A resume expert will contact you on WhatsApp within 24-48 hours.</strong>
+                </p>
+
+                <div class="w-full h-px bg-gray-200 dark:bg-white/10 my-8"></div>
+
+                <p class="text-xs text-gray-500 dark:text-gray-400 mb-6 uppercase tracking-widest font-bold">Want to speed up the process?</p>
+
+                <a href="https://wa.me/919517369969?text=Hi%20Squarelay,%20I%20have%20just%20completed%20my%20payment%20for%20the%20resume%20package." target="_blank" class="btn-small bg-[#25D366] hover:bg-[#1ebe57] text-white shadow-[0_0_20px_rgba(37,211,102,0.4)] w-full sm:w-auto gap-3">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Message Us on WhatsApp Now
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer -->
+    <footer class="bg-white dark:bg-black border-t border-gray-100 dark:border-white/10 py-6 px-6 mt-auto">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-[11px] md:text-[13px] text-gray-900 dark:text-white font-black tracking-widest uppercase">
+                Support only WhatsApp: <span class="text-rblue">+91 9517369969</span>
+            </div>
+            <div class="text-[10px] text-gray-400 dark:text-gray-600 font-bold uppercase tracking-widest">
+                © Squarelay. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
