@@ -74,23 +74,36 @@ src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"
         .reveal { opacity: 0; filter: blur(10px); transform: translateY(20px); transition: all 0.8s ease; }
         .reveal.active { opacity: 1; filter: blur(0); transform: translateY(0); }
 
-        /* Marquee Animation */
+        /* Marquee Animation (Smoother & Adjusted for larger images) */
         @keyframes scrollL { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
         @keyframes scrollR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
-        .m-track-L { display: flex; animation: scrollL 40s linear infinite; width: max-content; }
-        .m-track-R { display: flex; animation: scrollR 40s linear infinite; width: max-content; }
-        .s-img { width: 120px; height: 160px; margin: 0 6px; border-radius: 8px; object-fit: cover; border: 1px solid #e5e7eb; }
-        @media (prefers-color-scheme: dark) { .s-img { border: 1px solid #333; opacity: 0.9; } }
+        .m-track-L { display: flex; animation: scrollL 50s linear infinite; width: max-content; will-change: transform; }
+        .m-track-R { display: flex; animation: scrollR 50s linear infinite; width: max-content; will-change: transform; }
+        
+        /* Adjusted Resume Image Size for Clarity */
+        .s-img { 
+            width: 180px; 
+            height: 252px; 
+            margin: 0 10px; 
+            border-radius: 12px; 
+            object-fit: cover; 
+            border: 1px solid #e5e7eb; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        @media (min-width: 768px) { 
+            .s-img { width: 240px; height: 336px; margin: 0 15px; } 
+        }
+        @media (prefers-color-scheme: dark) { .s-img { border: 1px solid #333; opacity: 0.95; } }
 
         /* Buttons & Boxes */
         .btn-small { 
-            padding: 0.7rem 1.6rem; font-size: 0.85rem; font-weight: 600; 
+            padding: 0.8rem 1.8rem; font-size: 0.9rem; font-weight: 600; 
             border-radius: 8px; 
             transition: transform 0.1s, box-shadow 0.2s; display: inline-flex; align-items: center; justify-content: center; 
         }
         .btn-small:active { transform: scale(0.97); }
         
-        .box-sharp { border-radius: 12px; }
+        .box-sharp { border-radius: 16px; } /* Slightly softer corners for plans */
 
         #mobileMenu { transform: translateY(-100%); opacity: 0; }
         #mobileMenu.active { transform: translateY(0); opacity: 1; }
@@ -139,7 +152,7 @@ src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"
 
         /* Red Rotating Border Animation */
         @keyframes spin-border { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-        .red-anim-box { position: relative; overflow: hidden; border-radius: 12px; }
+        .red-anim-box { position: relative; overflow: hidden; border-radius: 16px; }
         .red-anim-box::before {
             content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: conic-gradient(transparent, transparent, transparent, #ef4444);
@@ -161,17 +174,15 @@ src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"
 
         /* Modern Apple Glass Audio Player */
         .glass-player {
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(24px) saturate(150%);
             -webkit-backdrop-filter: blur(24px) saturate(150%);
             border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
         }
         @media (prefers-color-scheme: dark) {
             .glass-player {
-                background: rgba(20, 20, 20, 0.6);
+                background: rgba(20, 20, 20, 0.85);
                 border: 1px solid rgba(255, 255, 255, 0.1);
-                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             }
         }
 
@@ -280,8 +291,8 @@ src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <section id="samples" class="py-12 bg-white dark:bg-black reveal overflow-hidden">
-        <div class="m-track-L mb-4">
+    <section id="samples" class="py-16 bg-white dark:bg-black reveal overflow-hidden">
+        <div class="m-track-L mb-8">
             <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%201.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%202.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%203.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%204.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%205.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%206.jpeg" class="s-img">
             <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%201.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%202.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%203.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%204.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%205.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%206.jpeg" class="s-img">
         </div>
@@ -345,58 +356,57 @@ src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"
             <p class="text-gray-500 dark:text-gray-400 text-sm">See and hear what our clients say after getting interviewed.</p>
         </div>
 
+        <!-- Made WhatsApp images 1 line only and increased size -->
         <div class="m-track-L mb-4">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
             
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-2xl border border-gray-200 dark:border-[#333] shadow-md object-cover">
         </div>
         
-        <div class="m-track-R mb-6">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-40 w-auto mx-3 rounded-xl border border-gray-200 dark:border-[#333] shadow-sm object-cover">
-        </div>
-        
-        <div class="max-w-md mx-auto mt-12 px-6">
-            <div class="glass-player rounded-2xl p-4 flex flex-col gap-3 relative overflow-hidden">
-                <div class="flex items-center gap-4 relative z-10">
-                    <button id="customPlayBtn" class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-rblue flex items-center justify-center shrink-0 shadow-glow-blue cursor-pointer transition-transform hover:scale-105 active:scale-95 outline-none">
-                        <svg id="playIcon" width="18" height="18" viewBox="0 0 24 24" fill="white" class="ml-1"><path d="M8 5v14l11-7z"/></svg>
-                        <svg id="pauseIcon" width="18" height="18" viewBox="0 0 24 24" fill="white" class="hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-                    </button>
-                    <div class="flex-1">
-                        <p class="text-[12px] font-bold text-gray-800 dark:text-gray-100 tracking-wide">Client Voice Note</p>
-                        <p class="text-[10px] text-gray-500 font-medium">"Got shortlisted at Google!"</p>
-                    </div>
-                </div>
+        <div class="max-w-md mx-auto mt-16 px-6">
+            <!-- Voice note highly highlighted with glowing animated border -->
+            <div class="relative group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-rblue to-blue-400 rounded-3xl blur opacity-40 group-hover:opacity-60 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
                 
-                <div class="flex items-center gap-3 relative z-10 w-full mt-1">
-                    <span id="currentTimeDisplay" class="text-[9px] font-bold text-gray-400 w-6 text-right">0:00</span>
-                    <div class="flex-1 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full cursor-pointer relative" id="progressBarContainer">
-                        <div id="progressBarFill" class="absolute top-0 left-0 h-full bg-rblue rounded-full" style="width: 0%;"></div>
+                <div class="glass-player rounded-3xl p-5 flex flex-col gap-4 relative overflow-hidden border-2 border-rblue shadow-glow-blue">
+                    
+                    <div class="flex items-center justify-between mb-1 relative z-10">
+                        <span class="text-[10px] font-black uppercase tracking-widest text-rblue bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">Listen Now</span>
                     </div>
-                    <span id="durationDisplay" class="text-[9px] font-bold text-gray-400 w-6">0:24</span>
+
+                    <div class="flex items-center gap-4 relative z-10">
+                        <button id="customPlayBtn" class="w-14 h-14 rounded-full bg-gradient-to-br from-blue-400 to-rblue flex items-center justify-center shrink-0 shadow-glow-blue cursor-pointer transition-transform hover:scale-105 active:scale-95 outline-none">
+                            <svg id="playIcon" width="22" height="22" viewBox="0 0 24 24" fill="white" class="ml-1"><path d="M8 5v14l11-7z"/></svg>
+                            <svg id="pauseIcon" width="22" height="22" viewBox="0 0 24 24" fill="white" class="hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                        </button>
+                        <div class="flex-1">
+                            <p class="text-sm font-bold text-gray-800 dark:text-gray-100 tracking-wide">Client Voice Note</p>
+                            <p class="text-xs text-gray-500 font-medium">"Got shortlisted at Google!"</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 relative z-10 w-full mt-2">
+                        <span id="currentTimeDisplay" class="text-[10px] font-bold text-gray-400 w-8 text-right">0:00</span>
+                        <div class="flex-1 h-2 bg-gray-200 dark:bg-gray-700 rounded-full cursor-pointer relative" id="progressBarContainer">
+                            <div id="progressBarFill" class="absolute top-0 left-0 h-full bg-rblue rounded-full shadow-[0_0_10px_rgba(0,122,255,0.5)]" style="width: 0%;"></div>
+                        </div>
+                        <span id="durationDisplay" class="text-[10px] font-bold text-gray-400 w-8">0:24</span>
+                    </div>
+                    
+                    <audio id="realAudio" class="hidden">
+                        <source src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Voice1.oga" type="audio/ogg">
+                    </audio>
                 </div>
-                
-                <audio id="realAudio" class="hidden">
-                    <source src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Voice1.oga" type="audio/ogg">
-                </audio>
             </div>
         </div>
     </section>
@@ -417,83 +427,84 @@ src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"
         </div>
     </section>
 
+    <!-- Pricing section made clear, text increased -->
     <section id="pricing" class="max-w-6xl mx-auto py-24 px-6 reveal">
-        <h2 class="text-2xl md:text-4xl font-bold mb-16 text-center text-black dark:text-white tracking-tight">Invest in your future.</h2>
+        <h2 class="text-3xl md:text-4xl font-bold mb-16 text-center text-black dark:text-white tracking-tight">Invest in your future.</h2>
         <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             
-            <div class="p-8 border border-gray-200 dark:border-white/10 box-sharp bg-white dark:bg-[#111] relative shadow-card-depth flex flex-col hover:-translate-y-1 transition-transform">
-                <span class="absolute top-4 right-4 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 px-3 py-1 text-[10px] font-bold rounded-md uppercase tracking-wide">50% OFF</span>
+            <div class="p-10 border border-gray-200 dark:border-white/10 box-sharp bg-white dark:bg-[#111] relative shadow-card-depth flex flex-col hover:-translate-y-1 transition-transform">
+                <span class="absolute top-5 right-5 bg-gray-100 dark:bg-white/10 text-gray-600 dark:text-gray-300 px-3 py-1 text-[11px] font-bold rounded-md uppercase tracking-wide">50% OFF</span>
                 
-                <span class="text-[13px] font-extrabold text-gray-800 dark:text-gray-200 uppercase tracking-widest block">Professional Package</span>
+                <span class="text-sm font-extrabold text-gray-800 dark:text-gray-200 uppercase tracking-widest block">Professional Package</span>
                 
-                <div class="bg-gray-50 dark:bg-black/40 rounded-lg p-3 mt-3 mb-6 border-l-4 border-rblue">
-                    <p class="text-[12px] text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Best for recent graduates and professionals with up to 5 years experience. <span class="text-black dark:text-white font-bold block mt-1">Build a solid foundation for your career.</span></p>
+                <div class="bg-gray-50 dark:bg-black/40 rounded-xl p-4 mt-4 mb-8 border-l-4 border-rblue">
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Best for recent graduates and professionals with up to 5 years experience. <span class="text-black dark:text-white font-bold block mt-1">Build a solid foundation for your career.</span></p>
                 </div>
                 
                 <div class="flex items-end gap-3 mb-8">
-                    <span class="text-gray-400 line-through text-lg font-medium">₹999</span>
-                    <span class="text-5xl font-bold text-black dark:text-white tracking-tight">₹499</span>
+                    <span class="text-gray-400 line-through text-xl font-medium">₹999</span>
+                    <span class="text-6xl font-bold text-black dark:text-white tracking-tight">₹499</span>
                 </div>
 
-                <ul class="text-[13px] text-gray-600 dark:text-gray-300 space-y-5 mb-10 font-medium flex-1">
+                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-6 mb-10 font-medium flex-1">
                     <li class="flex items-start gap-3"><span class="text-gray-400 font-bold shrink-0 mt-0.5">•</span> <span>ATS Optimise resume</span></li>
                     <li class="flex items-start gap-3"><span class="text-gray-400 font-bold shrink-0 mt-0.5">•</span> <span>Editable .docs file included</span></li>
                     <li class="flex items-start gap-3"><span class="text-gray-400 font-bold shrink-0 mt-0.5">•</span> <span>Professional Layout & Formatting</span></li>
                     
-                    <li class="flex items-start gap-3 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-100 dark:border-blue-800/50">
+                    <li class="flex items-start gap-3 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-100 dark:border-blue-800/50">
                         <div class="relative flex items-center justify-center w-5 h-5 shrink-0 mt-0.5">
                             <div class="absolute inset-0 border-[1.5px] border-rblue border-dashed rounded-full animate-[spin_4s_linear_infinite]"></div>
                             <span class="text-rblue text-[10px] font-bold">✓</span>
                         </div>
                         <div>
                             <span class="font-bold text-black dark:text-white">Unlimited revisions</span>
-                            <span class="text-[10px] text-gray-500 dark:text-gray-400 block leading-tight mt-1 font-normal">to ensure you are completely satisfied</span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400 block leading-tight mt-1 font-normal">to ensure you are completely satisfied</span>
                             </div>
                     </li>
                 </ul>
-                <a href="https://rzp.io/rzp/GTm69mfz" class="btn-small bg-rblue text-white w-full hover:bg-blue-600 transition-colors shadow-[0_0_20px_rgba(0,122,255,0.4)] order-glow">Order Now</a>
+                <a href="https://rzp.io/rzp/GTm69mfz" class="btn-small bg-rblue text-white w-full hover:bg-blue-600 transition-colors shadow-[0_0_20px_rgba(0,122,255,0.4)] order-glow py-4 text-base">Order Now</a>
             </div>
 
-            <div class="p-8 border border-rblue/30 box-sharp bg-gray-50 dark:bg-[#0a0a0a] relative shadow-glow-heavy flex flex-col hover:-translate-y-1 transition-transform">
-                <span class="absolute top-4 right-4 bg-rblue text-white px-2 py-1 text-[10px] font-bold rounded-md uppercase tracking-wide">50% OFF</span>
+            <div class="p-10 border border-rblue/30 box-sharp bg-gray-50 dark:bg-[#0a0a0a] relative shadow-glow-heavy flex flex-col hover:-translate-y-1 transition-transform">
+                <span class="absolute top-5 right-5 bg-rblue text-white px-3 py-1 text-[11px] font-bold rounded-md uppercase tracking-wide">50% OFF</span>
                 
-                <span class="text-[13px] font-extrabold text-rblue uppercase tracking-widest block">Executive Package</span>
+                <span class="text-sm font-extrabold text-rblue uppercase tracking-widest block">Executive Package</span>
                 
-                <div class="bg-gray-100 dark:bg-black/60 rounded-lg p-3 mt-3 mb-6 border-l-4 border-rblue">
-                    <p class="text-[12px] text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Perfect for professionals with more than 5 years of experience. <span class="text-black dark:text-white font-bold block mt-1">Designed to showcase leadership and deep expertise.</span></p>
+                <div class="bg-gray-100 dark:bg-black/60 rounded-xl p-4 mt-4 mb-8 border-l-4 border-rblue">
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">Perfect for professionals with more than 5 years of experience. <span class="text-black dark:text-white font-bold block mt-1">Designed to showcase leadership and deep expertise.</span></p>
                 </div>
                 
                 <div class="flex items-end gap-3 mb-8">
-                    <span class="text-gray-400 line-through text-lg font-medium">₹1999</span>
-                    <span class="text-5xl font-bold text-black dark:text-white tracking-tight">₹999</span>
+                    <span class="text-gray-400 line-through text-xl font-medium">₹1999</span>
+                    <span class="text-6xl font-bold text-black dark:text-white tracking-tight">₹999</span>
                 </div>
 
-                <ul class="text-[13px] text-gray-600 dark:text-gray-300 space-y-5 mb-8 font-medium flex-1">
+                <ul class="text-sm text-gray-600 dark:text-gray-300 space-y-6 mb-8 font-medium flex-1">
                     <li class="flex items-start gap-3"><span class="text-rblue shrink-0 mt-0.5 font-bold">✓</span> <strong class="text-black dark:text-white">Everything in Professional</strong></li>
                     <li class="flex items-start gap-3"><span class="text-rblue shrink-0 mt-0.5">•</span> <span>Custom Cover Letter Included</span></li>
                     <li class="flex items-start gap-3"><span class="text-rblue shrink-0 mt-0.5">•</span> <span>Targeted Keyword Injection for Senior Roles</span></li>
                     <li class="flex items-start gap-3"><span class="text-rblue shrink-0 mt-0.5">•</span> <span>LinkedIn Profile Optimization Guide</span></li>
                     
-                    <li class="flex items-start gap-3 bg-blue-50 dark:bg-blue-900/20 p-3 rounded-lg border border-blue-200 dark:border-blue-800/50">
+                    <li class="flex items-start gap-3 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-xl border border-blue-200 dark:border-blue-800/50">
                         <div class="relative flex items-center justify-center w-5 h-5 shrink-0 mt-0.5">
                             <div class="absolute inset-0 border-[1.5px] border-rblue border-dashed rounded-full animate-[spin_4s_linear_infinite]"></div>
                             <span class="text-rblue text-[10px] font-bold">✓</span>
                         </div>
                         <div>
                             <span class="font-bold text-black dark:text-white">Unlimited revisions</span>
-                            <span class="text-[10px] text-gray-500 dark:text-gray-400 block leading-tight mt-1 font-normal">to ensure you are completely satisfied</span>
+                            <span class="text-xs text-gray-500 dark:text-gray-400 block leading-tight mt-1 font-normal">to ensure you are completely satisfied</span>
                         </div>
                     </li>
                 </ul>
 
-                <a href="https://rzp.io/rzp/cInZwxJN" class="btn-small bg-rblue text-white w-full hover:bg-blue-600 transition-colors shadow-[0_0_20px_rgba(0,122,255,0.6)] order-glow">Order Now</a>
+                <a href="https://rzp.io/rzp/cInZwxJN" class="btn-small bg-rblue text-white w-full hover:bg-blue-600 transition-colors shadow-[0_0_20px_rgba(0,122,255,0.6)] order-glow py-4 text-base">Order Now</a>
             </div>
         </div>
         
-        <p class="text-center text-[12px] font-bold text-red-500 mt-8 animate-pulse">🔥 Only 6/50 slots left for this month!</p>
+        <p class="text-center text-sm font-bold text-red-500 mt-10 animate-pulse">🔥 Only 6/50 slots left for this month!</p>
         
         <div class="text-center mt-6">
-            <a href="#real-results" class="text-xs text-gray-500 hover:text-rblue underline transition-colors">Click to see reviews</a>
+            <a href="#real-results" class="text-sm text-gray-500 hover:text-rblue underline transition-colors">Click to see reviews</a>
         </div>
     </section>
 
