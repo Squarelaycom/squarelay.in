@@ -132,6 +132,18 @@
         #sticky-footer.show {
             transform: translateY(0);
         }
+
+        /* NEW CUSTOM STYLES FOR GLOW AND SWIPE */
+        .banner-glow { box-shadow: 0 0 15px rgba(0,0,0,0.25); }
+        .black-glow { box-shadow: 0 0 12px rgba(0,0,0,0.7); }
+        .text-glow-black { text-shadow: 0 0 10px rgba(0,0,0,0.4); }
+        
+        .text-slider { display: flex; animation: slideText 6s cubic-bezier(0.68, -0.55, 0.26, 1.55) infinite; }
+        @keyframes slideText {
+            0%, 40% { transform: translateX(0); }
+            50%, 90% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
     </style>
 </head>
 <body class="bg-white text-black transition-colors duration-300 pb-10">
@@ -192,9 +204,16 @@
     </div>
 
     <section class="pt-36 pb-12 px-6 text-center reveal max-w-4xl mx-auto">
-        <span class="inline-block py-1.5 px-4 bg-black text-white text-[10px] font-bold uppercase tracking-widest mb-6 border border-black box-sharp shadow-sm">
-            India's No 1 Resume Brand
-        </span>
+        <div class="relative overflow-hidden inline-flex h-8 w-64 bg-black border border-black box-sharp banner-glow mb-6 align-middle shadow-lg cursor-default select-none">
+            <div class="w-[200%] h-full flex text-slider">
+                <div class="w-1/2 flex items-center justify-center text-white text-[10px] font-bold uppercase tracking-widest px-2 text-center">
+                    India's No 1 Resume Brand
+                </div>
+                <div class="w-1/2 flex items-center justify-center text-white text-[10px] font-bold uppercase tracking-widest px-2 text-center">
+                    60 Days Money Back Policy
+                </div>
+            </div>
+        </div>
         
         <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] mb-6 text-black">
             Get 2X Salary Hikes<br>with a Pro Resume.
@@ -317,7 +336,7 @@
                 <div class="flex items-center gap-3 w-full mt-2">
                     <span id="currentTimeDisplay" class="text-[10px] font-medium text-gray-500 w-8 text-right">0:00</span>
                     <div class="flex-1 h-1.5 bg-gray-200 cursor-pointer relative btn-square" id="progressBarContainer">
-                        <div id="progressBarFill" class="absolute top-0 left-0 h-full bg-black transition-all" style="width: 0%;"></div>
+                        <div id="progressBarFill" class="absolute top-0 left-0 h-full bg-black transition-all black-glow" style="width: 0%;"></div>
                     </div>
                     <span id="durationDisplay" class="text-[10px] font-medium text-gray-500 w-8">0:24</span>
                 </div>
@@ -329,54 +348,63 @@
         </div>
     </section>
 
-    <!-- Pricing section optimized for mobile, smaller box, smaller price, clearer guarantee -->
     <section id="pricing" class="max-w-4xl mx-auto py-24 px-6 reveal">
         <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center text-black tracking-tight">Invest in your future.</h2>
         
-        <div class="max-w-sm mx-auto">
-            <div class="p-6 md:p-8 box-sharp bg-white relative shadow-lg flex flex-col hover:-translate-y-1 transition-transform duration-300">
+        <div class="max-w-[320px] mx-auto">
+            <div class="p-5 md:p-6 box-sharp bg-white relative shadow-lg flex flex-col hover:-translate-y-1 transition-transform duration-300">
                 <span class="absolute top-0 right-0 bg-black text-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest">
                     50% OFF
                 </span>
                 
                 <span class="text-sm font-bold text-gray-500 uppercase tracking-widest block mb-4">Executive Package</span>
                 
-                <div class="bg-gray-50 border-l-2 border-black pl-4 py-2 mb-6">
-                    <p class="text-xs text-gray-600 font-medium leading-relaxed">Perfect for professionals looking to showcase deep expertise. <span class="font-bold text-black block mt-1">Get directly shortlisted.</span></p>
+                <div class="bg-gray-50 border border-black pl-4 py-3 mb-6 banner-glow">
+                    <p class="text-xs text-gray-600 font-medium leading-relaxed pr-2">Perfect for professionals looking to showcase deep expertise. <span class="font-bold text-black block mt-1">Get directly shortlisted.</span></p>
                 </div>
                 
                 <div class="flex items-end gap-3 mb-6 pb-6 border-b border-gray-100">
-                    <span class="text-gray-400 line-through text-base md:text-lg font-medium">₹1999</span>
-                    <span class="text-3xl md:text-4xl font-bold text-black tracking-tight leading-none">₹999</span>
+                    <span class="text-gray-400 line-through text-lg md:text-xl font-medium">₹1999</span>
+                    <span class="text-4xl md:text-5xl font-bold text-black tracking-tight leading-none">₹999</span>
                 </div>
 
                 <ul class="text-sm text-gray-700 space-y-3 mb-6 font-medium flex-1">
-                    <li class="flex items-start gap-3"><span class="text-black font-bold mt-0.5">✓</span> <strong class="text-black">ATS-Optimized Resume</strong></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-400 font-bold mt-0.5">•</span> <span>Custom Cover Letter Included</span></li>
-                    <li class="flex items-start gap-3"><span class="text-gray-400 font-bold mt-0.5">•</span> <span>Targeted Keyword Injection</span></li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-black shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <strong class="text-black">ATS-Optimized Resume</strong>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <svg class="w-5 h-5 text-black shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <strong class="text-black">Industry best Resume handmade</strong>
+                    </li>
+                    <li class="flex items-start gap-3"><span class="text-gray-400 font-bold mt-0.5 ml-1">•</span> <span>Custom Cover Letter Included</span></li>
+                    <li class="flex items-start gap-3"><span class="text-gray-400 font-bold mt-0.5 ml-1">•</span> <span>Targeted Keyword Injection</span></li>
                     
-                    <li class="flex items-start gap-3 bg-gray-50 p-4 box-sharp mt-4 border-gray-200">
+                    <li class="flex items-start gap-3 bg-white p-4 box-sharp mt-5 border-black banner-glow">
                         <div class="shrink-0 mt-0.5 text-black font-bold">✓</div>
                         <div>
                             <span class="font-bold text-black uppercase tracking-wide text-xs">Unlimited revisions</span>
-                            <span class="text-[10px] text-gray-500 block mt-1">until you are 100% satisfied</span>
+                            <span class="text-[10px] text-gray-500 block mt-1">fully professional experience</span>
                         </div>
                     </li>
                 </ul>
                 
-                <div class="border border-gray-200 bg-white p-3 mb-6 flex items-start gap-3 box-sharp shadow-[2px_2px_0px_#000]">
+                <div class="border border-black bg-white p-3 mb-6 flex items-start gap-3 box-sharp banner-glow">
                     <span class="text-lg leading-none">🛡️</span>
                     <div>
                         <p class="text-[11px] font-bold text-black uppercase tracking-tight">60 Days Money-Back Guarantee</p>
-                        <p class="text-[9px] text-gray-500 font-medium mt-1">Not satisfied? Get a full refund. No questions asked.</p>
+                        <p class="text-[9px] text-gray-500 font-medium mt-1">Not works get a full refund<sup class="text-black text-[10px]">*</sup></p>
                     </div>
                 </div>
 
                 <a href="https://rzp.io/rzp/cInZwxJN" class="btn-small btn-square bg-black text-white w-full py-3.5 text-xs hover:bg-gray-800">Order Now</a>
+                <p class="text-center text-[10px] font-bold text-black mt-5 tracking-widest uppercase animate-pulse text-glow-black">🔥 Only 6/50 slots left for this month!</p>
             </div>
         </div>
-        
-        <p class="text-center text-xs font-bold text-red-600 mt-8 tracking-widest uppercase animate-pulse">🔥 Only 6/50 slots left for this month!</p>
     </section>
 
     <section id="clients" class="py-20 bg-gray-50 reveal text-left border-y border-gray-100">
@@ -451,14 +479,28 @@
                     <h4 class="text-sm font-bold text-black">How will you collect my details?</h4>
                     <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
                 </div>
-                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">Once you complete the payment, you will be redirected to a secure form to upload your old resume. Our expert will also connect with you on WhatsApp for any specific requirements.</p></div>
+                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">After complete payment your slot is booked and our resume expert connect on whatsapp within 24 hours. You can share all your old details and specific requirements there.</p></div>
             </div>
             <div class="faq-item border border-gray-200 p-5 bg-white cursor-pointer box-sharp hover:border-gray-300 transition-colors" onclick="this.classList.toggle('active')">
                 <div class="flex justify-between items-center">
                     <h4 class="text-sm font-bold text-black">What is the turnaround time?</h4>
                     <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
                 </div>
-                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">We usually deliver the first draft within 24 to 48 hours depending on the complexity of your profile and the package selected.</p></div>
+                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">We usually deliver the first draft within 2 to 4 working days depending on the complexity of your profile and the package selected.</p></div>
+            </div>
+            <div class="faq-item border border-gray-200 p-5 bg-white cursor-pointer box-sharp hover:border-gray-300 transition-colors" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-sm font-bold text-black">Do you offer revisions?</h4>
+                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">Yes! Our plan comes with unlimited revisions. We work closely with you until you are completely satisfied with the final resume structure and content.</p></div>
+            </div>
+            <div class="faq-item border border-gray-200 p-5 bg-white cursor-pointer box-sharp hover:border-gray-300 transition-colors" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-sm font-bold text-black">Do you provide editable files?</h4>
+                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">Yes, along with the PDF format, we provide fully editable Word (.docx) files so you can make minor updates in the future whenever needed.</p></div>
             </div>
         </div>
     </section>
@@ -469,7 +511,8 @@
                 <div class="h-10 md:h-12 mb-4">
                     <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png" alt="Squarelay" class="h-full w-auto block object-contain">
                 </div>
-                <p class="text-[11px] font-semibold text-gray-500 uppercase tracking-widest">Professional Resume Studio.</p>
+                <p class="text-[11px] font-bold text-black uppercase tracking-widest">India's Number 1 Brand</p>
+                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">60 Days Money Back Policy</p>
             </div>
             <div>
                 <h5 class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-4">Support</h5>
