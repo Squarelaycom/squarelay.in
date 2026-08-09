@@ -89,6 +89,24 @@
         #mobileMenu { transform: translateY(-100%); opacity: 0; }
         #mobileMenu.active { transform: translateY(0); opacity: 1; }
 
+        /* Notification (Left Side) - Clean */
+        #notify-container {
+            position: fixed; bottom: 80px; left: 20px;
+            z-index: 9999; display: flex; flex-direction: column; width: auto;
+            pointer-events: none;
+        }
+        .notify-wrapper {
+            background: #ffffff;
+            padding: 12px 16px;
+            display: flex; align-items: center; gap: 12px;
+            border: 1px solid #e5e5e5;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            width: max-content; max-width: 85vw;
+            animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            pointer-events: auto;
+        }
+        @keyframes popUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
         /* FAQ */
         .faq-ans { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
         .faq-item.active .faq-ans { max-height: 200px; }
@@ -115,13 +133,24 @@
             transform: translateY(0);
         }
 
-        /* NEW CUSTOM STYLES FOR GLOW */
+        /* CUSTOM STYLES FOR GLOW */
         .banner-glow { box-shadow: 0 0 15px rgba(0,0,0,0.25); }
         .black-glow { box-shadow: 0 0 12px rgba(0,0,0,0.7); }
         .text-glow-black { text-shadow: 0 0 10px rgba(0,0,0,0.4); }
+        .text-glow-accent { text-shadow: 0 0 8px rgba(0, 0, 0, 0.3); }
+        
+        .text-slider { display: flex; animation: slideText 6s cubic-bezier(0.68, -0.55, 0.26, 1.55) infinite; }
+        @keyframes slideText {
+            0%, 40% { transform: translateX(0); }
+            50%, 90% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
     </style>
 </head>
 <body class="bg-white text-black transition-colors duration-300 pb-10">
+
+    <!-- Removed popup script calls but kept container just in case -->
+    <div id="notify-container"></div>
 
     <nav class="fixed top-0 w-full z-[200] glass-nav">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -177,14 +206,21 @@
     </div>
 
     <section class="pt-36 pb-12 px-6 text-center reveal max-w-4xl mx-auto">
-        <span class="inline-block py-1.5 px-4 bg-black text-white text-[10px] font-bold uppercase tracking-widest mb-6 border border-black box-sharp shadow-sm banner-glow">
-            India's No 1 Resume Brand
-        </span>
+        <div class="relative overflow-hidden inline-flex h-8 w-64 bg-black border border-black box-sharp banner-glow mb-6 align-middle shadow-lg cursor-default select-none">
+            <div class="w-[200%] h-full flex text-slider">
+                <div class="w-1/2 flex items-center justify-center text-white text-[10px] font-bold uppercase tracking-widest px-2 text-center">
+                    India's No 1 Resume Brand
+                </div>
+                <div class="w-1/2 flex items-center justify-center text-white text-[10px] font-bold uppercase tracking-widest px-2 text-center">
+                    60 Days Money Back Policy
+                </div>
+            </div>
+        </div>
         
-        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-6 text-black">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-2 text-black">
             Get 2X Salary Hikes<br>with a Pro Resume.
         </h1>
-        <p class="text-gray-600 text-sm md:text-lg mx-auto mb-10 leading-relaxed font-medium px-4">
+        <p class="text-gray-600 text-xs md:text-sm mx-auto mb-10 leading-relaxed font-medium px-4">
             Move beyond generic templates. We architect ATS-proof resumes that guarantee direct interview calls from top companies.
         </p>
         
@@ -314,63 +350,67 @@
         </div>
     </section>
 
+    <!-- Pricing section optimized -->
     <section id="pricing" class="max-w-4xl mx-auto py-24 px-6 reveal">
         <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center text-black tracking-tight">Invest in your future.</h2>
         
         <div class="max-w-[320px] mx-auto">
-            <div class="p-5 md:p-6 box-sharp bg-white relative shadow-lg flex flex-col hover:-translate-y-1 transition-transform duration-300">
-                <span class="absolute top-0 right-0 bg-black text-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-widest">
-                    50% OFF
-                </span>
-                
-                <span class="text-sm font-bold text-gray-500 uppercase tracking-widest block mb-4">Executive Package</span>
-                
-                <div class="bg-gray-50 pl-4 py-3 mb-6">
-                    <p class="text-xs text-gray-600 font-medium leading-relaxed pr-2">Perfect for professionals looking to showcase deep expertise. <span class="font-bold text-black block mt-1">Get directly shortlisted.</span></p>
-                </div>
-                
-                <div class="flex items-end gap-3 mb-6 pb-6 border-b border-gray-100">
-                    <span class="text-gray-400 line-through text-lg md:text-xl font-medium">₹1999</span>
-                    <span class="text-4xl md:text-5xl font-bold text-black tracking-tight leading-none">₹999</span>
+            <div class="relative mt-4">
+                <!-- Top Ribbon -->
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-black text-white px-4 py-1 text-[9px] font-bold uppercase tracking-widest z-10 whitespace-nowrap shadow-sm text-glow-accent">
+                    60 Days Money Back Guarantee
                 </div>
 
-                <ul class="text-sm text-gray-700 space-y-3 mb-6 font-medium flex-1">
-                    <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-black shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                        <strong class="text-black">ATS-Optimized Resume</strong>
-                    </li>
-                    <li class="flex items-start gap-3">
-                        <svg class="w-5 h-5 text-black shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                        <strong class="text-black">Industry best Resume handmade</strong>
-                    </li>
+                <div class="p-5 md:p-6 box-sharp bg-white relative shadow-sm flex flex-col pt-8">
+                    <span class="text-sm font-bold text-gray-500 uppercase tracking-widest block mb-3 text-center">Executive Package</span>
                     
-                    <li class="flex items-start gap-3 bg-white p-4 box-sharp mt-5 border border-black banner-glow">
-                        <svg class="w-5 h-5 text-black shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
-                        <div>
-                            <span class="font-bold text-black uppercase tracking-wide text-xs">Unlimited revisions</span>
-                            <span class="text-[10px] text-gray-500 block mt-1">fully professional experience</span>
-                        </div>
-                    </li>
-                </ul>
-                
-                <div class="border border-black bg-white p-3 mb-6 flex items-start gap-3 box-sharp banner-glow">
-                    <span class="text-lg leading-none">🛡️</span>
-                    <div>
-                        <p class="text-[11px] font-bold text-black uppercase tracking-tight">60 Days Money-Back Guarantee</p>
-                        <p class="text-[9px] text-gray-500 font-medium mt-1">Not works get a full refund<sup class="text-black text-[10px]">*</sup></p>
+                    <div class="mb-5 text-center">
+                        <p class="text-xs text-gray-600 font-medium leading-relaxed">Perfect for professionals looking to showcase deep expertise. <span class="font-bold text-black text-glow-black">Get directly shortlisted.</span></p>
                     </div>
-                </div>
+                    
+                    <div class="flex items-end justify-center gap-3 mb-6 pb-6 border-b border-gray-100">
+                        <span class="text-gray-400 line-through text-lg md:text-xl font-medium">₹1999</span>
+                        <span class="text-4xl md:text-5xl font-bold text-black tracking-tight leading-none">₹999</span>
+                    </div>
 
-                <a href="https://rzp.io/rzp/cInZwxJN" class="btn-small btn-square bg-black text-white w-full py-3.5 text-xs hover:bg-gray-800">Order Now</a>
-                <p class="text-center text-[10px] font-bold text-black mt-5 tracking-widest uppercase animate-pulse text-glow-black">🔥 Only 6/50 slots left for this month!</p>
+                    <ul class="text-sm text-gray-700 space-y-3 mb-6 font-medium flex-1">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-black shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <strong class="text-black">ATS-Optimized Resume</strong>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-black shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <strong class="text-black">Industry best Resume handmade</strong>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-black shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <div>
+                                <span class="font-bold text-black uppercase tracking-wide text-xs text-glow-accent">Unlimited revisions</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-black shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <div>
+                                <span class="font-bold text-black uppercase tracking-wide text-xs text-glow-accent">60 Days Money Back Guarantee</span>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <a href="https://rzp.io/rzp/cInZwxJN" class="btn-small btn-square bg-black text-white w-full py-3.5 text-xs hover:bg-gray-800">Order Now</a>
+                    <p class="text-center text-[8px] text-gray-500 mt-2 font-medium">By ordering you accept and agree with Squarelay all policies.</p>
+                </div>
             </div>
         </div>
+        
+        <p class="text-center text-[10px] font-bold text-black mt-8 tracking-widest uppercase animate-pulse text-glow-black">6/50 slots left for this month!</p>
     </section>
 
     <section id="clients" class="py-20 bg-gray-50 reveal text-left border-y border-gray-100">
@@ -477,7 +517,7 @@
                 <div class="h-10 md:h-12 mb-4">
                     <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png" alt="Squarelay" class="h-full w-auto block object-contain">
                 </div>
-                <p class="text-[11px] font-bold text-black uppercase tracking-widest">India's Number 1 Brand</p>
+                <p class="text-[11px] font-bold text-black uppercase tracking-widest">India's No 1 Resume Brand</p>
                 <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">60 Days Money Back Policy</p>
             </div>
             <div>
