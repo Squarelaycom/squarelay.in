@@ -1,51 +1,1914 @@
-<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head>    <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init', '876931512035688');fbq('track', 'PageView');</script><noscript><img height="1" width="1" style="display:none"src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"/></noscript>    <meta name="norton-safeweb-site-verification" content="XZYTCIY09LA-D2LJ5TQ0C684I9PBYX6O58MTJO4VJ20NA-3PDZGV8I83Q7KX0NHUFG6W64FXAESGYG-J0-O3ZJIJ2ODGA1DEDRYMVPNH60KIQ9P92H2SYRHN12WMWYTK" />    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    <title>Squarelay | Professional Resume Studio</title>    <script src="https://cdn.tailwindcss.com"></script>    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />         <script>        tailwind.config = {            theme: {                extend: {                    colors: {                        black: '#ffffff',                        white: '#0a0a0a',                        gray: {                            50: '#111111',                            100: '#1a1a1a',                            200: '#2a2a2a',                            300: '#404040',                            400: '#737373',                            500: '#a3a3a3',                            600: '#d4d4d4',                            700: '#e5e5e5',                            800: '#f5f5f5',                            900: '#fafafa'                        }                    },                    fontFamily: {                        sans: ['Inter', 'sans-serif'],                    }                }            }        }    </script>
-    <style>        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; overflow-x: hidden; background-color: #0a0a0a; color: #ffffff; }                /* Apple-style Glossy Glass Nav */        .glass-nav {             background: rgba(10, 10, 10, 0.75);            backdrop-filter: blur(16px);            -webkit-backdrop-filter: blur(16px);            border-bottom: 1px solid rgba(255, 255, 255, 0.05);            transition: all 0.3s ease;        }
-        .menu-gloss {             background: rgba(10, 10, 10, 0.98);             backdrop-filter: blur(20px);            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);        }
-        .reveal { opacity: 0; transform: translateY(20px); transition: all 0.8s ease; }        .reveal.active { opacity: 1; transform: translateY(0); }
-        /* Marquee Animation */        @keyframes scrollL { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }        @keyframes scrollR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }        .m-track-L { display: flex; animation: scrollL 50s linear infinite; width: max-content; will-change: transform; }        .m-track-R { display: flex; animation: scrollR 50s linear infinite; width: max-content; will-change: transform; }                /* Square Images */        .s-img {             width: 160px;             height: 224px;             margin: 0 8px;             border-radius: 0;             object-fit: cover;             border: 1px solid #2a2a2a;         }        @media (min-width: 768px) {             .s-img { width: 220px; height: 308px; margin: 0 12px; }         }
-        /* Buttons & Boxes (Normal, Simple, Square) */        .btn-square {             border-radius: 0;             transition: all 0.2s ease;         }                .btn-small {             padding: 0.875rem 1.75rem;             font-size: 0.875rem;             font-weight: 600;             text-transform: uppercase;            letter-spacing: 0.05em;            display: inline-flex;             align-items: center;             justify-content: center;         }        .btn-small:active { transform: scale(0.98); }                .box-sharp { border-radius: 0; border: 1px solid #2a2a2a; }
-        #mobileMenu { transform: translateY(-100%); opacity: 0; }        #mobileMenu.active { transform: translateY(0); opacity: 1; }
-        /* Notification (Left Side) - Clean */        #notify-container {            position: fixed; bottom: 80px; left: 20px;            z-index: 9999; display: flex; flex-direction: column; width: auto;            pointer-events: none;        }        .notify-wrapper {            background: #0a0a0a;            padding: 12px 16px;            display: flex; align-items: center; gap: 12px;            border: 1px solid #2a2a2a;            box-shadow: 0 10px 30px rgba(0,0,0,0.5);            width: max-content; max-width: 85vw;            animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);            pointer-events: auto;        }        @keyframes popUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-        /* FAQ */        .faq-ans { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }        .faq-item.active .faq-ans { max-height: 200px; }        .faq-item.active svg { transform: rotate(180deg); }
-        .nav-arrow {             width: 36px; height: 36px; border-radius: 0; border: 1px solid #2a2a2a;             display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s;             background: #0a0a0a;        }        .nav-arrow:hover { background: #ffffff; color: #0a0a0a; border-color: #ffffff; }
-        .player-clean {            background: #111111;            border: 1px solid #2a2a2a;        }                /* Sticky Footer Transition - Hidden initially */        #sticky-footer {            transform: translateY(100%);            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);        }        #sticky-footer.show {            transform: translateY(0);        }
-        /* CUSTOM STYLES FOR GLOW */        .banner-glow { box-shadow: 0 0 15px rgba(255,255,255,0.15); }        .black-glow { box-shadow: 0 0 12px rgba(255,255,255,0.4); }        .text-glow-black { text-shadow: 0 0 10px rgba(255,255,255,0.4); }        .text-glow-accent { text-shadow: 0 0 8px rgba(255, 255, 255, 0.3); }                .text-slider { display: flex; animation: slideText 6s cubic-bezier(0.68, -0.55, 0.26, 1.55) infinite; }        @keyframes slideText {            0%, 40% { transform: translateX(0); }            50%, 90% { transform: translateX(-50%); }            100% { transform: translateX(0); }        }
-        /* ADDED ANIMATIONS FOR VOICE PLAYER GLOW */        @keyframes strongGlow {            0% { box-shadow: 0 0 5px rgba(255,255,255,0.1); }            50% { box-shadow: 0 0 15px rgba(255,255,255,0.6); border-color: #fff; }            100% { box-shadow: 0 0 5px rgba(255,255,255,0.1); }        }        .box-glow-anim {            animation: strongGlow 2s infinite;        }        .playing-glow {            box-shadow: 0 0 20px rgba(255, 255, 255, 0.9) !important;            border-color: #fff !important;        }    </style></head><body class="bg-white text-black transition-colors duration-300 pb-10">
-    <div id="notify-container"></div>
-    <nav class="fixed top-0 w-full z-[200] glass-nav">        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">                        <div id="nav-logo-image" class="h-12 md:h-14 transition-all duration-300">                <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Whitelogo.png" alt="Squarelay" class="h-full w-auto block object-contain">            </div>            <div id="nav-logo-text" class="hidden text-xl font-bold tracking-tight text-black transition-all duration-300">                Squarelay.            </div>                        <div class="hidden md:flex items-center gap-8 text-xs font-semibold text-black uppercase tracking-wider ml-auto">                <a href="#" class="hover:opacity-60 transition-opacity">Home</a>                <a href="#pricing" class="hover:opacity-60 transition-opacity">Pricing</a>                <a href="#clients" class="hover:opacity-60 transition-opacity">Client Reviews</a>                <a href="#impact" class="hover:opacity-60 transition-opacity">Our Impact</a>                <a href="https://wa.me/919517369969" class="btn-square border border-black hover:bg-black hover:text-white transition-colors px-4 py-2 flex items-center gap-2">                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>                    <div class="text-left">                        <p class="text-[10px] font-bold leading-none">Contact Support</p>                    </div>                </a>            </div>
-            <button onclick="toggleMenu()" class="md:hidden nav-btn p-2 flex flex-col justify-center gap-1.5">                <span class="block w-5 h-[1.5px] bg-black"></span>                <span class="block w-5 h-[1.5px] bg-black"></span>            </button>        </div>    </nav>
-    <div id="mobileMenu" class="fixed inset-0 menu-gloss z-[250] px-8 flex flex-col justify-center items-start text-left">        <button onclick="toggleMenu()" class="absolute top-6 right-6 p-4">            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>        </button>        <div class="flex flex-col space-y-6 w-full pl-2">            <a href="#" onclick="toggleMenu()" class="text-2xl font-semibold text-black tracking-tight hover:opacity-60">Home</a>            <a href="#pricing" onclick="toggleMenu()" class="text-2xl font-semibold text-black tracking-tight hover:opacity-60">Pricing</a>            <a href="#clients" onclick="toggleMenu()" class="text-2xl font-semibold text-black tracking-tight hover:opacity-60">Client Reviews</a>            <a href="#impact" onclick="toggleMenu()" class="text-2xl font-semibold text-black tracking-tight hover:opacity-60">Our Impact</a>                        <div class="mt-8 pt-8 border-t border-gray-200 w-full">                <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-3">Support</p>                <a href="https://wa.me/919517369969" class="flex items-center gap-3 bg-gray-50 p-4 border border-gray-200">                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-black"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>                    <div>                        <p class="text-sm font-semibold text-black">Contact Resume Writer</p>                        <p class="text-xs text-gray-500 mt-0.5">+91 9517369969</p>                    </div>                </a>            </div>        </div>    </div>
-    <section class="pt-36 pb-12 px-6 text-center reveal max-w-4xl mx-auto">        <span class="inline-block py-1.5 px-4 bg-black text-white text-[10px] font-bold uppercase tracking-widest mb-6 border border-black box-sharp shadow-sm banner-glow">            India's No 1 Best Resume Brand        </span>                <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-2 text-black">            Get 2X Salary Hikes<br>with a Pro Resume.        </h1>        <p class="text-gray-600 text-xs md:text-sm mx-auto mb-10 leading-relaxed font-medium px-4">            Move beyond generic templates. We architect ATS-proof resumes that guarantee direct interview calls from top companies.        </p>                <div class="flex flex-col items-center justify-center gap-5">            <a href="#pricing" class="btn-small btn-square bg-black text-white hover:bg-gray-800 py-3.5 px-8">Claim 50% Off Today</a>                        <div class="px-6 py-2 mt-2 flex items-center gap-3">                <svg class="w-4 h-4 text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>                <div class="text-xs font-semibold text-gray-700">                    <span id="hero-counter" class="font-bold text-black">0</span>+ Delivered <span class="mx-1 text-gray-300">|</span> <span class="font-bold text-black">4.9/5</span> Rating                </div>            </div>        </div>    </section>
-    <section class="py-10 border-y border-gray-100 bg-gray-50 reveal overflow-hidden">        <p class="text-center text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-6">Our Clients Work At</p>        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 max-w-5xl mx-auto px-4 opacity-70 grayscale">            <span class="text-xl md:text-2xl font-bold tracking-tight text-black">Google</span>            <span class="text-xl md:text-2xl font-bold tracking-tight text-black">Microsoft</span>            <span class="text-xl md:text-2xl font-bold tracking-tight text-black">OpenAI</span>            <span class="text-xl md:text-2xl font-bold tracking-tight text-black">Shopify</span>            <span class="text-xl md:text-2xl font-bold tracking-tight text-black">Amazon</span>        </div>    </section>
-    <section id="samples" class="py-16 bg-white reveal overflow-hidden">        <div class="m-track-L mb-6 md:mb-8">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%201.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%202.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%203.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%204.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%205.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%206.jpeg" class="s-img">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%201.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%202.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%203.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%204.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%205.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%206.jpeg" class="s-img">        </div>        <div class="m-track-R">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%207.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%208.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%209.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2010.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2011.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2012.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2013.jpeg" class="s-img">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%207.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%208.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%209.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2010.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2011.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2012.jpeg" class="s-img"><img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2013.jpeg" class="s-img">        </div>    </section>
-    <section id="choice" class="py-20 px-6 reveal bg-white">        <div class="max-w-5xl mx-auto">            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-12 text-center text-black">Two Paths</h2>                        <div class="grid md:grid-cols-2 gap-6">                <div class="box-sharp bg-gray-50 p-8 md:p-10">                    <h3 class="text-lg font-bold mb-3 text-gray-500 uppercase tracking-widest">The Trap</h3>                    <p class="text-sm text-gray-600 leading-relaxed font-medium">                        Applying with generic templates. Blocked by AI. Ignored by HR. The endless cycle of rejection.                    </p>                </div>
-                <div class="box-sharp bg-black p-8 md:p-10 text-white shadow-lg">                    <h3 class="text-lg font-bold mb-3 uppercase tracking-widest text-white">Squarelay</h3>                    <p class="text-sm text-gray-300 leading-relaxed mb-8 font-medium">                        ATS-compliant architecture. Keyword optimized. Direct interview calls. Secure your future today.                    </p>                    <a href="#pricing" class="btn-small btn-square bg-white text-black hover:bg-gray-200">Upgrade Career</a>                </div>            </div>        </div>    </section>
-    <section class="py-20 px-6 reveal max-w-5xl mx-auto text-center border-t border-gray-100">        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-12 text-black">How we do it.</h2>        <div class="grid md:grid-cols-3 gap-6">            <div class="p-8 box-sharp bg-white hover:border-gray-300 transition-colors text-left">                <div class="text-gray-300 font-bold text-4xl mb-4">01</div>                <h3 class="font-bold text-lg text-black mb-2">Pick a Package</h3>                <p class="text-sm text-gray-500 font-medium">Select a plan below and complete your secure payment to book your slot.</p>            </div>            <div class="p-8 box-sharp bg-white hover:border-gray-300 transition-colors text-left">                <div class="text-gray-300 font-bold text-4xl mb-4">02</div>                <h3 class="font-bold text-lg text-black mb-2">Connect on WhatsApp</h3>                <p class="text-sm text-gray-500 font-medium">Our expert resume writer will connect with you on WhatsApp to gather your details.</p>            </div>            <div class="p-8 box-sharp bg-black text-white text-left shadow-md">                <div class="text-gray-600 font-bold text-4xl mb-4">03</div>                <h3 class="font-bold text-lg text-white mb-2">Get Shortlisted</h3>                <p class="text-sm text-gray-300 font-medium">Receive your expertly crafted, ATS-proof resume in just 24-48 Hours.</p>            </div>        </div>    </section>
-    <section id="real-results" class="py-20 bg-gray-50 reveal overflow-hidden border-t border-gray-100">        <div class="text-center mb-12 px-6">            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black mb-3">Real Results.</h2>            <p class="text-gray-500 font-medium text-sm">See and hear what our clients say after getting interviewed.</p>        </div>
-        <div class="m-track-L mb-12">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-200 object-cover shadow-sm">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-200 object-cover shadow-sm">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-200 object-cover shadow-sm">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-200 object-cover shadow-sm">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-200 object-cover shadow-sm">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-200 object-cover shadow-sm">        </div>                <div class="max-w-md mx-auto mt-12 px-6">            <div id="clientVoiceBox" class="player-clean p-6 flex flex-col gap-5 relative box-sharp box-glow-anim">                                <div class="flex items-center justify-between mb-1">                    <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">Listen Now</span>                </div>
-                <div class="flex items-center gap-4">                    <button id="customPlayBtn" class="w-12 h-12 bg-black flex items-center justify-center shrink-0 cursor-pointer outline-none hover:bg-gray-800 transition-colors btn-square">                        <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-white ml-1"><path d="M8 5v14l11-7z"/></svg>                        <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-white hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>                    </button>                    <div class="flex-1">                        <p class="text-sm font-bold text-black tracking-tight">Client Voice Note</p>                        <p class="text-xs text-gray-500 font-medium mt-0.5">"Got shortlisted at Google!"</p>                    </div>                </div>                                <div class="flex items-center gap-3 w-full mt-2">                    <span id="currentTimeDisplay" class="text-[10px] font-medium text-gray-500 w-8 text-right">0:00</span>                    <div class="flex-1 h-1.5 bg-gray-200 cursor-pointer relative btn-square" id="progressBarContainer">                        <div id="progressBarFill" class="absolute top-0 left-0 h-full bg-black transition-all black-glow" style="width: 0%;"></div>                    </div>                    <span id="durationDisplay" class="text-[10px] font-medium text-gray-500 w-8">0:24</span>                </div>                                <audio id="realAudio" class="hidden">                    <source src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Voice1.oga" type="audio/ogg">                </audio>            </div>        </div>    </section>
-    <section id="pricing" class="max-w-4xl mx-auto py-24 px-6 reveal">        <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center text-black tracking-tight">Invest in your future.</h2>                <div class="max-w-[320px] mx-auto">            <div class="relative mt-4">                <!-- Top Ribbon / Audio Button -->                <div id="pricingAudioBtn" class="absolute -top-3 left-1/2 -translate-x-1/2 bg-black text-white px-4 py-1.5 text-[9px] font-bold uppercase tracking-widest z-10 whitespace-nowrap shadow-sm text-glow-accent cursor-pointer flex items-center justify-center gap-2 border border-gray-700 transition-all duration-300 overflow-hidden box-glow-anim">                    <div id="pricingAudioProgress" class="absolute left-0 top-0 h-full bg-white/30" style="width: 0%; pointer-events: none; transition: width 0.1s linear;"></div>                    <svg id="pPlayIcon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="relative z-10"><path d="M8 5v14l11-7z"/></svg>                    <svg id="pPauseIcon" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" class="hidden relative z-10"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>                    <span id="pAudioText" class="relative z-10">Tap to listen client feedback</span>                </div>
-                <div class="p-5 md:p-6 box-sharp bg-white relative shadow-sm flex flex-col pt-8">                    <span class="text-sm font-bold text-gray-500 uppercase tracking-widest block mb-3 text-center">Executive Package</span>                                        <div class="mb-5 text-center">                        <p class="text-xs text-gray-600 font-medium leading-relaxed">Perfect for professionals looking to showcase deep expertise. <span class="font-bold text-black text-glow-black">Get directly shortlisted.</span></p>                    </div>                                        <div class="flex items-end justify-center gap-3 mb-6 pb-6 border-b border-gray-100">                        <span class="text-gray-400 line-through text-lg md:text-xl font-medium">₹999</span>                        <span class="text-4xl md:text-5xl font-bold text-black tracking-tight leading-none">₹399</span>                    </div>
-                    <ul class="text-sm text-gray-700 space-y-3 mb-6 font-medium flex-1">                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-black shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>                            </svg>                            <strong class="text-black">ATS-Optimized Resume</strong>                        </li>                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-black shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>                            </svg>                            <strong class="text-black">Industry best Resume handmade</strong>                        </li>                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-black shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>                            </svg>                            <div>                                <span class="font-bold text-black uppercase tracking-wide text-xs text-glow-accent">60 Days Money Back Guarantee</span>                            </div>                        </li>                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-black shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline>                            </svg>                            <div>                                <span class="font-bold text-black uppercase tracking-wide text-xs text-glow-accent">Superfast 24 Hours Delivery</span>                            </div>                        </li>                    </ul>                                        <a href="https://rzp.io/rzp/GTm69mfz" class="btn-small btn-square bg-black text-white w-full py-3.5 text-xs hover:bg-gray-800">Order Now</a>                    <p class="text-center text-[8px] text-gray-500 mt-2 font-medium">By ordering you accept and agree with Squarelay all policies.</p>                </div>            </div>        </div>                <p class="text-center text-[10px] font-bold text-black mt-8 tracking-widest uppercase animate-pulse text-glow-black">6/50 slots left for this month!</p>    </section>
-    <section id="clients" class="py-20 bg-gray-50 reveal text-left border-y border-gray-100">        <div class="px-6 max-w-6xl mx-auto">            <div class="flex items-center justify-between mb-10">                <h2 class="text-3xl md:text-4xl font-bold text-black tracking-tight">Clients.</h2>                <div class="flex gap-2">                    <div class="nav-arrow custom-prev bg-white">                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>                    </div>                    <div class="nav-arrow custom-next bg-white">                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>                    </div>                </div>            </div>                        <div class="swiper swiper-testimonials w-full">                <div class="swiper-wrapper pb-10">                    <div class="swiper-slide h-auto">                        <div class="bg-white p-8 box-sharp h-full flex flex-col justify-between">                            <div class="flex items-center gap-4 mb-6">                                <img src="https://i.pravatar.cc/150?img=11" class="w-12 h-12 rounded-none border border-gray-200">                                <div><h5 class="text-sm font-bold text-black tracking-tight">Rohan Sharma</h5><p class="text-[10px] text-gray-500 font-bold uppercase mt-0.5">Software Engineer</p></div>                            </div>                            <p class="text-sm text-gray-700 leading-relaxed font-medium">"I was struggling to get calls for 6 months. After Squarelay rewrote my CV, I got interview calls from 3 MNCs in the first week. The design is clean and professional."</p>                        </div>                    </div>                     <div class="swiper-slide h-auto">                        <div class="bg-black text-white p-8 box-sharp h-full flex flex-col justify-between">                            <div class="flex items-center gap-4 mb-6">                                <img src="https://i.pravatar.cc/150?img=5" class="w-12 h-12 rounded-none border border-gray-700">                                <div><h5 class="text-sm font-bold text-white tracking-tight">Ananya Iyer</h5><p class="text-[10px] text-gray-400 font-bold uppercase mt-0.5">UI/UX Designer</p></div>                            </div>                            <p class="text-sm text-gray-300 leading-relaxed font-medium">"The Executive Plan is a game changer. The professional format they built is stunning and helped me showcase my work. HRs were really impressed."</p>                        </div>                    </div>                     <div class="swiper-slide h-auto">                        <div class="bg-white p-8 box-sharp h-full flex flex-col justify-between">                            <div class="flex items-center gap-4 mb-6">                                <img src="https://i.pravatar.cc/150?img=32" class="w-12 h-12 rounded-none border border-gray-200">                                <div><h5 class="text-sm font-bold text-black tracking-tight">Sana Malik</h5><p class="text-[10px] text-gray-500 font-bold uppercase mt-0.5">Data Analyst</p></div>                            </div>                            <p class="text-sm text-gray-700 leading-relaxed font-medium">"Shortlisted at Microsoft within 10 days. The keyword optimization is elite level. I highly recommend their services to anyone serious about their career."</p>                        </div>                    </div>                    <div class="swiper-slide h-auto">                        <div class="bg-white p-8 box-sharp h-full flex flex-col justify-between">                            <div class="flex items-center gap-4 mb-6">                                <img src="https://i.pravatar.cc/150?img=44" class="w-12 h-12 rounded-none border border-gray-200">                                <div><h5 class="text-sm font-bold text-black tracking-tight">Priya Das</h5><p class="text-[10px] text-gray-500 font-bold uppercase mt-0.5">Marketing Head</p></div>                            </div>                            <p class="text-sm text-gray-700 leading-relaxed font-medium">"Fastest delivery ever. I needed a resume for an urgent opening, and they delivered the Executive plan in 24 hours. Got the job!"</p>                        </div>                    </div>                </div>            </div>        </div>    </section>
-    <section id="faq" class="max-w-3xl mx-auto py-20 px-6 reveal">        <h2 class="text-3xl font-bold mb-10 text-black tracking-tight">FAQ</h2>        <div class="space-y-4">            <div class="faq-item border border-gray-200 p-5 bg-white cursor-pointer box-sharp hover:border-gray-300 transition-colors" onclick="this.classList.toggle('active')">                <div class="flex justify-between items-center">                    <h4 class="text-sm font-bold text-black">Why is ATS compliance important?</h4>                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>                </div>                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Our resumes are designed with correct formatting and keywords to bypass these bots and get you shortlisted.</p></div>            </div>            <div class="faq-item border border-gray-200 p-5 bg-white cursor-pointer box-sharp hover:border-gray-300 transition-colors" onclick="this.classList.toggle('active')">                <div class="flex justify-between items-center">                    <h4 class="text-sm font-bold text-black">How will you collect my details?</h4>                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>                </div>                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">After complete payment your slot is booked and our resume expert connect on whatsapp within 24 hours. You can share all your old details and specific requirements there.</p></div>            </div>            <div class="faq-item border border-gray-200 p-5 bg-white cursor-pointer box-sharp hover:border-gray-300 transition-colors" onclick="this.classList.toggle('active')">                <div class="flex justify-between items-center">                    <h4 class="text-sm font-bold text-black">What is the turnaround time?</h4>                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>                </div>                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">We usually deliver the first draft within 2 to 4 working days depending on the complexity of your profile and the package selected.</p></div>            </div>            <div class="faq-item border border-gray-200 p-5 bg-white cursor-pointer box-sharp hover:border-gray-300 transition-colors" onclick="this.classList.toggle('active')">                <div class="flex justify-between items-center">                    <h4 class="text-sm font-bold text-black">Do you provide editable files?</h4>                    <svg class="w-5 h-5 text-gray-400 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>                </div>                <div class="faq-ans"><p class="text-sm text-gray-600 font-medium py-3 mt-2 border-t border-gray-100 leading-relaxed">Yes, along with the PDF format, we provide fully editable Word (.docx) files so you can make minor updates in the future whenever needed.</p></div>            </div>        </div>    </section>
-    <footer class="bg-gray-50 border-t border-gray-200 pt-16 pb-24 px-6">        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">            <div>                <div class="h-10 md:h-12 mb-4">                    <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Whitelogo.png" alt="Squarelay" class="h-full w-auto block object-contain">                </div>                <p class="text-[11px] font-bold text-black uppercase tracking-widest">India's No 1 Resume Brand</p>                <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mt-1">60 Days Money Back Policy</p>            </div>            <div>                <h5 class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-4">Support</h5>                <div class="flex flex-col space-y-3 text-xs text-black font-semibold uppercase tracking-wide">                    <a href="https://wa.me/919517369969" class="hover:text-gray-500 transition-colors">WA: +91 9517369969</a>                    <a href="/cdn-cgi/l/email-protection#0774727777687573477476726675626b667e2964686a" class="hover:text-gray-500 transition-colors lowercase"><span class="__cf_email__" data-cfemail="e3909693938c9197a39092968291868f829acd808c8e">[email&#160;protected]</span></a>                </div>            </div>            <div>                <h5 class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-4">Links</h5>                <div class="flex flex-col space-y-3 text-xs text-black font-semibold uppercase tracking-wide">                    <a href="#" class="hover:text-gray-500 transition-colors">Home</a>                    <a href="#pricing" class="hover:text-gray-500 transition-colors">Pricing</a>                    <a href="#clients" class="hover:text-gray-500 transition-colors">Client Reviews</a>                </div>            </div>            <div>                <h5 class="text-[10px] text-gray-400 uppercase font-bold tracking-widest mb-4">Legal</h5>                <div class="flex flex-col space-y-3 text-xs text-black font-semibold uppercase tracking-wide">                    <a href="https://squarelay.com/policies" class="hover:text-gray-500 transition-colors">Policies</a>                </div>            </div>        </div>        <div class="max-w-6xl mx-auto text-[10px] text-gray-400 font-bold uppercase tracking-widest text-center md:text-left border-t border-gray-200 pt-6">            © Squarelay. All Rights Reserved.        </div>    </footer>
-    <!-- Sticky footer optimized and only visible on scroll up -->    <div id="sticky-footer" class="fixed bottom-0 left-0 w-full z-[300]">        <div class="bg-black text-white text-center py-1.5 text-[10px] font-bold uppercase tracking-widest">            Get Flat 50% Off - Ends in <span id="countdown-timer" class="font-black text-white">30:00</span>        </div>        <div class="bg-white/95 backdrop-blur-md border-t border-gray-200 px-4 py-3 flex items-center justify-between shadow-[0_-5px_20px_rgba(255,255,255,0.05)]">            <div class="flex items-center gap-3">                <div class="text-black hidden sm:block">                    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>                </div>                <div>                    <p class="text-[11px] md:text-xs font-bold text-black uppercase tracking-wide">4.9/5 Rating</p>                    <p class="text-[9px] text-gray-500 font-bold uppercase tracking-widest mt-0.5">6 Slots Left</p>                </div>            </div>            <a href="#pricing" class="btn-small btn-square bg-black text-white py-2.5 px-6 text-[11px] hover:bg-gray-800">Order Now</a>        </div>    </div>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>    <script>        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }                var swiper = new Swiper(".swiper-testimonials", {             slidesPerView: 1.1,             spaceBetween: 16,             loop: true,             navigation: {                nextEl: '.custom-next',                prevEl: '.custom-prev',            },            breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 24 } }         });
-        function reveal() {             var revs = document.querySelectorAll(".reveal");             for (var i = 0; i < revs.length; i++) {                 var wh = window.innerHeight;                 var top = revs[i].getBoundingClientRect().top;                 if (top < wh - 50) { revs[i].classList.add("active"); }             }         }        window.addEventListener("scroll", reveal); window.onload = reveal;
-        // Sticky Footer Logic: Show ONLY on scroll UP        let lastScrollTop = 0;        const stickyFooter = document.getElementById('sticky-footer');        window.addEventListener('scroll', function() {            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;                        // If scrolled down past 400px and scrolling UP, show it. If scrolling DOWN, hide it.            if (scrollTop > 400) {                if (scrollTop < lastScrollTop) {                    // Scrolling up                    stickyFooter.classList.add('show');                } else {                    // Scrolling down                    stickyFooter.classList.remove('show');                }            } else {                // At the top                stickyFooter.classList.remove('show');            }            lastScrollTop = scrollTop;        });
-        // Counter        document.addEventListener("DOMContentLoaded", () => {            const counterEl = document.getElementById("hero-counter");            let count = 0;            const target = 10000;            const increment = target / 50;                         const timer = setInterval(() => {                count += increment;                if(count >= target) {                    count = target;                    clearInterval(timer);                }                counterEl.innerText = count.toLocaleString();            }, 30);        });
-        // Timer        let countdownTime = 1800;        const countdownEl = document.getElementById('countdown-timer');        setInterval(() => {            let m = Math.floor(countdownTime / 60);            let s = countdownTime % 60;            countdownEl.innerText = `${m}:${s < 10 ? '0' : ''}${s}`;            if(countdownTime > 0) countdownTime--;        }, 1000);
-        // Audio Player Integration        const audio = document.getElementById("realAudio");        const playBtn = document.getElementById("customPlayBtn");        const playIcon = document.getElementById("playIcon");        const pauseIcon = document.getElementById("pauseIcon");        const progressBarFill = document.getElementById("progressBarFill");        const progressBarContainer = document.getElementById("progressBarContainer");        const currentTimeDisplay = document.getElementById("currentTimeDisplay");        const durationDisplay = document.getElementById("durationDisplay");        const clientVoiceBox = document.getElementById("clientVoiceBox");
-        // Pricing Box Audio Integration        const pricingAudioBtn = document.getElementById("pricingAudioBtn");        const pPlayIcon = document.getElementById("pPlayIcon");        const pPauseIcon = document.getElementById("pPauseIcon");        const pAudioText = document.getElementById("pAudioText");        const pricingAudioProgress = document.getElementById("pricingAudioProgress");
-        function formatTime(seconds) {            let min = Math.floor(seconds / 60);            let sec = Math.floor(seconds % 60);            return min + ":" + (sec < 10 ? "0" : "") + sec;        }
-        function toggleAudio() {            if (audio.paused) {                audio.play();            } else {                audio.pause();            }        }
-        playBtn.addEventListener("click", toggleAudio);        pricingAudioBtn.addEventListener("click", toggleAudio);
-        audio.addEventListener("play", () => {            // Main Audio Player updates            playIcon.classList.add("hidden");            pauseIcon.classList.remove("hidden");            clientVoiceBox.classList.remove("box-glow-anim");            clientVoiceBox.classList.add("playing-glow");
-            // Pricing Audio Btn updates            pPlayIcon.classList.add("hidden");            pPauseIcon.classList.remove("hidden");            pAudioText.textContent = "Tap to stop";            pricingAudioBtn.classList.remove("box-glow-anim");            pricingAudioBtn.classList.add("playing-glow");        });
-        audio.addEventListener("pause", () => {            // Main Audio Player updates            playIcon.classList.remove("hidden");            pauseIcon.classList.add("hidden");            clientVoiceBox.classList.add("box-glow-anim");            clientVoiceBox.classList.remove("playing-glow");
-            // Pricing Audio Btn updates            pPlayIcon.classList.remove("hidden");            pPauseIcon.classList.add("hidden");            pAudioText.textContent = "Tap to listen client feedback";            pricingAudioBtn.classList.add("box-glow-anim");            pricingAudioBtn.classList.remove("playing-glow");        });
-        audio.addEventListener("timeupdate", () => {            if(audio.duration){                const progressPercent = (audio.currentTime / audio.duration) * 100;                progressBarFill.style.width = progressPercent + "%";                pricingAudioProgress.style.width = progressPercent + "%";                currentTimeDisplay.textContent = formatTime(audio.currentTime);            }        });
-        audio.addEventListener("loadedmetadata", () => {            durationDisplay.textContent = formatTime(audio.duration);        });
-        progressBarContainer.addEventListener("click", (e) => {            const width = progressBarContainer.clientWidth;            const clickX = e.offsetX;            const newTime = (clickX / width) * audio.duration;            audio.currentTime = newTime;        });
-        audio.addEventListener("ended", () => {            // Visual resets logic runs off 'pause' event, this cleans up widths            progressBarFill.style.width = "0%";            pricingAudioProgress.style.width = "0%";            currentTimeDisplay.textContent = "0:00";        });    </script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496" integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ==" data-cf-beacon='{"version":"2024.11.0","token":"7485ce7abe2b4459861f4ba35a5c3418","r":1}' crossorigin="anonymous"></script></body></html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;
+n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;
+n.push=n;
+n.loaded=!0;
+n.version='2.0';
+n.queue=[];
+t=b.createElement(e);
+t.async=!0;
+t.src=v;
+s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '876931512035688');
+fbq('track', 'PageView');
+</script>
+
+<noscript>
+<img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"/>
+</noscript>
+
+<meta name="norton-safeweb-site-verification" content="XZYTCIY09LA-D2LJ5TQ0C684I9PBYX6O58MTJO4VJ20NA-3PDZGV8I83Q7KX0NHUFG6W64FXAESGYG-J0-O3ZJIJ2ODGA1DEDRYMVPNH60KIQ9P92H2SYRHN12WMWYTK" />
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Squarelay | Professional Resume Studio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+<script>
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                black: '#000000',
+                white: '#ffffff',
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            }
+        }
+    }
+}
+</script>
+
+<style>
+
+body {
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Apple-style Glossy Glass Nav */
+.glass-nav {
+    background: rgba(0, 0, 0, 0.78);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+.menu-gloss {
+    background: rgba(0, 0, 0, 0.98);
+    backdrop-filter: blur(20px);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Marquee Animation */
+@keyframes scrollL {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes scrollR {
+    0% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.m-track-L {
+    display: flex;
+    animation: scrollL 50s linear infinite;
+    width: max-content;
+    will-change: transform;
+}
+
+.m-track-R {
+    display: flex;
+    animation: scrollR 50s linear infinite;
+    width: max-content;
+    will-change: transform;
+}
+
+/* Square Images */
+.s-img {
+    width: 160px;
+    height: 224px;
+    margin: 0 8px;
+    border-radius: 0;
+    object-fit: cover;
+    border: 1px solid #262626;
+}
+
+@media (min-width: 768px) {
+    .s-img {
+        width: 220px;
+        height: 308px;
+        margin: 0 12px;
+    }
+}
+
+/* Buttons & Boxes */
+.btn-square {
+    border-radius: 0;
+    transition: all 0.2s ease;
+}
+
+.btn-small {
+    padding: 0.875rem 1.75rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-small:active {
+    transform: scale(0.98);
+}
+
+.box-sharp {
+    border-radius: 0;
+    border: 1px solid #262626;
+}
+
+#mobileMenu {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+#mobileMenu.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Notification */
+#notify-container {
+    position: fixed;
+    bottom: 80px;
+    left: 20px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    pointer-events: none;
+}
+
+.notify-wrapper {
+    background: #000000;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #333333;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    width: max-content;
+    max-width: 85vw;
+    animation: popUp 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: auto;
+}
+
+@keyframes popUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* FAQ */
+.faq-ans {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.faq-item.active .faq-ans {
+    max-height: 200px;
+}
+
+.faq-item.active svg {
+    transform: rotate(180deg);
+}
+
+.nav-arrow {
+    width: 36px;
+    height: 36px;
+    border-radius: 0;
+    border: 1px solid #333333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: #000000;
+    color: #ffffff;
+}
+
+.nav-arrow:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+/* Highlighted Voice Player */
+.player-clean {
+    background: #050505;
+    border: 1px solid #ffffff;
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.08),
+        0 0 30px rgba(255,255,255,0.12),
+        0 15px 45px rgba(0,0,0,0.8);
+    position: relative;
+}
+
+.player-clean::before {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border: 1px solid rgba(255,255,255,0.12);
+    pointer-events: none;
+}
+
+.voice-highlight {
+    background: #ffffff;
+    color: #000000;
+    padding: 4px 8px;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+/* Sticky Footer */
+#sticky-footer {
+    transform: translateY(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#sticky-footer.show {
+    transform: translateY(0);
+}
+
+/* Glow */
+.banner-glow {
+    box-shadow: 0 0 15px rgba(255,255,255,0.25);
+}
+
+.black-glow {
+    box-shadow: 0 0 12px rgba(255,255,255,0.7);
+}
+
+.text-glow-black {
+    text-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+.text-glow-accent {
+    text-shadow: 0 0 8px rgba(255,255,255,0.3);
+}
+
+.text-slider {
+    display: flex;
+    animation: slideText 6s cubic-bezier(0.68,-0.55,0.26,1.55) infinite;
+}
+
+@keyframes slideText {
+    0%, 40% {
+        transform: translateX(0);
+    }
+
+    50%, 90% {
+        transform: translateX(-50%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+</style>
+</head>
+
+<body class="bg-black text-white transition-colors duration-300 pb-10">
+
+<div id="notify-container"></div>
+
+<!-- NAVIGATION -->
+
+<nav class="fixed top-0 w-full z-[200] glass-nav">
+
+    <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+
+        <div id="nav-logo-image" class="h-12 md:h-14 transition-all duration-300">
+            <img
+                src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Whitelogo.png"
+                alt="Squarelay"
+                class="h-full w-auto block object-contain">
+        </div>
+
+        <div id="nav-logo-text"
+             class="hidden text-xl font-bold tracking-tight text-white transition-all duration-300">
+            Squarelay.
+        </div>
+
+        <div class="hidden md:flex items-center gap-8 text-xs font-semibold text-white uppercase tracking-wider ml-auto">
+
+            <a href="#" class="hover:opacity-60 transition-opacity">
+                Home
+            </a>
+
+            <a href="#pricing" class="hover:opacity-60 transition-opacity">
+                Pricing
+            </a>
+
+            <a href="#clients" class="hover:opacity-60 transition-opacity">
+                Client Reviews
+            </a>
+
+            <a href="#impact" class="hover:opacity-60 transition-opacity">
+                Our Impact
+            </a>
+
+            <a href="https://wa.me/919517369969"
+               class="btn-square border border-white hover:bg-white hover:text-black transition-colors px-4 py-2 flex items-center gap-2">
+
+                <svg width="14"
+                     height="14"
+                     viewBox="0 0 24 24"
+                     fill="currentColor">
+
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+
+                <div class="text-left">
+                    <p class="text-[10px] font-bold leading-none">
+                        Contact Support
+                    </p>
+                </div>
+
+            </a>
+
+        </div>
+
+        <button onclick="toggleMenu()"
+                class="md:hidden nav-btn p-2 flex flex-col justify-center gap-1.5">
+
+            <span class="block w-5 h-[1.5px] bg-white"></span>
+            <span class="block w-5 h-[1.5px] bg-white"></span>
+
+        </button>
+
+    </div>
+
+</nav>
+
+
+<!-- MOBILE MENU -->
+
+<div id="mobileMenu"
+     class="fixed inset-0 menu-gloss z-[250] px-8 flex flex-col justify-center items-start text-left">
+
+    <button onclick="toggleMenu()"
+            class="absolute top-6 right-6 p-4">
+
+        <svg width="24"
+             height="24"
+             viewBox="0 0 24 24"
+             fill="none"
+             stroke="white"
+             stroke-width="1.5">
+
+            <path d="M18 6L6 18M6 6l12 12"/>
+
+        </svg>
+
+    </button>
+
+    <div class="flex flex-col space-y-6 w-full pl-2">
+
+        <a href="#"
+           onclick="toggleMenu()"
+           class="text-2xl font-semibold text-white tracking-tight hover:opacity-60">
+            Home
+        </a>
+
+        <a href="#pricing"
+           onclick="toggleMenu()"
+           class="text-2xl font-semibold text-white tracking-tight hover:opacity-60">
+            Pricing
+        </a>
+
+        <a href="#clients"
+           onclick="toggleMenu()"
+           class="text-2xl font-semibold text-white tracking-tight hover:opacity-60">
+            Client Reviews
+        </a>
+
+        <a href="#impact"
+           onclick="toggleMenu()"
+           class="text-2xl font-semibold text-white tracking-tight hover:opacity-60">
+            Our Impact
+        </a>
+
+        <div class="mt-8 pt-8 border-t border-gray-800 w-full">
+
+            <p class="text-[10px] text-gray-500 uppercase font-bold tracking-widest mb-3">
+                Support
+            </p>
+
+            <a href="https://wa.me/919517369969"
+               class="flex items-center gap-3 bg-[#080808] p-4 border border-gray-800">
+
+                <svg width="20"
+                     height="20"
+                     viewBox="0 0 24 24"
+                     fill="currentColor"
+                     class="text-white">
+
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+
+                </svg>
+
+                <div>
+
+                    <p class="text-sm font-semibold text-white">
+                        Contact Resume Writer
+                    </p>
+
+                    <p class="text-xs text-gray-500 mt-0.5">
+                        +91 9517369969
+                    </p>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- HERO -->
+
+<section class="pt-36 pb-12 px-6 text-center reveal max-w-4xl mx-auto">
+
+    <span class="inline-block py-1.5 px-4 bg-white text-black text-[10px] font-bold uppercase tracking-widest mb-6 border border-white box-sharp shadow-sm banner-glow">
+
+        India's No 1 Best Resume Brand
+
+    </span>
+
+    <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-2 text-white">
+
+        Get 2X Salary Hikes<br>
+        with a Pro Resume.
+
+    </h1>
+
+    <p class="text-gray-400 text-xs md:text-sm mx-auto mb-10 leading-relaxed font-medium px-4">
+
+        Move beyond generic templates. We architect ATS-proof resumes that guarantee direct interview calls from top companies.
+
+    </p>
+
+    <div class="flex flex-col items-center justify-center gap-5">
+
+        <a href="#pricing"
+           class="btn-small btn-square bg-white text-black hover:bg-gray-200 py-3.5 px-8">
+
+            Claim 50% Off Today
+
+        </a>
+
+        <div class="px-6 py-2 mt-2 flex items-center gap-3">
+
+            <svg class="w-4 h-4 text-white"
+                 viewBox="0 0 24 24"
+                 fill="none"
+                 stroke="currentColor"
+                 stroke-width="2"
+                 stroke-linecap="round"
+                 stroke-linejoin="round">
+
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+
+            </svg>
+
+            <div class="text-xs font-semibold text-gray-400">
+
+                <span id="hero-counter"
+                      class="font-bold text-white">
+                    0
+                </span>+
+
+                Delivered
+
+                <span class="mx-1 text-gray-700">|</span>
+
+                <span class="font-bold text-white">
+                    4.9/5
+                </span>
+
+                Rating
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CLIENT BRANDS -->
+
+<section class="py-10 border-y border-gray-900 bg-[#050505] reveal overflow-hidden">
+
+    <p class="text-center text-[10px] font-bold uppercase tracking-widest text-gray-600 mb-6">
+        Our Clients Work At
+    </p>
+
+    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 max-w-5xl mx-auto px-4 opacity-70">
+
+        <span class="text-xl md:text-2xl font-bold tracking-tight text-white">
+            Google
+        </span>
+
+        <span class="text-xl md:text-2xl font-bold tracking-tight text-white">
+            Microsoft
+        </span>
+
+        <span class="text-xl md:text-2xl font-bold tracking-tight text-white">
+            OpenAI
+        </span>
+
+        <span class="text-xl md:text-2xl font-bold tracking-tight text-white">
+            Shopify
+        </span>
+
+        <span class="text-xl md:text-2xl font-bold tracking-tight text-white">
+            Amazon
+        </span>
+
+    </div>
+
+</section>
+
+
+<!-- RESUME SAMPLES -->
+
+<section id="samples"
+         class="py-16 bg-black reveal overflow-hidden">
+
+    <div class="m-track-L mb-6 md:mb-8">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%201.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%202.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%203.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%204.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%205.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%206.jpeg" class="s-img">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%201.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%202.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%203.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%204.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%205.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%206.jpeg" class="s-img">
+
+    </div>
+
+    <div class="m-track-R">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%207.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%208.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%209.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2010.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2011.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2012.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2013.jpeg" class="s-img">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%207.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%208.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%209.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2010.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2011.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2012.jpeg" class="s-img">
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2013.jpeg" class="s-img">
+
+    </div>
+
+</section>
+
+
+<!-- TWO PATHS -->
+
+<section id="choice"
+         class="py-20 px-6 reveal bg-black">
+
+    <div class="max-w-5xl mx-auto">
+
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-12 text-center text-white">
+            Two Paths
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+            <div class="box-sharp bg-[#080808] p-8 md:p-10">
+
+                <h3 class="text-lg font-bold mb-3 text-gray-500 uppercase tracking-widest">
+                    The Trap
+                </h3>
+
+                <p class="text-sm text-gray-400 leading-relaxed font-medium">
+
+                    Applying with generic templates. Blocked by AI. Ignored by HR. The endless cycle of rejection.
+
+                </p>
+
+            </div>
+
+            <div class="box-sharp bg-white p-8 md:p-10 text-black shadow-lg">
+
+                <h3 class="text-lg font-bold mb-3 uppercase tracking-widest text-black">
+                    Squarelay
+                </h3>
+
+                <p class="text-sm text-gray-600 leading-relaxed mb-8 font-medium">
+
+                    ATS-compliant architecture. Keyword optimized. Direct interview calls. Secure your future today.
+
+                </p>
+
+                <a href="#pricing"
+                   class="btn-small btn-square bg-black text-white hover:bg-gray-800">
+
+                    Upgrade Career
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- HOW WE DO IT -->
+
+<section class="py-20 px-6 reveal max-w-5xl mx-auto text-center border-t border-gray-900">
+
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-12 text-white">
+        How we do it.
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-6">
+
+        <div class="p-8 box-sharp bg-[#050505] hover:border-gray-700 transition-colors text-left">
+
+            <div class="text-gray-700 font-bold text-4xl mb-4">
+                01
+            </div>
+
+            <h3 class="font-bold text-lg text-white mb-2">
+                Pick a Package
+            </h3>
+
+            <p class="text-sm text-gray-500 font-medium">
+                Select a plan below and complete your secure payment to book your slot.
+            </p>
+
+        </div>
+
+        <div class="p-8 box-sharp bg-[#050505] hover:border-gray-700 transition-colors text-left">
+
+            <div class="text-gray-700 font-bold text-4xl mb-4">
+                02
+            </div>
+
+            <h3 class="font-bold text-lg text-white mb-2">
+                Connect on WhatsApp
+            </h3>
+
+            <p class="text-sm text-gray-500 font-medium">
+                Our expert resume writer will connect with you on WhatsApp to gather your details.
+            </p>
+
+        </div>
+
+        <div class="p-8 box-sharp bg-white text-black text-left shadow-md">
+
+            <div class="text-gray-300 font-bold text-4xl mb-4">
+                03
+            </div>
+
+            <h3 class="font-bold text-lg text-black mb-2">
+                Get Shortlisted
+            </h3>
+
+            <p class="text-sm text-gray-600 font-medium">
+                Receive your expertly crafted, ATS-proof resume in just 24-48 Hours.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- REAL RESULTS -->
+
+<section id="real-results"
+         class="py-20 bg-[#050505] reveal overflow-hidden border-t border-gray-900">
+
+    <div class="text-center mb-12 px-6">
+
+        <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-3">
+            Real Results.
+        </h2>
+
+        <p class="text-gray-500 font-medium text-sm">
+            See and hear what our clients say after getting interviewed.
+        </p>
+
+    </div>
+
+    <div class="m-track-L mb-12">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg"
+             alt="WhatsApp Review"
+             class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-800 object-cover shadow-sm">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg"
+             alt="WhatsApp Review"
+             class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-800 object-cover shadow-sm">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg"
+             alt="WhatsApp Review"
+             class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-800 object-cover shadow-sm">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg"
+             alt="WhatsApp Review"
+             class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-800 object-cover shadow-sm">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg"
+             alt="WhatsApp Review"
+             class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-800 object-cover shadow-sm">
+
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg"
+             alt="WhatsApp Review"
+             class="h-56 md:h-72 w-auto mx-4 rounded-none border border-gray-800 object-cover shadow-sm">
+
+    </div>
+
+
+    <!-- HIGHLIGHTED CLIENT VOICE PLAYER -->
+
+    <div class="max-w-md mx-auto mt-12 px-6">
+
+        <div class="player-clean p-6 flex flex-col gap-5 relative box-sharp">
+
+            <div class="flex items-center justify-between mb-1">
+
+                <span class="voice-highlight">
+                    Client Voice
+                </span>
+
+                <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500">
+                    Listen Now
+                </span>
+
+            </div>
+
+            <div class="flex items-center gap-4">
+
+                <button id="customPlayBtn"
+                        class="w-14 h-14 bg-white flex items-center justify-center shrink-0 cursor-pointer outline-none hover:bg-gray-200 transition-colors btn-square">
+
+                    <svg id="playIcon"
+                         width="20"
+                         height="20"
+                         viewBox="0 0 24 24"
+                         fill="currentColor"
+                         class="text-black ml-1">
+
+                        <path d="M8 5v14l11-7z"/>
+
+                    </svg>
+
+                    <svg id="pauseIcon"
+                         width="20"
+                         height="20"
+                         viewBox="0 0 24 24"
+                         fill="currentColor"
+                         class="text-black hidden">
+
+                        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+
+                    </svg>
+
+                </button>
+
+                <div class="flex-1">
+
+                    <p class="text-sm font-bold text-white tracking-tight">
+                        Client Voice Note
+                    </p>
+
+                    <p class="text-xs text-gray-500 font-medium mt-0.5">
+                        "Got shortlisted at Google!"
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="flex items-center gap-3 w-full mt-2">
+
+                <span id="currentTimeDisplay"
+                      class="text-[10px] font-medium text-gray-500 w-8 text-right">
+                    0:00
+                </span>
+
+                <div class="flex-1 h-1.5 bg-gray-800 cursor-pointer relative btn-square"
+                     id="progressBarContainer">
+
+                    <div id="progressBarFill"
+                         class="absolute top-0 left-0 h-full bg-white transition-all black-glow"
+                         style="width: 0%;">
+                    </div>
+
+                </div>
+
+                <span id="durationDisplay"
+                      class="text-[10px] font-medium text-gray-500 w-8">
+                    0:24
+                </span>
+
+            </div>
+
+            <audio id="realAudio" class="hidden">
+
+                <source
+                    src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Voice1.oga"
+                    type="audio/ogg">
+
+            </audio>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PRICING -->
+
+<section id="pricing"
+         class="max-w-4xl mx-auto py-24 px-6 reveal">
+
+    <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center text-white tracking-tight">
+        Invest in your future.
+    </h2>
+
+    <div class="max-w-[320px] mx-auto">
+
+        <div class="relative mt-4">
+
+            <!-- Top Ribbon -->
+
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-white text-black px-4 py-1 text-[9px] font-bold uppercase tracking-widest z-10 whitespace-nowrap shadow-sm text-glow-accent">
+
+                60 Days Money Back Guarantee
+
+            </div>
+
+            <div class="p-5 md:p-6 box-sharp bg-[#050505] relative shadow-sm flex flex-col pt-8">
+
+                <span class="text-sm font-bold text-gray-500 uppercase tracking-widest block mb-3 text-center">
+                    Executive Package
+                </span>
+
+                <div class="mb-5 text-center">
+
+                    <p class="text-xs text-gray-500 font-medium leading-relaxed">
+
+                        Perfect for professionals looking to showcase deep expertise.
+
+                        <span class="font-bold text-white text-glow-black">
+                            Get directly shortlisted.
+                        </span>
+
+                    </p>
+
+                </div>
+
+                <div class="flex items-end justify-center gap-3 mb-6 pb-6 border-b border-gray-900">
+
+                    <span class="text-gray-600 line-through text-lg md:text-xl font-medium">
+                        ₹999
+                    </span>
+
+                    <span class="text-4xl md:text-5xl font-bold text-white tracking-tight leading-none">
+                        ₹399
+                    </span>
+
+                </div>
+
+                <ul class="text-sm text-gray-400 space-y-3 mb-6 font-medium flex-1">
+
+                    <li class="flex items-start gap-3">
+
+                        <svg class="w-5 h-5 text-white shrink-0 mt-0.5"
+                             viewBox="0 0 24 24"
+                             fill="currentColor">
+
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+
+                        </svg>
+
+                        <strong class="text-white">
+                            ATS-Optimized Resume
+                        </strong>
+
+                    </li>
+
+
+                    <li class="flex items-start gap-3">
+
+                        <svg class="w-5 h-5 text-white shrink-0 mt-0.5"
+                             viewBox="0 0 24 24"
+                             fill="currentColor">
+
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+
+                        </svg>
+
+                        <strong class="text-white">
+                            Industry best Resume handmade
+                        </strong>
+
+                    </li>
+
+
+                    <li class="flex items-start gap-3">
+
+                        <svg class="w-5 h-5 text-white shrink-0 mt-0.5 text-glow-accent"
+                             viewBox="0 0 24 24"
+                             fill="none"
+                             stroke="currentColor"
+                             stroke-width="2"
+                             stroke-linecap="round"
+                             stroke-linejoin="round">
+
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+
+                        </svg>
+
+                        <div>
+
+                            <span class="font-bold text-white uppercase tracking-wide text-xs text-glow-accent">
+                                60 Days Money Back Guarantee
+                            </span>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+                <a href="https://rzp.io/rzp/GTm69mfz"
+                   class="btn-small btn-square bg-white text-black w-full py-3.5 text-xs hover:bg-gray-200">
+
+                    Order Now
+
+                </a>
+
+                <p class="text-center text-[8px] text-gray-600 mt-2 font-medium">
+                    By ordering you accept and agree with Squarelay all policies.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <p class="text-center text-[10px] font-bold text-white mt-8 tracking-widest uppercase animate-pulse text-glow-black">
+
+        6/50 slots left for this month!
+
+    </p>
+
+</section>
+
+
+<!-- CLIENTS -->
+
+<section id="clients"
+         class="py-20 bg-[#050505] reveal text-left border-y border-gray-900">
+
+    <div class="px-6 max-w-6xl mx-auto">
+
+        <div class="flex items-center justify-between mb-10">
+
+            <h2 class="text-3xl md:text-4xl font-bold text-white tracking-tight">
+                Clients.
+            </h2>
+
+            <div class="flex gap-2">
+
+                <div class="nav-arrow custom-prev">
+
+                    <svg width="18"
+                         height="18"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <path d="M15 18l-6-6 6-6"/>
+
+                    </svg>
+
+                </div>
+
+                <div class="nav-arrow custom-next">
+
+                    <svg width="18"
+                         height="18"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
+
+                        <path d="M9 18l6-6-6-6"/>
+
+                    </svg>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="swiper swiper-testimonials w-full">
+
+            <div class="swiper-wrapper pb-10">
+
+
+                <div class="swiper-slide h-auto">
+
+                    <div class="bg-black border border-gray-800 p-8 box-sharp h-full flex flex-col justify-between">
+
+                        <div class="flex items-center gap-4 mb-6">
+
+                            <img src="https://i.pravatar.cc/150?img=11"
+                                 class="w-12 h-12 rounded-none border border-gray-800">
+
+                            <div>
+
+                                <h5 class="text-sm font-bold text-white tracking-tight">
+                                    Rohan Sharma
+                                </h5>
+
+                                <p class="text-[10px] text-gray-500 font-bold uppercase mt-0.5">
+                                    Software Engineer
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-sm text-gray-400 leading-relaxed font-medium">
+
+                            "I was struggling to get calls for 6 months. After Squarelay rewrote my CV, I got interview calls from 3 MNCs in the first week. The design is clean and professional."
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="swiper-slide h-auto">
+
+                    <div class="bg-white text-black p-8 box-sharp h-full flex flex-col justify-between">
+
+                        <div class="flex items-center gap-4 mb-6">
+
+                            <img src="https://i.pravatar.cc/150?img=5"
+                                 class="w-12 h-12 rounded-none border border-gray-300">
+
+                            <div>
+
+                                <h5 class="text-sm font-bold text-black tracking-tight">
+                                    Ananya Iyer
+                                </h5>
+
+                                <p class="text-[10px] text-gray-500 font-bold uppercase mt-0.5">
+                                    UI/UX Designer
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-sm text-gray-700 leading-relaxed font-medium">
+
+                            "The Executive Plan is a game changer. The professional format they built is stunning and helped me showcase my work. HRs were really impressed."
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="swiper-slide h-auto">
+
+                    <div class="bg-black border border-gray-800 p-8 box-sharp h-full flex flex-col justify-between">
+
+                        <div class="flex items-center gap-4 mb-6">
+
+                            <img src="https://i.pravatar.cc/150?img=32"
+                                 class="w-12 h-12 rounded-none border border-gray-800">
+
+                            <div>
+
+                                <h5 class="text-sm font-bold text-white tracking-tight">
+                                    Sana Malik
+                                </h5>
+
+                                <p class="text-[10px] text-gray-500 font-bold uppercase mt-0.5">
+                                    Data Analyst
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-sm text-gray-400 leading-relaxed font-medium">
+
+                            "Shortlisted at Microsoft within 10 days. The keyword optimization is elite level. I highly recommend their services to anyone serious about their career."
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="swiper-slide h-auto">
+
+                    <div class="bg-black border border-gray-800 p-8 box-sharp h-full flex flex-col justify-between">
+
+                        <div class="flex items-center gap-4 mb-6">
+
+                            <img src="https://i.pravatar.cc/150?img=44"
+                                 class="w-12 h-12 rounded-none border border-gray-800">
+
+                            <div>
+
+                                <h5 class="text-sm font-bold text-white tracking-tight">
+                                    Priya Das
+                                </h5>
+
+                                <p class="text-[10px] text-gray-500 font-bold uppercase mt-0.5">
+                                    Marketing Head
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <p class="text-sm text-gray-400 leading-relaxed font-medium">
+
+                            "Fastest delivery ever. I needed a resume for an urgent opening, and they delivered the Executive plan in 24 hours. Got the job!"
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section id="faq"
+         class="max-w-3xl mx-auto py-20 px-6 reveal">
+
+    <h2 class="text-3xl font-bold mb-10 text-white tracking-tight">
+        FAQ
+    </h2>
+
+    <div class="space-y-4">
+
+
+        <div class="faq-item border border-gray-800 p-5 bg-[#050505] cursor-pointer box-sharp hover:border-gray-600 transition-colors"
+             onclick="this.classList.toggle('active')">
+
+            <div class="flex justify-between items-center">
+
+                <h4 class="text-sm font-bold text-white">
+                    Why is ATS compliance important?
+                </h4>
+
+                <svg class="w-5 h-5 text-gray-600 transition-transform"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     viewBox="0 0 24 24">
+
+                    <path d="M19 9l-7 7-7-7"/>
+
+                </svg>
+
+            </div>
+
+            <div class="faq-ans">
+
+                <p class="text-sm text-gray-500 font-medium py-3 mt-2 border-t border-gray-900 leading-relaxed">
+
+                    Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Our resumes are designed with correct formatting and keywords to bypass these bots and get you shortlisted.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item border border-gray-800 p-5 bg-[#050505] cursor-pointer box-sharp hover:border-gray-600 transition-colors"
+             onclick="this.classList.toggle('active')">
+
+            <div class="flex justify-between items-center">
+
+                <h4 class="text-sm font-bold text-white">
+                    How will you collect my details?
+                </h4>
+
+                <svg class="w-5 h-5 text-gray-600 transition-transform"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     viewBox="0 0 24 24">
+
+                    <path d="M19 9l-7 7-7-7"/>
+
+                </svg>
+
+            </div>
+
+            <div class="faq-ans">
+
+                <p class="text-sm text-gray-500 font-medium py-3 mt-2 border-t border-gray-900 leading-relaxed">
+
+                    After complete payment your slot is booked and our resume expert connect on whatsapp within 24 hours. You can share all your old details and specific requirements there.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item border border-gray-800 p-5 bg-[#050505] cursor-pointer box-sharp hover:border-gray-600 transition-colors"
+             onclick="this.classList.toggle('active')">
+
+            <div class="flex justify-between items-center">
+
+                <h4 class="text-sm font-bold text-white">
+                    What is the turnaround time?
+                </h4>
+
+                <svg class="w-5 h-5 text-gray-600 transition-transform"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     viewBox="0 0 24 24">
+
+                    <path d="M19 9l-7 7-7-7"/>
+
+                </svg>
+
+            </div>
+
+            <div class="faq-ans">
+
+                <p class="text-sm text-gray-500 font-medium py-3 mt-2 border-t border-gray-900 leading-relaxed">
+
+                    We usually deliver the first draft within 2 to 4 working days depending on the complexity of your profile and the package selected.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item border border-gray-800 p-5 bg-[#050505] cursor-pointer box-sharp hover:border-gray-600 transition-colors"
+             onclick="this.classList.toggle('active')">
+
+            <div class="flex justify-between items-center">
+
+                <h4 class="text-sm font-bold text-white">
+                    Do you offer revisions?
+                </h4>
+
+                <svg class="w-5 h-5 text-gray-600 transition-transform"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     viewBox="0 0 24 24">
+
+                    <path d="M19 9l-7 7-7-7"/>
+
+                </svg>
+
+            </div>
+
+            <div class="faq-ans">
+
+                <p class="text-sm text-gray-500 font-medium py-3 mt-2 border-t border-gray-900 leading-relaxed">
+
+                    Yes! Our plan comes with unlimited revisions. We work closely with you until you are completely satisfied with the final resume structure and content.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="faq-item border border-gray-800 p-5 bg-[#050505] cursor-pointer box-sharp hover:border-gray-600 transition-colors"
+             onclick="this.classList.toggle('active')">
+
+            <div class="flex justify-between items-center">
+
+                <h4 class="text-sm font-bold text-white">
+                    Do you provide editable files?
+                </h4>
+
+                <svg class="w-5 h-5 text-gray-600 transition-transform"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="2"
+                     viewBox="0 0 24 24">
+
+                    <path d="M19 9l-7 7-7-7"/>
+
+                </svg>
+
+            </div>
+
+            <div class="faq-ans">
+
+                <p class="text-sm text-gray-500 font-medium py-3 mt-2 border-t border-gray-900 leading-relaxed">
+
+                    Yes, along with the PDF format, we provide fully editable Word (.docx) files so you can make minor updates in the future whenever needed.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer class="bg-[#050505] border-t border-gray-900 pt-16 pb-24 px-6">
+
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+
+
+        <div>
+
+            <div class="h-10 md:h-12 mb-4">
+
+                <img
+                    src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Whitelogo.png"
+                    alt="Squarelay"
+                    class="h-full w-auto block object-contain">
+
+            </div>
+
+            <p class="text-[11px] font-bold text-white uppercase tracking-widest">
+                India's No 1 Resume Brand
+            </p>
+
+            <p class="text-[10px] font-bold text-gray-600 uppercase tracking-widest mt-1">
+                60 Days Money Back Policy
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h5 class="text-[10px] text-gray-600 uppercase font-bold tracking-widest mb-4">
+                Support
+            </h5>
+
+            <div class="flex flex-col space-y-3 text-xs text-white font-semibold uppercase tracking-wide">
+
+                <a href="https://wa.me/919517369969"
+                   class="hover:text-gray-500 transition-colors">
+                    WA: +91 9517369969
+                </a>
+
+                <a href="/cdn-cgi/l/email-protection#0774727777687573477476726675626b667e2964686a"
+                   class="hover:text-gray-500 transition-colors lowercase">
+
+                    <span class="__cf_email__"
+                          data-cfemail="e3909693938c9197a39092968291868f829acd808c8e">
+                        [email protected]
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h5 class="text-[10px] text-gray-600 uppercase font-bold tracking-widest mb-4">
+                Links
+            </h5>
+
+            <div class="flex flex-col space-y-3 text-xs text-white font-semibold uppercase tracking-wide">
+
+                <a href="#" class="hover:text-gray-500 transition-colors">
+                    Home
+                </a>
+
+                <a href="#pricing" class="hover:text-gray-500 transition-colors">
+                    Pricing
+                </a>
+
+                <a href="#clients" class="hover:text-gray-500 transition-colors">
+                    Client Reviews
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h5 class="text-[10px] text-gray-600 uppercase font-bold tracking-widest mb-4">
+                Legal
+            </h5>
+
+            <div class="flex flex-col space-y-3 text-xs text-white font-semibold uppercase tracking-wide">
+
+                <a href="https://squarelay.com/policies"
+                   class="hover:text-gray-500 transition-colors">
+                    Policies
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="max-w-6xl mx-auto text-[10px] text-gray-700 font-bold uppercase tracking-widest text-center md:text-left border-t border-gray-900 pt-6">
+
+        © Squarelay. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+<!-- STICKY FOOTER -->
+
+<div id="sticky-footer"
+     class="fixed bottom-0 left-0 w-full z-[300]">
+
+    <div class="bg-white text-black text-center py-1.5 text-[10px] font-bold uppercase tracking-widest">
+
+        Get Flat 50% Off - Ends in
+
+        <span id="countdown-timer"
+              class="font-black">
+            30:00
+        </span>
+
+    </div>
+
+    <div class="bg-black/95 backdrop-blur-md border-t border-gray-800 px-4 py-3 flex items-center justify-between shadow-[0_-5px_20px_rgba(0,0,0,0.5)]">
+
+        <div class="flex items-center gap-3">
+
+            <div class="text-white hidden sm:block">
+
+                <svg class="w-5 h-5 fill-current"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="currentColor"
+                     stroke-width="1.5">
+
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+
+                </svg>
+
+            </div>
+
+            <div>
+
+                <p class="text-[11px] md:text-xs font-bold text-white uppercase tracking-wide">
+                    4.9/5 Rating
+                </p>
+
+                <p class="text-[9px] text-gray-600 font-bold uppercase tracking-widest mt-0.5">
+                    6 Slots Left
+                </p>
+
+            </div>
+
+        </div>
+
+        <a href="#pricing"
+           class="btn-small btn-square bg-white text-black py-2.5 px-6 text-[11px] hover:bg-gray-200">
+
+            Order Now
+
+        </a>
+
+    </div>
+
+</div>
+
+
+<script src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+<script>
+
+function toggleMenu() {
+
+    document.getElementById('mobileMenu').classList.toggle('active');
+
+}
+
+
+var swiper = new Swiper(".swiper-testimonials", {
+
+    slidesPerView: 1.1,
+
+    spaceBetween: 16,
+
+    loop: true,
+
+    navigation: {
+
+        nextEl: '.custom-next',
+
+        prevEl: '.custom-prev',
+
+    },
+
+    breakpoints: {
+
+        768: {
+
+            slidesPerView: 2.2,
+
+            spaceBetween: 24
+
+        }
+
+    }
+
+});
+
+
+function reveal() {
+
+    var revs = document.querySelectorAll(".reveal");
+
+    for (var i = 0; i < revs.length; i++) {
+
+        var wh = window.innerHeight;
+
+        var top = revs[i].getBoundingClientRect().top;
+
+        if (top < wh - 50) {
+
+            revs[i].classList.add("active");
+
+        }
+
+    }
+
+}
+
+window.addEventListener("scroll", reveal);
+window.onload = reveal;
+
+
+/* Sticky Footer Logic */
+
+let lastScrollTop = 0;
+
+const stickyFooter = document.getElementById('sticky-footer');
+
+window.addEventListener('scroll', function() {
+
+    let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop;
+
+    if (scrollTop > 400) {
+
+        if (scrollTop < lastScrollTop) {
+
+            stickyFooter.classList.add('show');
+
+        } else {
+
+            stickyFooter.classList.remove('show');
+
+        }
+
+    } else {
+
+        stickyFooter.classList.remove('show');
+
+    }
+
+    lastScrollTop = scrollTop;
+
+});
+
+
+/* Counter */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const counterEl =
+        document.getElementById("hero-counter");
+
+    let count = 0;
+
+    const target = 10000;
+
+    const increment = target / 50;
+
+    const timer = setInterval(() => {
+
+        count += increment;
+
+        if (count >= target) {
+
+            count = target;
+
+            clearInterval(timer);
+
+        }
+
+        counterEl.innerText =
+            count.toLocaleString();
+
+    }, 30);
+
+});
+
+
+/* Timer */
+
+let countdownTime = 1800;
+
+const countdownEl =
+    document.getElementById('countdown-timer');
+
+setInterval(() => {
+
+    let m = Math.floor(countdownTime / 60);
+
+    let s = countdownTime % 60;
+
+    countdownEl.innerText =
+        `${m}:${s < 10 ? '0' : ''}${s}`;
+
+    if (countdownTime > 0) {
+
+        countdownTime--;
+
+    }
+
+}, 1000);
+
+
+/* Audio Player */
+
+const audio =
+    document.getElementById("realAudio");
+
+const playBtn =
+    document.getElementById("customPlayBtn");
+
+const playIcon =
+    document.getElementById("playIcon");
+
+const pauseIcon =
+    document.getElementById("pauseIcon");
+
+const progressBarFill =
+    document.getElementById("progressBarFill");
+
+const progressBarContainer =
+    document.getElementById("progressBarContainer");
+
+const currentTimeDisplay =
+    document.getElementById("currentTimeDisplay");
+
+const durationDisplay =
+    document.getElementById("durationDisplay");
+
+
+function formatTime(seconds) {
+
+    let min = Math.floor(seconds / 60);
+
+    let sec = Math.floor(seconds % 60);
+
+    return min + ":" + (sec < 10 ? "0" : "") + sec;
+
+}
+
+
+playBtn.addEventListener("click", () => {
+
+    if (audio.paused) {
+
+        audio.play();
+
+        playIcon.classList.add("hidden");
+
+        pauseIcon.classList.remove("hidden");
+
+    } else {
+
+        audio.pause();
+
+        playIcon.classList.remove("hidden");
+
+        pauseIcon.classList.add("hidden");
+
+    }
+
+});
+
+
+audio.addEventListener("timeupdate", () => {
+
+    if (audio.duration) {
+
+        const progressPercent =
+            (audio.currentTime / audio.duration) * 100;
+
+        progressBarFill.style.width =
+            progressPercent + "%";
+
+        currentTimeDisplay.textContent =
+            formatTime(audio.currentTime);
+
+    }
+
+});
+
+
+audio.addEventListener("loadedmetadata", () => {
+
+    durationDisplay.textContent =
+        formatTime(audio.duration);
+
+});
+
+
+progressBarContainer.addEventListener("click", (e) => {
+
+    const width =
+        progressBarContainer.clientWidth;
+
+    const clickX =
+        e.offsetX;
+
+    const newTime =
+        (clickX / width) * audio.duration;
+
+    audio.currentTime =
+        newTime;
+
+});
+
+
+audio.addEventListener("ended", () => {
+
+    playIcon.classList.remove("hidden");
+
+    pauseIcon.classList.add("hidden");
+
+    progressBarFill.style.width =
+        "0%";
+
+    currentTimeDisplay.textContent =
+        "0:00";
+
+});
+
+</script>
+
+
+<script type="module"
+        src="https://static.cloudflareinsights.com/beacon.min.js/v4513226cdae34746b4dedf0b4dfa099e1781791509496"
+        integrity="sha512-ZE9pZaUXND66v380QUtch/5sE9tPFh2zg45pR2PB0CVkCtOREv2AJKkSidISWkysEuQ0EH8faUU5du78bx87UQ=="
+        data-cf-beacon='{"version":"2024.11.0","token":"7485ce7abe2b4459861f4ba35a5c3418","r":1}'
+        crossorigin="anonymous">
+</script>
+
+</body>
+</html>
