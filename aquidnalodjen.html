@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        
+        // Pixel Initialize
+        fbq('init', '876931512035688');
+        fbq('track', 'PageView');
+        
+        // EXACT PURCHASE EVENT - Fire automatically on this page
+        fbq('track', 'Purchase', {
+            currency: 'INR',
+            value: 299.00
+        });
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"/>
+    </noscript>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Please wait... | Squarelay</title>
+    
+    <!-- Scripts & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { black: '#0a0a0a', white: '#ffffff' },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #ffffff; 
+            color: #0a0a0a; 
+            -webkit-font-smoothing: antialiased;
+        }
+        
+        /* Smooth Custom Spinner */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border-left-color: #0a0a0a;
+            animation: spin 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        }
+        @keyframes spin { 
+            0% { transform: rotate(0deg); } 
+            100% { transform: rotate(360deg); } 
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen m-0 p-6 selection:bg-black selection:text-white">
+
+    <div class="text-center max-w-sm w-full flex flex-col items-center justify-center">
+        <!-- Squarelay Logo for Trust -->
+        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png" alt="Squarelay" class="h-10 mx-auto mb-10 object-contain opacity-90">
+        
+        <!-- Gol Gol Ghumne wala Spinner -->
+        <div class="spinner mb-8"></div>
+        
+        <!-- Text Content -->
+        <h1 class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3">
+            Please wait for confirmation...
+        </h1>
+        <p class="text-sm font-medium text-gray-500 tracking-wide leading-relaxed">
+            Securing your payment and redirecting.<br>Do not refresh or close this window.
+        </p>
+    </div>
+
+    <script>
+        // 3 seconds (3000 milliseconds) timer for optimal Meta Pixel firing
+        setTimeout(function() {
+            // location.replace used instead of location.href so user can't go back and fire pixel again
+            window.location.replace("/thank-you"); // Apna thank you page ka actual URL yahan daale
+        }, 3000); 
+    </script>
+</body>
+</html>
