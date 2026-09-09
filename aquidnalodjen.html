@@ -69,22 +69,30 @@
         }
     </style>
 </head>
-<body class="flex items-center justify-center min-h-screen m-0 p-6 selection:bg-black selection:text-white">
+<body class="flex flex-col min-h-screen m-0 selection:bg-black selection:text-white relative">
 
-    <div class="text-center max-w-sm w-full flex flex-col items-center justify-center">
-        <!-- Squarelay Logo for Trust -->
-        <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png" alt="Squarelay" class="h-10 mx-auto mb-10 object-contain opacity-90">
-        
-        <!-- Gol Gol Ghumne wala Spinner -->
-        <div class="spinner mb-8"></div>
-        
-        <!-- Text Content -->
-        <h1 class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3">
-            Please wait for confirmation...
-        </h1>
-        <p class="text-sm font-medium text-gray-500 tracking-wide leading-relaxed">
-            Securing your payment and redirecting.<br>Do not refresh or close this window.
-        </p>
+    <!-- Top Left Logo (Homepage Theme Matching) -->
+    <nav class="w-full absolute top-0 left-0 z-50 px-6 py-5 md:py-6">
+        <div class="max-w-6xl mx-auto flex justify-start">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png" alt="Squarelay" class="h-10 md:h-12 object-contain opacity-90">
+        </div>
+    </nav>
+
+    <!-- Main Content centered, but shifted slightly upwards with -mt-20 -->
+    <div class="flex-grow flex items-center justify-center p-6">
+        <div class="text-center max-w-sm w-full flex flex-col items-center justify-center -mt-20">
+            
+            <!-- Gol Gol Ghumne wala Spinner -->
+            <div class="spinner mb-8"></div>
+            
+            <!-- Text Content -->
+            <h1 class="text-xl md:text-2xl font-bold tracking-tight text-black mb-3">
+                Please wait for confirmation...
+            </h1>
+            <p class="text-sm font-medium text-gray-500 tracking-wide leading-relaxed">
+                Securing your payment and redirecting.<br>Do not refresh or close this window.
+            </p>
+        </div>
     </div>
 
     <script>
