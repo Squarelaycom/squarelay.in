@@ -1,50 +1,939 @@
-<!DOCTYPE html><html lang="en" class="scroll-smooth"><head>    <!-- Meta Pixel Code -->    <script>        !function(f,b,e,v,n,t,s) {            if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');        fbq('init', '876931512035688');        fbq('track', 'PageView');    </script>    <noscript>        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"/>    </noscript>        <meta name="norton-safeweb-site-verification" content="XZYTCIY09LA-D2LJ5TQ0C684I9PBYX6O58MTJO4VJ20NA-3PDZGV8I83Q7KX0NHUFG6W64FXAESGYG-J0-O3ZJIJ2ODGA1DEDRYMVPNH60KIQ9P92H2SYRHN12WMWYTK" />    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">    <meta name="robots" content="noindex, nofollow">    <title>Squarelay | Professional Resume Studio</title>        <!-- Performance Optimizations -->    <link rel="preconnect" href="https://raw.githubusercontent.com">    <link rel="preconnect" href="https://fonts.googleapis.com">    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>        <!-- Favicon -->    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png">        <!-- Scripts & Fonts -->    <script src="https://cdn.tailwindcss.com"></script>    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />        <script>        tailwind.config = {            darkMode: 'media', // Automatic dark mode based on system preference            theme: {                extend: {                    colors: {                        black: '#0a0a0a',                        white: '#ffffff',                        whatsapp: '#25D366',                        whatsappHover: '#1ebd59'                    },                    fontFamily: {                        sans: ['Inter', 'sans-serif'],                    }                }            }        }    </script>
-    <style>        body {             font-family: 'Inter', sans-serif;             -webkit-font-smoothing: antialiased;             overflow-x: hidden;             background-color: #ffffff;             color: #0a0a0a;         }                /* Apple-style Glossy Glass Nav */        .glass-nav {            background: rgba(255, 255, 255, 0.75);            backdrop-filter: blur(16px);            -webkit-backdrop-filter: blur(16px);            transition: all 0.3s ease;        }
-        .menu-gloss {            background: rgba(255, 255, 255, 0.98);            backdrop-filter: blur(20px);            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);        }
-        /* GLOBAL SMOOTH BLUR REVEAL ANIMATION */        .reveal {             opacity: 0;             filter: blur(12px);            transform: translateY(35px);             transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);         }        .reveal.active {             opacity: 1;             filter: blur(0);            transform: translateY(0);         }
-        /* Marquee Animation */        @keyframes scrollL { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }        @keyframes scrollR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }                .m-track-L { display: flex; animation: scrollL 50s linear infinite; width: max-content; will-change: transform; }        .m-track-R { display: flex; animation: scrollR 50s linear infinite; width: max-content; will-change: transform; }                /* Square Images */        .s-img {            width: 160px; height: 224px; margin: 0 8px; border-radius: 0.5rem; object-fit: cover; border: 1px solid #e5e5e5;        }        @media (min-width: 768px) {            .s-img { width: 220px; height: 308px; margin: 0 12px; }        }
-        /* Rounded UI */        .btn-rounded { border-radius: 0.5rem; transition: all 0.2s ease; }        .box-rounded { border-radius: 0.75rem; border: 1px solid #e5e5e5; }                .btn-small {            padding: 0.875rem 1.75rem; font-size: 0.875rem; font-weight: 600; text-transform: uppercase;            letter-spacing: 0.05em; display: inline-flex; align-items: center; justify-content: center;        }        .btn-small:active { transform: scale(0.98); }
-        #mobileMenu { transform: translateY(-100%); opacity: 0; }        #mobileMenu.active { transform: translateY(0); opacity: 1; }
-        /* FAQ */        .faq-ans { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }        .faq-item.active .faq-ans { max-height: 250px; }        .faq-item.active svg { transform: rotate(180deg); }
-        .nav-arrow {            width: 36px; height: 36px; border-radius: 0.5rem; border: 1px solid #e5e5e5;            display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; background: #ffffff;        }        .nav-arrow:hover { background: #0a0a0a; color: #ffffff; border-color: #0a0a0a; }
-        .player-clean { background: #fafafa; border: 1px solid #e5e5e5; }                /* Glow Styles */        .banner-glow { box-shadow: 0 0 15px rgba(0,0,0,0.25); }        .black-glow { box-shadow: 0 0 12px rgba(0,0,0,0.7); }        .text-glow-black { text-shadow: 0 0 10px rgba(0,0,0,0.4); }        .text-glow-accent { text-shadow: 0 0 8px rgba(0, 0, 0, 0.3); }
-        /* HERO TEXT ANIMATION */        .hero-word {            display: inline-block;            opacity: 0;            filter: blur(16px);            transform: translateY(10px);            animation: popBlur 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;        }        @keyframes popBlur {            0% { opacity: 0; filter: blur(16px); transform: translateY(10px); }            100% { opacity: 1; filter: blur(0); transform: translateY(0); }        }
-        /* GLOBAL GLOSSY BLUR EFFECT (LIGHT MODE) */        @media (prefers-color-scheme: light) {            body {                background: linear-gradient(135deg, #f4f7fc 0%, #eef1f6 100%);                background-attachment: fixed;            }            section, footer {                background: rgba(255, 255, 255, 0.3) !important;                backdrop-filter: blur(14px);                -webkit-backdrop-filter: blur(14px);            }            .box-rounded, .player-clean, .faq-item {                background: rgba(255, 255, 255, 0.5) !important;                backdrop-filter: blur(16px);                -webkit-backdrop-filter: blur(16px);                border: 1px solid rgba(255, 255, 255, 0.8) !important;                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);            }            .bg-black {                background: rgba(10, 10, 10, 0.85) !important;                backdrop-filter: blur(16px);                -webkit-backdrop-filter: blur(16px);                border: 1px solid rgba(255, 255, 255, 0.15) !important;            }        }
-        /* PURE BLACK DARK MODE OVERRIDES */        @media (prefers-color-scheme: dark) {            body { background: #000000 !important; color: #ffffff !important; }            .glass-nav { background: rgba(0, 0, 0, 0.85) !important; border-bottom: 1px solid #1a1a1a; }            .menu-gloss { background: rgba(0, 0, 0, 0.98) !important; }            section, footer { background: transparent !important; backdrop-filter: none !important; }            .box-rounded, .player-clean, .faq-item {                background: rgba(15, 15, 15, 0.8) !important;                backdrop-filter: blur(16px);                border: 1px solid rgba(255, 255, 255, 0.08) !important;                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);            }            .s-img { border-color: #1a1a1a; }            .nav-arrow { background: #0a0a0a !important; border-color: #2a2a2a !important; color: #ffffff !important; }            .nav-arrow:hover { background: #ffffff !important; color: #0a0a0a !important; }            .bg-black { background: #0a0a0a !important; border: 1px solid #222 !important; }
-            /* FIX FOR BUTTONS AND HAMBURGER MENU VISIBILITY IN DARK MODE */            .dark\:bg-white { background-color: #ffffff !important; border-color: #ffffff !important; }            .dark\:text-black { color: #0a0a0a !important; }        }    </style></head><body class="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
-    <nav class="fixed top-0 w-full z-[200] glass-nav">        <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">            <div id="nav-logo-image" class="h-10 md:h-12 transition-all duration-300">                <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png" alt="Squarelay" class="h-full w-auto block object-contain dark:invert">            </div>            <div class="hidden md:flex items-center gap-8 text-xs font-semibold text-black dark:text-white uppercase tracking-wider ml-auto">                <a href="#" class="hover:opacity-60 transition-opacity">Home</a>                <a href="#pricing" class="hover:opacity-60 transition-opacity">Pricing</a>                <a href="#clients" class="hover:opacity-60 transition-opacity">Client Reviews</a>                <a href="#faq" class="hover:opacity-60 transition-opacity">FAQ</a>            </div>            <button onclick="toggleMenu()" class="md:hidden nav-btn p-2 flex flex-col justify-center gap-1.5">                <span class="block w-5 h-[1.5px] bg-black dark:bg-white rounded"></span>                <span class="block w-5 h-[1.5px] bg-black dark:bg-white rounded"></span>            </button>        </div>    </nav>
-    <div id="mobileMenu" class="fixed inset-0 menu-gloss z-[250] px-8 flex flex-col justify-center items-start text-left">        <button onclick="toggleMenu()" class="absolute top-6 right-6 p-4">            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-black dark:text-white" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>        </button>        <div class="flex flex-col space-y-6 w-full pl-2">            <a href="#" onclick="toggleMenu()" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60">Home</a>            <a href="#pricing" onclick="toggleMenu()" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60">Pricing</a>            <a href="#clients" onclick="toggleMenu()" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60">Client Reviews</a>            <a href="#faq" onclick="toggleMenu()" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60">FAQ</a>                        <!-- Mobile 3 Level Support added Below FAQ -->            <div class="pt-4 border-t border-gray-200 dark:border-gray-800 w-full pr-8">                <button onclick="document.getElementById('mobile-support-dropdown').classList.toggle('max-h-[200px]');" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60 flex items-center justify-between w-full">                    3 Level Support                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>                </button>                <div id="mobile-support-dropdown" class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out">                    <div class="flex flex-col space-y-3 text-sm text-gray-600 dark:text-gray-400 font-medium mt-4">                        <div><span class="text-black dark:text-white uppercase text-xs font-bold block">1st Level:</span> WA +91 9517369969<br><a href="/cdn-cgi/l/email-protection#4c3f393c3c233e380c3f3d392d3e29202d35622f2321"><span class="__cf_email__" data-cfemail="31424441415e4345714240445043545d50481f525e5c">[email&#160;protected]</span></a></div>                        <div><span class="text-black dark:text-white uppercase text-xs font-bold block">2nd Level:</span> <a href="/cdn-cgi/l/email-protection#f893908d8b9091b88b898d998a9d949981d69b9795"><span class="__cf_email__" data-cfemail="3a51524f4952537a494b4f5b485f565b4314595557">[email&#160;protected]</span></a></div>                        <div><span class="text-black dark:text-white uppercase text-xs font-bold block">3rd Level:</span> <a href="/cdn-cgi/l/email-protection#e4838591968592a497959185968188859dca878b89"><span class="__cf_email__" data-cfemail="f2959387809384b28183879380979e938bdc919d9f">[email&#160;protected]</span></a></div>                    </div>                </div>            </div>        </div>    </div>
-    <section class="pt-36 pb-12 px-6 text-center reveal max-w-4xl mx-auto">        <span class="inline-block py-1.5 px-4 bg-black dark:bg-gray-800 text-white text-[10px] font-bold uppercase tracking-widest mb-4 btn-rounded shadow-sm banner-glow">            India's Best Resume Writing Service        </span>        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-4 text-black dark:text-white">            <span class="hero-word" style="animation-delay: 0.0s;">100%</span>            <span class="hero-word" style="animation-delay: 0.2s;">Human</span>            <span class="hero-word" style="animation-delay: 0.4s;">made</span><br>            <span class="hero-word" style="animation-delay: 0.6s;">ATS</span>            <span class="hero-word" style="animation-delay: 0.8s;">Friendly</span>            <span class="hero-word" style="animation-delay: 1.0s;">Resume.</span>        </h1>        <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm mx-auto mb-8 leading-relaxed font-medium px-4">            Move beyond generic templates. We architect ATS-proof resumes that guarantee direct interview calls from top companies.        </p>                <div class="flex flex-col items-center justify-center gap-2">            <a href="#pricing" class="btn-small btn-rounded bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 py-3.5 px-8">Claim 50% Off Today</a>                        <div class="px-6 py-2 mt-4 flex items-center gap-3">                <svg class="w-4 h-4 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>                    <circle cx="9" cy="7" r="4"></circle>                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>                </svg>                <div class="text-xs font-semibold text-gray-700 dark:text-gray-300">                    <span class="hero-counter font-bold text-black dark:text-white">0</span>+ Delivered <span class="mx-1 text-gray-300 dark:text-gray-600">|</span> <span class="font-bold text-black dark:text-white">4.9/5</span> Rating                </div>            </div>        </div>    </section>
-    <!-- Brands -->    <section class="py-10 border-y border-gray-100 dark:border-gray-900 bg-gray-50 dark:bg-[#050505] reveal overflow-hidden">        <p class="text-center text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">Our Clients Work At</p>        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 max-w-5xl mx-auto px-4 opacity-70 grayscale dark:opacity-50">            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">Google</span>            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">Microsoft</span>            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">OpenAI</span>            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">Shopify</span>            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">Amazon</span>        </div>    </section>
-    <!-- Samples -->    <section id="samples" class="py-16 bg-white dark:bg-black reveal overflow-hidden">        <div class="m-track-L mb-6 md:mb-8">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%201.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%202.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%203.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%204.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%205.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%206.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img dark:opacity-90" loading="lazy">        </div>        <div class="m-track-R">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%207.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%208.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%209.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2010.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2011.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2012.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2013.jpeg" class="s-img dark:opacity-90" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%207.jpeg" class="s-img dark:opacity-90" loading="lazy">        </div>    </section>
-    <!-- Choice Section -->    <section id="choice" class="py-20 px-6 reveal bg-white dark:bg-black border-t border-gray-100 dark:border-gray-900">        <div class="max-w-5xl mx-auto">            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-12 text-center text-black dark:text-white">Two Paths</h2>            <div class="grid md:grid-cols-2 gap-6">                <div class="box-rounded bg-gray-50 dark:bg-gray-900/50 p-8 md:p-10">                    <h3 class="text-lg font-bold mb-3 text-gray-500 dark:text-gray-400 uppercase tracking-widest">The Trap</h3>                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">                        Applying with generic templates. Blocked by AI. Ignored by HR. The endless cycle of rejection.                    </p>                </div>                <div class="box-rounded bg-black dark:bg-[#111] p-8 md:p-10 text-white shadow-lg border-black dark:border-gray-800">                    <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Whitelogo.png" alt="Squarelay" class="h-10 md:h-12 mb-6 object-contain">                    <p class="text-sm text-gray-300 leading-relaxed mb-8 font-medium">                        100% Human-made ATS-compliant architecture. Keyword optimized. Direct interview calls. Secure your future today.                    </p>                    <a href="#pricing" class="btn-small btn-rounded bg-white dark:bg-white text-black dark:text-black hover:bg-gray-200">Upgrade Career</a>                </div>            </div>        </div>    </section>
-    <!-- Process -->    <section class="py-20 px-6 reveal max-w-5xl mx-auto text-center border-t border-gray-100 dark:border-gray-900">        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-12 text-black dark:text-white">How we do it.</h2>        <div class="grid md:grid-cols-3 gap-6">            <div class="p-8 box-rounded bg-white dark:bg-gray-900/40 hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-left">                <div class="text-gray-300 dark:text-gray-700 font-bold text-4xl mb-4">01</div>                <h3 class="font-bold text-lg text-black dark:text-white mb-2">Pick a Package</h3>                <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Select a plan below and click on Chat on WhatsApp to connect with us.</p>            </div>            <div class="p-8 box-rounded bg-white dark:bg-gray-900/40 hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-left">                <div class="text-gray-300 dark:text-gray-700 font-bold text-4xl mb-4">02</div>                <h3 class="font-bold text-lg text-black dark:text-white mb-2">Connect on WhatsApp</h3>                <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Our expert resume writer will gather your details and begin crafting.</p>            </div>            <div class="p-8 box-rounded bg-black dark:bg-[#111] dark:border-gray-800 text-white text-left shadow-md border-black">                <div class="text-gray-600 dark:text-gray-500 font-bold text-4xl mb-4">03</div>                <h3 class="font-bold text-lg text-white mb-2">Get Shortlisted</h3>                <p class="text-sm text-gray-300 font-medium">Receive your expertly crafted, ATS-proof resume very quickly.</p>            </div>        </div>    </section>
-    <!-- Real Results (Voice Feedback) Section added back -->    <section id="real-results" class="py-20 bg-gray-50 dark:bg-[#050505] reveal overflow-hidden border-t border-gray-100 dark:border-gray-900">        <div class="text-center mb-12 px-6">            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black dark:text-white mb-3">Real Results.</h2>            <p class="text-gray-500 dark:text-gray-400 font-medium text-sm">See and hear what our clients say after getting interviewed.</p>        </div>
-        <div class="m-track-L mb-12">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">        </div>                <div class="max-w-md mx-auto mt-12 px-6">            <div class="player-clean p-6 flex flex-col gap-5 relative box-rounded">                <div class="flex items-center justify-between mb-1">                    <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Listen Now</span>                </div>                <div class="flex items-center gap-4">                    <button id="customPlayBtn" class="w-12 h-12 bg-black dark:bg-white flex items-center justify-center shrink-0 cursor-pointer outline-none hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors btn-rounded shadow-sm">                        <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-white dark:text-black ml-1"><path d="M8 5v14l11-7z"/></svg>                        <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-white dark:text-black hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>                    </button>                    <div class="flex-1">                        <p class="text-sm font-bold text-black dark:text-white tracking-tight">Client Voice Note</p>                        <p class="text-xs text-gray-500 dark:text-gray-400 font-medium mt-0.5">"Got shortlisted at Google!"</p>                    </div>                </div>                <div class="flex items-center gap-3 w-full mt-2">                    <span id="currentTimeDisplay" class="text-[10px] font-medium text-gray-500 dark:text-gray-400 w-8 text-right">0:00</span>                    <div class="flex-1 h-1.5 bg-gray-200 dark:bg-gray-700 cursor-pointer relative rounded-full overflow-hidden" id="progressBarContainer">                        <div id="progressBarFill" class="absolute top-0 left-0 h-full bg-black dark:bg-white transition-all" style="width: 0%;"></div>                    </div>                    <span id="durationDisplay" class="text-[10px] font-medium text-gray-500 dark:text-gray-400 w-8">0:24</span>                </div>                                <audio id="realAudio" class="hidden">                    <source src="https://cdn.jsdelivr.net/gh/Squarelaycom/squarelay.in@main/file/Voice1.oga" type="audio/ogg">                </audio>            </div>        </div>    </section>
-    <!-- Pricing Section -->    <section id="pricing" class="max-w-4xl mx-auto py-24 px-6 reveal">        <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center text-black dark:text-white tracking-tight">Invest in your future.</h2>                <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">            <!-- Plan 1: 999 -->            <div class="relative mt-4">                <div class="p-5 md:p-6 box-rounded bg-white dark:bg-gray-900/40 relative shadow-sm flex flex-col pt-8 h-full">                    <span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-3 text-center">Fresher to 20 Year Exp.</span>                    <div class="mb-5 text-center">                        <p class="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed">Perfect for professionals looking to showcase potential beautifully.</p>                    </div>                    <div class="flex items-end justify-center gap-2 mb-6 pb-6 border-b border-gray-100 dark:border-gray-800">                        <span class="text-gray-400 dark:text-gray-500 line-through text-lg md:text-xl font-medium pb-0.5">₹1999</span>                        <div class="flex items-start">                            <span class="text-4xl md:text-5xl font-bold text-black dark:text-white tracking-tight leading-none">₹999</span>                            <span class="bg-black dark:bg-gray-700 text-white text-[9px] font-bold px-2 py-1 rounded-full uppercase tracking-widest ml-1 -mt-1 shadow-sm">50% Off</span>                        </div>                    </div>
-                    <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-3 mb-6 font-medium flex-1">                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>                            </svg>                            <strong class="text-black dark:text-white">ATS-Optimized Resume</strong>                        </li>                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>                            </svg>                            <strong class="text-black dark:text-white">Industry best Resume handmade</strong>                        </li>                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>                                <polyline points="22 4 12 14.01 9 11.01"></polyline>                            </svg>                            <div>                                <span class="font-bold text-black dark:text-white uppercase tracking-wide text-xs">Quick delivery</span>                            </div>                        </li>                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>                                <polyline points="22 4 12 14.01 9 11.01"></polyline>                            </svg>                            <div>                                <span class="font-bold text-black dark:text-white uppercase tracking-wide text-xs">More than 15 Years Resume writing experience</span>                            </div>                        </li>                        <!-- Animated 3 Level Support Point -->                        <li class="flex flex-col gap-2 bg-gray-50/80 dark:bg-gray-800/50 p-2 rounded-md border border-gray-100 dark:border-gray-700/60 transition-colors cursor-pointer" onclick="this.querySelector('.level-support-inline').classList.toggle('max-h-[200px]'); this.querySelector('.level-support-inline').classList.toggle('mt-2')">                            <div class="flex items-start gap-3">                                <svg class="w-4 h-4 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>                                </svg>                                <div>                                    <span class="font-bold text-black dark:text-white uppercase tracking-wide text-[10px]">                                        <span class="hero-word" style="animation-delay: 0.0s;">World</span>                                        <span class="hero-word" style="animation-delay: 0.2s;">Class</span>                                        <span class="hero-word" style="animation-delay: 0.4s;">3</span>                                        <span class="hero-word" style="animation-delay: 0.6s;">Level</span>                                        <span class="hero-word" style="animation-delay: 0.8s;">Support</span>                                    </span>                                </div>                            </div>                            <div class="level-support-inline overflow-hidden max-h-0 transition-all duration-500 ease-in-out pl-7">                                <div class="flex flex-col space-y-2 text-[9px] text-gray-600 dark:text-gray-400 font-semibold tracking-wide normal-case pb-1">                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">1st Level:</span> <span>WA +91 9517369969</span> <a href="/cdn-cgi/l/email-protection#41323431312e3335013230342033242d20386f222e2c"><span class="__cf_email__" data-cfemail="10636560607f6264506361657162757c71693e737f7d">[email&#160;protected]</span></a></div>                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">2nd Level:</span> <a href="/cdn-cgi/l/email-protection#83e8ebf6f0ebeac3f0f2f6e2f1e6efe2faade0ecee"><span class="__cf_email__" data-cfemail="a4cfccd1d7cccde4d7d5d1c5d6c1c8c5dd8ac7cbc9">[email&#160;protected]</span></a></div>                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">3rd Level:</span> <a href="/cdn-cgi/l/email-protection#a3c4c2d6d1c2d5e3d0d2d6c2d1c6cfc2da8dc0ccce"><span class="__cf_email__" data-cfemail="c8afa9bdbaa9be88bbb9bda9baada4a9b1e6aba7a5">[email&#160;protected]</span></a></div>                                </div>                            </div>                        </li>                    </ul>                                        <div class="mt-auto">                        <a onclick="fbq('track', 'Lead');" href="https://superprofile.bio/vp/ats-professional-package?checkout=true" class="btn-small btn-rounded bg-black dark:bg-white text-white dark:text-black w-full py-3.5 text-xs hover:bg-gray-800 dark:hover:bg-gray-200 flex items-center gap-2 justify-center shadow-md">                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>                            Order Now                        </a>
-                        <!-- Client Review Interactive Audio Button added below WhatsApp -->                        <div class="package-audio-btn relative w-full border border-gray-300 dark:border-gray-700 text-black dark:text-white btn-rounded flex items-center justify-center py-3 text-xs cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors overflow-hidden bg-white dark:bg-transparent mt-3">                            <div class="absolute top-0 left-0 h-full bg-gray-200 dark:bg-gray-800 transition-none w-0 z-0 progress-fill pointer-events-none"></div>                            <div class="relative z-10 flex items-center gap-2 pointer-events-none">                                <svg class="play-icon w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>                                <svg class="pause-icon w-4 h-4 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>                                <span class="font-bold uppercase tracking-wide">Listen Client Reviews</span>                                <span class="btn-time font-bold text-gray-500 dark:text-gray-400 ml-1 tracking-widest hidden"></span>                            </div>                        </div>
-                        <div class="px-4 py-1.5 mt-3 flex items-center justify-center gap-2">                            <svg class="w-3.5 h-3.5 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>                                <circle cx="9" cy="7" r="4"></circle>                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>                            </svg>                            <div class="text-[10px] font-semibold text-gray-700 dark:text-gray-300">                                <span class="hero-counter font-bold text-black dark:text-white">0</span>+ Delivered <span class="mx-1 text-gray-300 dark:text-gray-600">|</span> <span class="font-bold text-black dark:text-white">4.9/5</span> Rating                            </div>                        </div>                    </div>                    <p class="text-center text-[8px] text-gray-500 dark:text-gray-500 mt-4 font-medium">By ordering you accept and agree with Squarelay all policies.</p>                </div>            </div>                        <!-- Plan 2: 1499 -->            <div class="relative mt-4">                <div class="p-5 md:p-6 box-rounded bg-white dark:bg-gray-900/40 relative shadow-sm flex flex-col pt-8 h-full">                    <span class="text-sm font-bold text-whatsapp uppercase tracking-widest block mb-3 text-center">Complete Resume Upgrade</span>                    <div class="mb-5 text-center">                        <p class="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed">End-to-end resume optimization for maximum visibility and interview calls.</p>                    </div>                    <div class="flex items-end justify-center gap-2 mb-6 pb-6 border-b border-gray-100 dark:border-gray-800">                        <span class="text-gray-400 dark:text-gray-500 line-through text-lg md:text-xl font-medium pb-0.5">₹2999</span>                        <div class="flex items-start">                            <span class="text-4xl md:text-5xl font-bold text-black dark:text-white tracking-tight leading-none">₹1499</span>                            <span class="bg-black dark:bg-gray-700 text-white text-[9px] font-bold px-2 py-1 rounded-full uppercase tracking-widest ml-1 -mt-1 shadow-sm">50% Off</span>                        </div>                    </div>
-                    <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-3 mb-6 font-medium flex-1">                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>                            </svg>                            <strong class="text-black dark:text-white">Premium ATS-Optimized Resume</strong>                        </li>                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>                            </svg>                            <strong class="text-black dark:text-white">100% Human-made Resume rewrite</strong>                        </li>                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>                                <polyline points="22 4 12 14.01 9 11.01"></polyline>                            </svg>                            <div>                                <span class="font-bold text-black dark:text-white uppercase tracking-wide text-xs">Quick delivery</span>                            </div>                        </li>                        <li class="flex items-start gap-3">                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>                                <polyline points="22 4 12 14.01 9 11.01"></polyline>                            </svg>                            <div>                                <span class="font-bold text-black dark:text-white uppercase tracking-wide text-xs">More than 15 Years Resume writing experience</span>                            </div>                        </li>                        <!-- Animated 3 Level Support Point -->                        <li class="flex flex-col gap-2 bg-gray-50/80 dark:bg-gray-800/50 p-2 rounded-md border border-gray-100 dark:border-gray-700/60 transition-colors cursor-pointer" onclick="this.querySelector('.level-support-inline').classList.toggle('max-h-[200px]'); this.querySelector('.level-support-inline').classList.toggle('mt-2')">                            <div class="flex items-start gap-3">                                <svg class="w-4 h-4 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>                                </svg>                                <div>                                    <span class="font-bold text-black dark:text-white uppercase tracking-wide text-[10px]">                                        <span class="hero-word" style="animation-delay: 0.0s;">World</span>                                        <span class="hero-word" style="animation-delay: 0.2s;">Class</span>                                        <span class="hero-word" style="animation-delay: 0.4s;">3</span>                                        <span class="hero-word" style="animation-delay: 0.6s;">Level</span>                                        <span class="hero-word" style="animation-delay: 0.8s;">Support</span>                                    </span>                                </div>                            </div>                            <div class="level-support-inline overflow-hidden max-h-0 transition-all duration-500 ease-in-out pl-7">                                <div class="flex flex-col space-y-2 text-[9px] text-gray-600 dark:text-gray-400 font-semibold tracking-wide normal-case pb-1">                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">1st Level:</span> <span>WA +91 9517369969</span> <a href="/cdn-cgi/l/email-protection#394a4c4949564b4d794a484c584b5c555840175a5654"><span class="__cf_email__" data-cfemail="f98a8c8989968b8db98a888c988b9c959880d79a9694">[email&#160;protected]</span></a></div>                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">2nd Level:</span> <a href="/cdn-cgi/l/email-protection#2e45465b5d46476e5d5f5b4f5c4b424f57004d4143"><span class="__cf_email__" data-cfemail="e48f8c91978c8da497959185968188859dca878b89">[email&#160;protected]</span></a></div>                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">3rd Level:</span> <a href="/cdn-cgi/l/email-protection#d3b4b2a6a1b2a593a0a2a6b2a1b6bfb2aafdb0bcbe"><span class="__cf_email__" data-cfemail="dfb8beaaadbea99facaeaabeadbab3bea6f1bcb0b2">[email&#160;protected]</span></a></div>                                </div>                            </div>                        </li>                    </ul>                                        <div class="mt-auto">                        <a onclick="fbq('track', 'Lead');" href="https://superprofile.bio/vp/pro-package-795?checkout=true" class="btn-small btn-rounded bg-black dark:bg-white text-white dark:text-black w-full py-3.5 text-xs hover:bg-gray-800 dark:hover:bg-gray-200 flex items-center gap-2 justify-center shadow-md">                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>                            Order Now                        </a>
-                        <!-- Client Review Interactive Audio Button added below WhatsApp -->                        <div class="package-audio-btn relative w-full border border-gray-300 dark:border-gray-700 text-black dark:text-white btn-rounded flex items-center justify-center py-3 text-xs cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors overflow-hidden bg-white dark:bg-transparent mt-3">                            <div class="absolute top-0 left-0 h-full bg-gray-200 dark:bg-gray-800 transition-none w-0 z-0 progress-fill pointer-events-none"></div>                            <div class="relative z-10 flex items-center gap-2 pointer-events-none">                                <svg class="play-icon w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>                                <svg class="pause-icon w-4 h-4 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>                                <span class="font-bold uppercase tracking-wide">Listen Client Reviews</span>                                <span class="btn-time font-bold text-gray-500 dark:text-gray-400 ml-1 tracking-widest hidden"></span>                            </div>                        </div>
-                        <div class="px-4 py-1.5 mt-3 flex items-center justify-center gap-2">                            <svg class="w-3.5 h-3.5 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>                                <circle cx="9" cy="7" r="4"></circle>                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>                            </svg>                            <div class="text-[10px] font-semibold text-gray-700 dark:text-gray-300">                                <span class="hero-counter font-bold text-black dark:text-white">0</span>+ Delivered <span class="mx-1 text-gray-300 dark:text-gray-600">|</span> <span class="font-bold text-black dark:text-white">4.9/5</span> Rating                            </div>                        </div>                    </div>                    <p class="text-center text-[8px] text-gray-500 dark:text-gray-500 mt-4 font-medium">By ordering you accept and agree with Squarelay all policies.</p>                </div>            </div>        </div>        <p class="text-center text-[10px] font-bold text-black dark:text-white mt-8 tracking-widest uppercase animate-pulse text-glow-black">6/50 slots left for this month!</p>    </section>
-    <!-- Testimonials -->    <section id="clients" class="py-20 bg-gray-50 dark:bg-[#050505] reveal text-left border-y border-gray-100 dark:border-gray-900">        <div class="px-6 max-w-6xl mx-auto">            <div class="flex items-center justify-between mb-10">                <h2 class="text-3xl md:text-4xl font-bold text-black dark:text-white tracking-tight">Clients.</h2>                <div class="flex gap-2">                    <div class="nav-arrow custom-prev bg-white dark:bg-black">                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>                    </div>                    <div class="nav-arrow custom-next bg-white dark:bg-black">                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>                    </div>                </div>            </div>
-            <div class="swiper swiper-testimonials w-full">                <div class="swiper-wrapper pb-10">                    <div class="swiper-slide h-auto">                        <div class="bg-white dark:bg-gray-900/40 p-8 box-rounded h-full flex flex-col justify-between">                            <div class="flex items-center gap-4 mb-6">                                <img src="https://i.pravatar.cc/150?img=11" class="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700" loading="lazy">                                <div><h5 class="text-sm font-bold text-black dark:text-white tracking-tight">Rohan Sharma</h5><p class="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase mt-0.5">Software Engineer</p></div>                            </div>                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">"I was struggling to get calls for 6 months. After Squarelay rewrote my CV, I got interview calls from 3 MNCs in the first week. The design is clean and professional."</p>                        </div>                    </div>                    <div class="swiper-slide h-auto">                        <div class="bg-black dark:bg-[#111] text-white p-8 box-rounded h-full flex flex-col justify-between border-black dark:border-gray-800">                            <div class="flex items-center gap-4 mb-6">                                <img src="https://i.pravatar.cc/150?img=5" class="w-12 h-12 rounded-full border border-gray-700 dark:border-gray-600" loading="lazy">                                <div><h5 class="text-sm font-bold text-white tracking-tight">Ananya Iyer</h5><p class="text-[10px] text-gray-400 font-bold uppercase mt-0.5">UI/UX Designer</p></div>                            </div>                            <p class="text-sm text-gray-300 leading-relaxed font-medium">"The ₹1499 Plan is a game changer. The professional format they built is stunning and helped me showcase my work. HRs were really impressed."</p>                        </div>                    </div>                    <div class="swiper-slide h-auto">                        <div class="bg-white dark:bg-gray-900/40 p-8 box-rounded h-full flex flex-col justify-between">                            <div class="flex items-center gap-4 mb-6">                                <img src="https://i.pravatar.cc/150?img=32" class="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700" loading="lazy">                                <div><h5 class="text-sm font-bold text-black dark:text-white tracking-tight">Sana Malik</h5><p class="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase mt-0.5">Data Analyst</p></div>                            </div>                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">"Shortlisted at Microsoft within 10 days. The keyword optimization is elite level. I highly recommend their services to anyone serious about their career."</p>                        </div>                    </div>                </div>            </div>        </div>    </section>
-    <!-- FAQ Section -->    <section id="faq" class="max-w-3xl mx-auto py-20 px-6 reveal">        <h2 class="text-3xl font-bold mb-10 text-black dark:text-white tracking-tight">FAQ</h2>        <div class="space-y-4">            <div class="faq-item border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-900/40 cursor-pointer box-rounded hover:border-gray-300 dark:hover:border-gray-600 transition-colors" onclick="this.classList.toggle('active')">                <div class="flex justify-between items-center">                    <h4 class="text-sm font-bold text-black dark:text-white">Are these resumes AI generated or Human-made?</h4>                    <svg class="w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>                </div>                <div class="faq-ans"><p class="text-sm text-gray-600 dark:text-gray-400 font-medium py-3 mt-2 border-t border-gray-100 dark:border-gray-800 leading-relaxed">Our resumes are 100% human-made. We have a team of experts with over 15 years of experience in resume writing and HR recruitment.</p></div>            </div>            <div class="faq-item border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-900/40 cursor-pointer box-rounded hover:border-gray-300 dark:hover:border-gray-600 transition-colors" onclick="this.classList.toggle('active')">                <div class="flex justify-between items-center">                    <h4 class="text-sm font-bold text-black dark:text-white">Why is ATS compliance important?</h4>                    <svg class="w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>                </div>                <div class="faq-ans"><p class="text-sm text-gray-600 dark:text-gray-400 font-medium py-3 mt-2 border-t border-gray-100 dark:border-gray-800 leading-relaxed">Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Our resumes are designed with correct formatting and keywords to bypass these bots and get you shortlisted.</p></div>            </div>            <div class="faq-item border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-900/40 cursor-pointer box-rounded hover:border-gray-300 dark:hover:border-gray-600 transition-colors" onclick="this.classList.toggle('active')">                <div class="flex justify-between items-center">                    <h4 class="text-sm font-bold text-black dark:text-white">How will you collect my details?</h4>                    <svg class="w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>                </div>                <div class="faq-ans"><p class="text-sm text-gray-600 dark:text-gray-400 font-medium py-3 mt-2 border-t border-gray-100 dark:border-gray-800 leading-relaxed">Simply select a plan and click on 'Order Now'. Our resume expert will connect with you to gather your old CV and specific requirements.</p></div>            </div>            <!-- Added New FAQ Item as requested -->            <div class="faq-item border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-900/40 cursor-pointer box-rounded hover:border-gray-300 dark:hover:border-gray-600 transition-colors" onclick="this.classList.toggle('active')">                <div class="flex justify-between items-center">                    <h4 class="text-sm font-bold text-black dark:text-white">Can I discuss my resume details on WhatsApp?</h4>                    <svg class="w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>                </div>                <div class="faq-ans"><p class="text-sm text-gray-600 dark:text-gray-400 font-medium py-3 mt-2 border-t border-gray-100 dark:border-gray-800 leading-relaxed">Yes, you will be chatting directly with our professionals on WhatsApp. Sometimes we also run exclusive discounts there, so you might even get an extra off on your package!</p></div>            </div>        </div>    </section>
-    <!-- Footer -->    <footer class="bg-gray-50 dark:bg-black border-t border-gray-200 dark:border-gray-900 pt-16 pb-24 px-6">        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">            <div>                <div class="h-10 md:h-12 mb-4">                    <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png" alt="Squarelay" class="h-full w-auto block object-contain dark:invert">                </div>                <p class="text-[11px] font-bold text-black dark:text-white uppercase tracking-widest">India's Best Resume Writing Service</p>            </div>            <div>                <h5 class="text-[10px] text-gray-400 dark:text-gray-500 uppercase font-bold tracking-widest mb-4">Support</h5>                <div class="flex flex-col space-y-3 text-xs text-black dark:text-white font-semibold uppercase tracking-wide">                    <!-- Updated WA Number -->                    <a href="https://wa.me/919517369969?text=Hi%20Squarelay,%20I%20have%20a%20query." class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">WA: +91 9517369969</a>                                        <!-- Added 3 Level Support Interactive UI -->                    <div>                        <button onclick="document.getElementById('level-support').classList.toggle('max-h-[200px]'); this.classList.toggle('text-gray-500')" class="text-[10px] bg-gray-200/50 dark:bg-gray-800/50 text-black dark:text-white px-2 py-1 rounded-md font-bold flex items-center gap-1 w-max transition-colors">                            3 Level Support                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>                        </button>                        <div id="level-support" class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out mt-3 pl-1">                            <div class="flex flex-col space-y-3 text-[10px] text-gray-600 dark:text-gray-400 font-semibold tracking-wide normal-case">                                <div class="flex flex-col gap-1">                                    <span class="text-black dark:text-white uppercase">1st Level:</span>                                    <span>WA +91 9517369969</span>                                    <a href="/cdn-cgi/l/email-protection#5c2f292c2c332e281c2f2d293d2e39303d25723f3331" class="hover:text-black dark:hover:text-white transition-colors"><span class="__cf_email__" data-cfemail="93e0e6e3e3fce1e7d3e0e2e6f2e1f6fff2eabdf0fcfe">[email&#160;protected]</span></a>                                </div>                                <div class="flex flex-col gap-1">                                    <span class="text-black dark:text-white uppercase">2nd Level:</span>                                     <a href="/cdn-cgi/l/email-protection#1c7774696f74755c6f6d697d6e79707d65327f7371" class="hover:text-black dark:hover:text-white transition-colors"><span class="__cf_email__" data-cfemail="2843405d5b4041685b595d495a4d444951064b4745">[email&#160;protected]</span></a>                                </div>                                <div class="flex flex-col gap-1">                                    <span class="text-black dark:text-white uppercase">3rd Level:</span>                                     <a href="/cdn-cgi/l/email-protection#cbacaabeb9aabd8bb8babeaab9aea7aab2e5a8a4a6" class="hover:text-black dark:hover:text-white transition-colors"><span class="__cf_email__" data-cfemail="85e2e4f0f7e4f3c5f6f4f0e4f7e0e9e4fcabe6eae8">[email&#160;protected]</span></a>                                </div>                            </div>                        </div>                    </div>                </div>            </div>            <div>                <h5 class="text-[10px] text-gray-400 dark:text-gray-500 uppercase font-bold tracking-widest mb-4">Links</h5>                <div class="flex flex-col space-y-3 text-xs text-black dark:text-white font-semibold uppercase tracking-wide">                    <a href="#" class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">Home</a>                    <a href="#pricing" class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">Pricing</a>                    <a href="#clients" class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">Client Reviews</a>                </div>            </div>            <div>                <h5 class="text-[10px] text-gray-400 dark:text-gray-500 uppercase font-bold tracking-widest mb-4">Legal</h5>                <div class="flex flex-col space-y-3 text-xs text-black dark:text-white font-semibold uppercase tracking-wide">                    <a href="https://squarelay.com/policies" class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">Policies</a>                </div>            </div>        </div>        <div class="max-w-6xl mx-auto text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-widest text-center md:text-left border-t border-gray-200 dark:border-gray-900 pt-6">            © Squarelay. All Rights Reserved.        </div>    </footer>
-    <!-- Scripts -->    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>    <script>        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }                // Swiper slider setup        var swiper = new Swiper(".swiper-testimonials", {            slidesPerView: 1.1,            spaceBetween: 16,            loop: true,            navigation: {                nextEl: '.custom-next',                prevEl: '.custom-prev',            },            breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 24 } }        });
-        // Reveal animations on scroll        function reveal() {            var revs = document.querySelectorAll(".reveal");            for (var i = 0; i < revs.length; i++) {                var wh = window.innerHeight;                var top = revs[i].getBoundingClientRect().top;                if (top < wh - 50) { revs[i].classList.add("active"); }            }        }        window.addEventListener("scroll", reveal); window.onload = reveal;
-        // 10,000+ Counter Animation        document.addEventListener("DOMContentLoaded", () => {            const counterEls = document.querySelectorAll(".hero-counter");            let count = 0;            const target = 10000;            const increment = target / 50;             const timer = setInterval(() => {                count += increment;                if(count >= target) {                    count = target;                    clearInterval(timer);                }                counterEls.forEach(el => el.innerText = count.toLocaleString());            }, 30);        });
-        // Global Audio Player Setup (For both Main and Package Buttons)        const audio = document.getElementById("realAudio");                // Main Player UI        const mainPlayBtn = document.getElementById("customPlayBtn");        const mainPlayIcon = document.getElementById("playIcon");        const mainPauseIcon = document.getElementById("pauseIcon");        const mainProgressBarFill = document.getElementById("progressBarFill");        const mainProgressBarContainer = document.getElementById("progressBarContainer");        const mainCurrentTimeDisplay = document.getElementById("currentTimeDisplay");        const mainDurationDisplay = document.getElementById("durationDisplay");
-        // Package Buttons UI        const packageAudioBtns = document.querySelectorAll('.package-audio-btn');
-        function formatTime(seconds) {            if (isNaN(seconds)) return "0:00";            let min = Math.floor(seconds / 60);            let sec = Math.floor(seconds % 60);            return min + ":" + (sec < 10 ? "0" : "") + sec;        }
-        // Centralized Toggle Function        function toggleGlobalAudio() {            if (audio.paused) {                audio.play().catch(e => console.error("Audio playback blocked:", e));            } else {                audio.pause();            }        }
-        // Update all UIs together        function updateAudioUIs() {            const isPaused = audio.paused;                        // Sync Main Player UI            if(isPaused) {                mainPlayIcon.classList.remove("hidden");                mainPauseIcon.classList.add("hidden");            } else {                mainPlayIcon.classList.add("hidden");                mainPauseIcon.classList.remove("hidden");            }
-            // Sync Package Buttons UI            packageAudioBtns.forEach(btn => {                const playSvg = btn.querySelector('.play-icon');                const pauseSvg = btn.querySelector('.pause-icon');                if (isPaused) {                    playSvg.classList.remove("hidden");                    pauseSvg.classList.add("hidden");                } else {                    playSvg.classList.add("hidden");                    pauseSvg.classList.remove("hidden");                }            });        }
-        // Listeners for Play/Pause        if(mainPlayBtn) mainPlayBtn.addEventListener("click", toggleGlobalAudio);        packageAudioBtns.forEach(btn => btn.addEventListener("click", toggleGlobalAudio));
-        if(audio) {            audio.addEventListener("play", updateAudioUIs);            audio.addEventListener("pause", updateAudioUIs);
-            audio.addEventListener("timeupdate", () => {                if(audio.duration){                    const progressPercent = (audio.currentTime / audio.duration) * 100;                    const timeStr = formatTime(audio.currentTime);                                        // Update Main Player                    if(mainProgressBarFill) mainProgressBarFill.style.width = progressPercent + "%";                    if(mainCurrentTimeDisplay) mainCurrentTimeDisplay.textContent = timeStr;
-                    // Update Package Buttons (Background Fill & Time)                    packageAudioBtns.forEach(btn => {                        const progressFill = btn.querySelector('.progress-fill');                        const timeEl = btn.querySelector('.btn-time');                        if(progressFill) progressFill.style.width = progressPercent + "%";                        if(timeEl) {                            timeEl.classList.remove("hidden");                            timeEl.textContent = timeStr;                        }                    });                }            });
-            audio.addEventListener("loadedmetadata", () => {                if(mainDurationDisplay) mainDurationDisplay.textContent = formatTime(audio.duration);            });
-            if(mainProgressBarContainer) {                mainProgressBarContainer.addEventListener("click", (e) => {                    const width = mainProgressBarContainer.clientWidth;                    const clickX = e.offsetX;                    const newTime = (clickX / width) * audio.duration;                    audio.currentTime = newTime;                });            }
-            audio.addEventListener("ended", () => {                audio.currentTime = 0;                updateAudioUIs();                                if(mainProgressBarFill) mainProgressBarFill.style.width = "0%";                if(mainCurrentTimeDisplay) mainCurrentTimeDisplay.textContent = "0:00";                                packageAudioBtns.forEach(btn => {                    const progressFill = btn.querySelector('.progress-fill');                    const timeEl = btn.querySelector('.btn-time');                    if(progressFill) progressFill.style.width = "0%";                    if(timeEl) timeEl.classList.add("hidden");                });            });        }    </script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"0c54281b9e264fbdbcf36ae513ece1fd","r":1,"spa":2}' crossorigin="anonymous"></script><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"7485ce7abe2b4459861f4ba35a5c3418","r":1,"spa":2}' crossorigin="anonymous"></script></body></html>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <!-- Meta Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s) {
+            if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)
+        }(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '876931512035688');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=876931512035688&ev=PageView&noscript=1"/>
+    </noscript>
+    
+    <meta name="norton-safeweb-site-verification" content="XZYTCIY09LA-D2LJ5TQ0C684I9PBYX6O58MTJO4VJ20NA-3PDZGV8I83Q7KX0NHUFG6W64FXAESGYG-J0-O3ZJIJ2ODGA1DEDRYMVPNH60KIQ9P92H2SYRHN12WMWYTK" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Squarelay | Professional Resume Studio</title>
+
+    <!-- Performance Optimizations for Faster Loading -->
+    <link rel="preconnect" href="https://raw.githubusercontent.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png">
+    
+    <!-- Scripts & Fonts -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'media', // Automatic dark mode based on system preference
+            theme: {
+                extend: {
+                    colors: {
+                        black: '#0a0a0a',
+                        white: '#ffffff',
+                        whatsapp: '#25D366',
+                        whatsappHover: '#1ebd59'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+             font-family: 'Inter', sans-serif;
+             -webkit-font-smoothing: antialiased;
+             overflow-x: hidden;
+             background-color: #ffffff;
+             color: #0a0a0a;
+         }
+         
+        /* Apple-style Glossy Glass Nav */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: all 0.3s ease;
+        }
+
+        .menu-gloss {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* GLOBAL SMOOTH BLUR REVEAL ANIMATION */
+        .reveal {
+             opacity: 0;
+             filter: blur(12px);
+            transform: translateY(35px);
+             transition: all 0.9s cubic-bezier(0.25, 1, 0.5, 1);
+         }
+        .reveal.active {
+             opacity: 1;
+             filter: blur(0);
+            transform: translateY(0);
+         }
+
+        /* Marquee Animation */
+        @keyframes scrollL { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        @keyframes scrollR { 0% { transform: translateX(-50%); } 100% { transform: translateX(0); } }
+        
+        .m-track-L { display: flex; animation: scrollL 50s linear infinite; width: max-content; will-change: transform; }
+        .m-track-R { display: flex; animation: scrollR 50s linear infinite; width: max-content; will-change: transform; }
+        
+        /* Square Images */
+        .s-img {
+            width: 160px; height: 224px; margin: 0 8px; border-radius: 0.5rem; object-fit: cover; border: 1px solid #e5e5e5;
+        }
+        @media (min-width: 768px) {
+            .s-img { width: 220px; height: 308px; margin: 0 12px; }
+        }
+
+        /* Rounded UI */
+        .btn-rounded { border-radius: 0.5rem; transition: all 0.2s ease; }
+        .box-rounded { border-radius: 0.75rem; border: 1px solid #e5e5e5; }
+        
+        .btn-small {
+            padding: 0.875rem 1.75rem; font-size: 0.875rem; font-weight: 600; text-transform: uppercase;
+            letter-spacing: 0.05em; display: inline-flex; align-items: center; justify-content: center;
+        }
+        .btn-small:active { transform: scale(0.98); }
+
+        #mobileMenu { transform: translateY(-100%); opacity: 0; }
+        #mobileMenu.active { transform: translateY(0); opacity: 1; }
+
+        /* FAQ */
+        .faq-ans { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-ans { max-height: 250px; }
+        .faq-item.active svg { transform: rotate(180deg); }
+
+        .nav-arrow {
+            width: 36px; height: 36px; border-radius: 0.5rem; border: 1px solid #e5e5e5;
+            display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; background: #ffffff;
+        }
+        .nav-arrow:hover { background: #0a0a0a; color: #ffffff; border-color: #0a0a0a; }
+
+        .player-clean { background: #fafafa; border: 1px solid #e5e5e5; }
+        
+        /* Glow Styles */
+        .banner-glow { box-shadow: 0 0 15px rgba(0,0,0,0.25); }
+        .black-glow { box-shadow: 0 0 12px rgba(0,0,0,0.7); }
+        .text-glow-black { text-shadow: 0 0 10px rgba(0,0,0,0.4); }
+        .text-glow-accent { text-shadow: 0 0 8px rgba(0, 0, 0, 0.3); }
+
+        /* HERO TEXT ANIMATION */
+        .hero-word {
+            display: inline-block;
+            opacity: 0;
+            filter: blur(16px);
+            transform: translateY(10px);
+            animation: popBlur 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+        @keyframes popBlur {
+            0% { opacity: 0; filter: blur(16px); transform: translateY(10px); }
+            100% { opacity: 1; filter: blur(0); transform: translateY(0); }
+        }
+
+        /* GLOBAL GLOSSY BLUR EFFECT (LIGHT MODE) */
+        @media (prefers-color-scheme: light) {
+            body {
+                background: linear-gradient(135deg, #f4f7fc 0%, #eef1f6 100%);
+                background-attachment: fixed;
+            }
+            section, footer {
+                background: rgba(255, 255, 255, 0.3) !important;
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+            }
+            .box-rounded, .player-clean, .faq-item {
+                background: rgba(255, 255, 255, 0.5) !important;
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.8) !important;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
+            }
+            .bg-black {
+                background: rgba(10, 10, 10, 0.85) !important;
+                backdrop-filter: blur(16px);
+                -webkit-backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            }
+        }
+
+        /* PURE BLACK DARK MODE OVERRIDES */
+        @media (prefers-color-scheme: dark) {
+            body { background: #000000 !important; color: #ffffff !important; }
+            .glass-nav { background: rgba(0, 0, 0, 0.85) !important; border-bottom: 1px solid #1a1a1a; }
+            .menu-gloss { background: rgba(0, 0, 0, 0.98) !important; }
+            section, footer { background: transparent !important; backdrop-filter: none !important; }
+            .box-rounded, .player-clean, .faq-item {
+                background: rgba(15, 15, 15, 0.8) !important;
+                backdrop-filter: blur(16px);
+                border: 1px solid rgba(255, 255, 255, 0.08) !important;
+                box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            }
+            .s-img { border-color: #1a1a1a; }
+            .nav-arrow { background: #0a0a0a !important; border-color: #2a2a2a !important; color: #ffffff !important; }
+            .nav-arrow:hover { background: #ffffff !important; color: #0a0a0a !important; }
+            .bg-black { background: #0a0a0a !important; border: 1px solid #222 !important; }
+
+            /* FIX FOR BUTTONS AND HAMBURGER MENU VISIBILITY IN DARK MODE */
+            .dark\:bg-white { background-color: #ffffff !important; border-color: #ffffff !important; }
+            .dark\:text-black { color: #0a0a0a !important; }
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-black text-black dark:text-white transition-colors duration-300">
+
+    <nav class="fixed top-0 w-full z-[200] glass-nav">
+        <div class="max-w-6xl mx-auto px-6 py-3 flex justify-between items-center">
+            <div id="nav-logo-image" class="h-10 md:h-12 transition-all duration-300">
+                <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png" alt="Squarelay" class="h-full w-auto block object-contain dark:invert">
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-xs font-semibold text-black dark:text-white uppercase tracking-wider ml-auto">
+                <a href="#" class="hover:opacity-60 transition-opacity">Home</a>
+                <a href="#pricing" class="hover:opacity-60 transition-opacity">Pricing</a>
+                <a href="#clients" class="hover:opacity-60 transition-opacity">Client Reviews</a>
+                <a href="#faq" class="hover:opacity-60 transition-opacity">FAQ</a>
+            </div>
+            <button onclick="toggleMenu()" class="md:hidden nav-btn p-2 flex flex-col justify-center gap-1.5">
+                <span class="block w-5 h-[1.5px] bg-black dark:bg-white rounded"></span>
+                <span class="block w-5 h-[1.5px] bg-black dark:bg-white rounded"></span>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobileMenu" class="fixed inset-0 menu-gloss z-[250] px-8 flex flex-col justify-center items-start text-left">
+        <button onclick="toggleMenu()" class="absolute top-6 right-6 p-4">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-black dark:text-white" stroke-width="1.5"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+        <div class="flex flex-col space-y-6 w-full pl-2">
+            <a href="#" onclick="toggleMenu()" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60">Home</a>
+            <a href="#pricing" onclick="toggleMenu()" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60">Pricing</a>
+            <a href="#clients" onclick="toggleMenu()" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60">Client Reviews</a>
+            <a href="#faq" onclick="toggleMenu()" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60">FAQ</a>
+            
+            <!-- Mobile 3 Level Support added Below FAQ -->
+            <div class="pt-4 border-t border-gray-200 dark:border-gray-800 w-full pr-8">
+                <button onclick="document.getElementById('mobile-support-dropdown').classList.toggle('max-h-[200px]');" class="text-2xl font-semibold text-black dark:text-white tracking-tight hover:opacity-60 flex items-center justify-between w-full">
+                    3 Level Support
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                </button>
+                <div id="mobile-support-dropdown" class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out">
+                    <div class="flex flex-col space-y-3 text-sm text-gray-600 dark:text-gray-400 font-medium mt-4">
+                        <div><span class="text-black dark:text-white uppercase text-xs font-bold block">1st Level:</span> WA +91 9517369969<br><a href="/cdn-cgi/l/email-protection#4c3f393c3c233e380c3f3d392d3e29202d35622f2321"><span class="__cf_email__" data-cfemail="31424441415e4345714240445043545d50481f525e5c">[email&#160;protected]</span></a></div>
+                        <div><span class="text-black dark:text-white uppercase text-xs font-bold block">2nd Level:</span> <a href="/cdn-cgi/l/email-protection#f893908d8b9091b88b898d998a9d949981d69b9795"><span class="__cf_email__" data-cfemail="3a51524f4952537a494b4f5b485f565b4314595557">[email&#160;protected]</span></a></div>
+                        <div><span class="text-black dark:text-white uppercase text-xs font-bold block">3rd Level:</span> <a href="/cdn-cgi/l/email-protection#e4838591968592a497959185968188859dca878b89"><span class="__cf_email__" data-cfemail="f2959387809384b28183879380979e938bdc919d9f">[email&#160;protected]</span></a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="pt-36 pb-12 px-6 text-center reveal max-w-4xl mx-auto">
+        <span class="inline-block py-1.5 px-4 bg-black dark:bg-gray-800 text-white text-[10px] font-bold uppercase tracking-widest mb-4 btn-rounded shadow-sm banner-glow">
+            India's Best Resume Writing Service
+        </span>
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.05] mb-4 text-black dark:text-white">
+            <span class="hero-word" style="animation-delay: 0.0s;">100%</span>
+            <span class="hero-word" style="animation-delay: 0.2s;">Human</span>
+            <span class="hero-word" style="animation-delay: 0.4s;">made</span><br>
+            <span class="hero-word" style="animation-delay: 0.6s;">ATS</span>
+            <span class="hero-word" style="animation-delay: 0.8s;">Friendly</span>
+            <span class="hero-word" style="animation-delay: 1.0s;">Resume.</span>
+        </h1>
+        <p class="text-gray-500 dark:text-gray-400 text-xs md:text-sm mx-auto mb-8 leading-relaxed font-medium px-4">
+            Move beyond generic templates. We architect ATS-proof resumes that guarantee direct interview calls from top companies.
+        </p>
+        
+        <div class="flex flex-col items-center justify-center gap-2">
+            <a href="#pricing" class="btn-small btn-rounded bg-black dark:bg-white text-white dark:text-black hover:bg-gray-800 dark:hover:bg-gray-200 py-3.5 px-8">Claim 50% Off Today</a>
+            
+            <div class="px-6 py-2 mt-4 flex items-center gap-3">
+                <svg class="w-4 h-4 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <div class="text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    <span class="hero-counter font-bold text-black dark:text-white">0</span>+ Delivered <span class="mx-1 text-gray-300 dark:text-gray-600">|</span> <span class="font-bold text-black dark:text-white">4.9/5</span> Rating
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands -->
+    <section class="py-10 border-y border-gray-100 dark:border-gray-900 bg-gray-50 dark:bg-[#050505] reveal overflow-hidden">
+        <p class="text-center text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-6">Our Clients Work At</p>
+        <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 max-w-5xl mx-auto px-4 opacity-70 grayscale dark:opacity-50">
+            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">Google</span>
+            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">Microsoft</span>
+            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">OpenAI</span>
+            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">Shopify</span>
+            <span class="text-xl md:text-2xl font-bold tracking-tight text-black dark:text-white">Amazon</span>
+        </div>
+    </section>
+
+    <!-- Samples -->
+    <section id="samples" class="py-16 bg-white dark:bg-black reveal overflow-hidden">
+        <div class="m-track-L mb-6 md:mb-8">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%201.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%202.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%203.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%204.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%205.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%206.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%200.jpeg" class="s-img dark:opacity-90" loading="lazy">
+        </div>
+        <div class="m-track-R">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%207.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%208.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%209.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2010.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2011.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2012.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%2013.jpeg" class="s-img dark:opacity-90" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Resume%207.jpeg" class="s-img dark:opacity-90" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Choice Section -->
+    <section id="choice" class="py-20 px-6 reveal bg-white dark:bg-black border-t border-gray-100 dark:border-gray-900">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-12 text-center text-black dark:text-white">Two Paths</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="box-rounded bg-gray-50 dark:bg-gray-900/50 p-8 md:p-10">
+                    <h3 class="text-lg font-bold mb-3 text-gray-500 dark:text-gray-400 uppercase tracking-widest">The Trap</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+                        Applying with generic templates. Blocked by AI. Ignored by HR. The endless cycle of rejection.
+                    </p>
+                </div>
+                <div class="box-rounded bg-black dark:bg-[#111] p-8 md:p-10 text-white shadow-lg border-black dark:border-gray-800">
+                    <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Whitelogo.png" alt="Squarelay" class="h-10 md:h-12 mb-6 object-contain" loading="lazy">
+                    <p class="text-sm text-gray-300 leading-relaxed mb-8 font-medium">
+                        100% Human-made ATS-compliant architecture. Keyword optimized. Direct interview calls. Secure your future today.
+                    </p>
+                    <a href="#pricing" class="btn-small btn-rounded bg-white dark:bg-white text-black dark:text-black hover:bg-gray-200">Upgrade Career</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process -->
+    <section class="py-20 px-6 reveal max-w-5xl mx-auto text-center border-t border-gray-100 dark:border-gray-900">
+        <h2 class="text-3xl md:text-5xl font-bold tracking-tight mb-12 text-black dark:text-white">How we do it.</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+            <div class="p-8 box-rounded bg-white dark:bg-gray-900/40 hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-left">
+                <div class="text-gray-300 dark:text-gray-700 font-bold text-4xl mb-4">01</div>
+                <h3 class="font-bold text-lg text-black dark:text-white mb-2">Pick a Package</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Select a plan below and click on Chat on WhatsApp to connect with us.</p>
+            </div>
+            <div class="p-8 box-rounded bg-white dark:bg-gray-900/40 hover:border-gray-300 dark:hover:border-gray-600 transition-colors text-left">
+                <div class="text-gray-300 dark:text-gray-700 font-bold text-4xl mb-4">02</div>
+                <h3 class="font-bold text-lg text-black dark:text-white mb-2">Connect on WhatsApp</h3>
+                <p class="text-sm text-gray-500 dark:text-gray-400 font-medium">Our expert resume writer will gather your details and begin crafting.</p>
+            </div>
+            <div class="p-8 box-rounded bg-black dark:bg-[#111] dark:border-gray-800 text-white text-left shadow-md border-black">
+                <div class="text-gray-600 dark:text-gray-500 font-bold text-4xl mb-4">03</div>
+                <h3 class="font-bold text-lg text-white mb-2">Get Shortlisted</h3>
+                <p class="text-sm text-gray-300 font-medium">Receive your expertly crafted, ATS-proof resume very quickly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Results (Voice Feedback) Section added back -->
+    <section id="real-results" class="py-20 bg-gray-50 dark:bg-[#050505] reveal overflow-hidden border-t border-gray-100 dark:border-gray-900">
+        <div class="text-center mb-12 px-6">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight text-black dark:text-white mb-3">Real Results.</h2>
+            <p class="text-gray-500 dark:text-gray-400 font-medium text-sm">See and hear what our clients say after getting interviewed.</p>
+        </div>
+
+        <div class="m-track-L mb-12">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA1.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA2.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">
+            <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/WA3.jpeg" alt="WhatsApp Review" class="h-56 md:h-72 w-auto mx-4 rounded-md border border-gray-200 dark:border-gray-800 object-cover shadow-sm dark:opacity-80" loading="lazy">
+        </div>
+        
+        <div class="max-w-md mx-auto mt-12 px-6">
+            <div class="player-clean p-6 flex flex-col gap-5 relative box-rounded">
+                <div class="flex items-center justify-between mb-1">
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Listen Now</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="customPlayBtn" class="w-12 h-12 bg-black dark:bg-white flex items-center justify-center shrink-0 cursor-pointer outline-none hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors btn-rounded shadow-sm">
+                        <svg id="playIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-white dark:text-black ml-1"><path d="M8 5v14l11-7z"/></svg>
+                        <svg id="pauseIcon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" class="text-white dark:text-black hidden"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </button>
+                    <div class="flex-1">
+                        <p class="text-sm font-bold text-black dark:text-white tracking-tight">Client Voice Note</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400 font-medium mt-0.5">"Got shortlisted at Google!"</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 w-full mt-2">
+                    <span id="currentTimeDisplay" class="text-[10px] font-medium text-gray-500 dark:text-gray-400 w-8 text-right">0:00</span>
+                    <div class="flex-1 h-1.5 bg-gray-200 dark:bg-gray-700 cursor-pointer relative rounded-full overflow-hidden" id="progressBarContainer">
+                        <div id="progressBarFill" class="absolute top-0 left-0 h-full bg-black dark:bg-white transition-all" style="width: 0%;"></div>
+                    </div>
+                    <span id="durationDisplay" class="text-[10px] font-medium text-gray-500 dark:text-gray-400 w-8">0:24</span>
+                </div>
+                
+                <audio id="realAudio" class="hidden">
+                    <source src="https://cdn.jsdelivr.net/gh/Squarelaycom/squarelay.in@main/file/Voice1.oga" type="audio/ogg">
+                </audio>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="max-w-4xl mx-auto py-24 px-6 reveal">
+        <h2 class="text-3xl md:text-5xl font-bold mb-12 text-center text-black dark:text-white tracking-tight">Invest in your future.</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+            <!-- Plan 1: 999 -->
+            <div class="relative mt-4">
+                <div class="p-5 md:p-6 box-rounded bg-white dark:bg-gray-900/40 relative shadow-sm flex flex-col pt-8 h-full">
+                    <span class="text-sm font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block mb-3 text-center">Fresher to 20 Year Exp.</span>
+                    <div class="mb-5 text-center">
+                        <p class="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed">Perfect for professionals looking to showcase potential beautifully.</p>
+                    </div>
+                    <div class="flex items-end justify-center gap-2 mb-6 pb-6 border-b border-gray-100 dark:border-gray-800">
+                        <span class="text-gray-400 dark:text-gray-500 line-through text-lg md:text-xl font-medium pb-0.5">₹1999</span>
+                        <div class="flex items-start">
+                            <span class="text-4xl md:text-5xl font-bold text-black dark:text-white tracking-tight leading-none">₹999</span>
+                            <span class="bg-black dark:bg-gray-700 text-white text-[9px] font-bold px-2 py-1 rounded-full uppercase tracking-widest ml-1 -mt-1 shadow-sm">50% Off</span>
+                        </div>
+                    </div>
+
+                    <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-3 mb-6 font-medium flex-1">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <strong class="text-black dark:text-white">ATS-Optimized Resume</strong>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <strong class="text-black dark:text-white">Industry best Resume handmade</strong>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <div>
+                                <span class="font-bold text-black dark:text-white uppercase tracking-wide text-xs">Quick delivery</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <div>
+                                <span class="font-bold text-black dark:text-white uppercase tracking-wide text-xs">More than 15 Years Resume writing experience</span>
+                            </div>
+                        </li>
+                        
+                        <!-- Animated 3 Level Support Point -->
+                        <li class="flex flex-col gap-2 bg-gray-50/80 dark:bg-gray-800/50 p-2 rounded-md border border-gray-100 dark:border-gray-700/60 transition-colors cursor-pointer" onclick="this.querySelector('.level-support-inline').classList.toggle('max-h-[200px]'); this.querySelector('.level-support-inline').classList.toggle('mt-2')">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-bold text-black dark:text-white uppercase tracking-wide text-[10px]">
+                                        <span class="hero-word" style="animation-delay: 0.0s;">World</span>
+                                        <span class="hero-word" style="animation-delay: 0.2s;">Class</span>
+                                        <span class="hero-word" style="animation-delay: 0.4s;">3</span>
+                                        <span class="hero-word" style="animation-delay: 0.6s;">Level</span>
+                                        <span class="hero-word" style="animation-delay: 0.8s;">Support</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="level-support-inline overflow-hidden max-h-0 transition-all duration-500 ease-in-out pl-7">
+                                <div class="flex flex-col space-y-2 text-[9px] text-gray-600 dark:text-gray-400 font-semibold tracking-wide normal-case pb-1">
+                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">1st Level:</span> <span>WA +91 9517369969</span> <a href="/cdn-cgi/l/email-protection#41323431312e3335013230342033242d20386f222e2c"><span class="__cf_email__" data-cfemail="10636560607f6264506361657162757c71693e737f7d">[email&#160;protected]</span></a></div>
+                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">2nd Level:</span> <a href="/cdn-cgi/l/email-protection#83e8ebf6f0ebeac3f0f2f6e2f1e6efe2faade0ecee"><span class="__cf_email__" data-cfemail="a4cfccd1d7cccde4d7d5d1c5d6c1c8c5dd8ac7cbc9">[email&#160;protected]</span></a></div>
+                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">3rd Level:</span> <a href="/cdn-cgi/l/email-protection#a3c4c2d6d1c2d5e3d0d2d6c2d1c6cfc2da8dc0ccce"><span class="__cf_email__" data-cfemail="c8afa9bdbaa9be88bbb9bda9baada4a9b1e6aba7a5">[email&#160;protected]</span></a></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-auto">
+                        <a onclick="fbq('track', 'Lead');" href="https://superprofile.bio/vp/ats-professional-package?checkout=true" class="btn-small btn-rounded bg-black dark:bg-white text-white dark:text-black w-full py-3.5 text-xs hover:bg-gray-800 dark:hover:bg-gray-200 flex items-center gap-2 justify-center shadow-md">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            Order Now
+                        </a>
+                        
+                        <!-- Client Review Interactive Audio Button added below WhatsApp -->
+                        <div class="package-audio-btn relative w-full border border-gray-300 dark:border-gray-700 text-black dark:text-white btn-rounded flex items-center justify-center py-3 text-xs cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors overflow-hidden bg-white dark:bg-transparent mt-3">
+                            <div class="absolute top-0 left-0 h-full bg-gray-200 dark:bg-gray-800 transition-none w-0 z-0 progress-fill pointer-events-none"></div>
+                            <div class="relative z-10 flex items-center gap-2 pointer-events-none">
+                                <svg class="play-icon w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="pause-icon w-4 h-4 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                                <span class="font-bold uppercase tracking-wide">Listen Client Reviews</span>
+                                <span class="btn-time font-bold text-gray-500 dark:text-gray-400 ml-1 tracking-widest hidden"></span>
+                            </div>
+                        </div>
+
+                        <div class="px-4 py-1.5 mt-3 flex items-center justify-center gap-2">
+                            <svg class="w-3.5 h-3.5 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <div class="text-[10px] font-semibold text-gray-700 dark:text-gray-300">
+                                <span class="hero-counter font-bold text-black dark:text-white">0</span>+ Delivered <span class="mx-1 text-gray-300 dark:text-gray-600">|</span> <span class="font-bold text-black dark:text-white">4.9/5</span> Rating
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-[8px] text-gray-500 dark:text-gray-500 mt-4 font-medium">By ordering you accept and agree with Squarelay all policies.</p>
+                </div>
+            </div>
+            
+            <!-- Plan 2: 1499 -->
+            <div class="relative mt-4">
+                <div class="p-5 md:p-6 box-rounded bg-white dark:bg-gray-900/40 relative shadow-sm flex flex-col pt-8 h-full">
+                    <span class="text-sm font-bold text-whatsapp uppercase tracking-widest block mb-3 text-center">Complete Resume Upgrade</span>
+                    <div class="mb-5 text-center">
+                        <p class="text-xs text-gray-600 dark:text-gray-400 font-medium leading-relaxed">End-to-end resume optimization for maximum visibility and interview calls.</p>
+                    </div>
+                    <div class="flex items-end justify-center gap-2 mb-6 pb-6 border-b border-gray-100 dark:border-gray-800">
+                        <span class="text-gray-400 dark:text-gray-500 line-through text-lg md:text-xl font-medium pb-0.5">₹2999</span>
+                        <div class="flex items-start">
+                            <span class="text-4xl md:text-5xl font-bold text-black dark:text-white tracking-tight leading-none">₹1499</span>
+                            <span class="bg-black dark:bg-gray-700 text-white text-[9px] font-bold px-2 py-1 rounded-full uppercase tracking-widest ml-1 -mt-1 shadow-sm">50% Off</span>
+                        </div>
+                    </div>
+
+                    <ul class="text-sm text-gray-700 dark:text-gray-300 space-y-3 mb-6 font-medium flex-1">
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <strong class="text-black dark:text-white">Premium ATS-Optimized Resume</strong>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                            <strong class="text-black dark:text-white">100% Human-made Resume rewrite</strong>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <div>
+                                <span class="font-bold text-black dark:text-white uppercase tracking-wide text-xs">Quick delivery</span>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <svg class="w-5 h-5 text-whatsapp shrink-0 mt-0.5 text-glow-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                            <div>
+                                <span class="font-bold text-black dark:text-white uppercase tracking-wide text-xs">More than 15 Years Resume writing experience</span>
+                            </div>
+                        </li>
+                        
+                        <!-- Animated 3 Level Support Point -->
+                        <li class="flex flex-col gap-2 bg-gray-50/80 dark:bg-gray-800/50 p-2 rounded-md border border-gray-100 dark:border-gray-700/60 transition-colors cursor-pointer" onclick="this.querySelector('.level-support-inline').classList.toggle('max-h-[200px]'); this.querySelector('.level-support-inline').classList.toggle('mt-2')">
+                            <div class="flex items-start gap-3">
+                                <svg class="w-4 h-4 text-whatsapp shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                </svg>
+                                <div>
+                                    <span class="font-bold text-black dark:text-white uppercase tracking-wide text-[10px]">
+                                        <span class="hero-word" style="animation-delay: 0.0s;">World</span>
+                                        <span class="hero-word" style="animation-delay: 0.2s;">Class</span>
+                                        <span class="hero-word" style="animation-delay: 0.4s;">3</span>
+                                        <span class="hero-word" style="animation-delay: 0.6s;">Level</span>
+                                        <span class="hero-word" style="animation-delay: 0.8s;">Support</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="level-support-inline overflow-hidden max-h-0 transition-all duration-500 ease-in-out pl-7">
+                                <div class="flex flex-col space-y-2 text-[9px] text-gray-600 dark:text-gray-400 font-semibold tracking-wide normal-case pb-1">
+                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">1st Level:</span> <span>WA +91 9517369969</span> <a href="/cdn-cgi/l/email-protection#394a4c4949564b4d794a484c584b5c555840175a5654"><span class="__cf_email__" data-cfemail="f98a8c8989968b8db98a888c988b9c959880d79a9694">[email&#160;protected]</span></a></div>
+                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">2nd Level:</span> <a href="/cdn-cgi/l/email-protection#2e45465b5d46476e5d5f5b4f5c4b424f57004d4143"><span class="__cf_email__" data-cfemail="e48f8c91978c8da497959185968188859dca878b89">[email&#160;protected]</span></a></div>
+                                    <div class="flex flex-col gap-0.5"><span class="text-black dark:text-white uppercase">3rd Level:</span> <a href="/cdn-cgi/l/email-protection#d3b4b2a6a1b2a593a0a2a6b2a1b6bfb2aafdb0bcbe"><span class="__cf_email__" data-cfemail="dfb8beaaadbea99facaeaabeadbab3bea6f1bcb0b2">[email&#160;protected]</span></a></div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    
+                    <div class="mt-auto">
+                        <a onclick="fbq('track', 'Lead');" href="https://superprofile.bio/vp/pro-package-795?checkout=true" class="btn-small btn-rounded bg-black dark:bg-white text-white dark:text-black w-full py-3.5 text-xs hover:bg-gray-800 dark:hover:bg-gray-200 flex items-center gap-2 justify-center shadow-md">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+                            Order Now
+                        </a>
+                        
+                        <!-- Client Review Interactive Audio Button added below WhatsApp -->
+                        <div class="package-audio-btn relative w-full border border-gray-300 dark:border-gray-700 text-black dark:text-white btn-rounded flex items-center justify-center py-3 text-xs cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-900 transition-colors overflow-hidden bg-white dark:bg-transparent mt-3">
+                            <div class="absolute top-0 left-0 h-full bg-gray-200 dark:bg-gray-800 transition-none w-0 z-0 progress-fill pointer-events-none"></div>
+                            <div class="relative z-10 flex items-center gap-2 pointer-events-none">
+                                <svg class="play-icon w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <svg class="pause-icon w-4 h-4 fill-current hidden" viewBox="0 0 24 24"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                                <span class="font-bold uppercase tracking-wide">Listen Client Reviews</span>
+                                <span class="btn-time font-bold text-gray-500 dark:text-gray-400 ml-1 tracking-widest hidden"></span>
+                            </div>
+                        </div>
+
+                        <div class="px-4 py-1.5 mt-3 flex items-center justify-center gap-2">
+                            <svg class="w-3.5 h-3.5 text-black dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <div class="text-[10px] font-semibold text-gray-700 dark:text-gray-300">
+                                <span class="hero-counter font-bold text-black dark:text-white">0</span>+ Delivered <span class="mx-1 text-gray-300 dark:text-gray-600">|</span> <span class="font-bold text-black dark:text-white">4.9/5</span> Rating
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-[8px] text-gray-500 dark:text-gray-500 mt-4 font-medium">By ordering you accept and agree with Squarelay all policies.</p>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-[10px] font-bold text-black dark:text-white mt-8 tracking-widest uppercase animate-pulse text-glow-black">6/50 slots left for this month!</p>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="clients" class="py-20 bg-gray-50 dark:bg-[#050505] reveal text-left border-y border-gray-100 dark:border-gray-900">
+        <div class="px-6 max-w-6xl mx-auto">
+            <div class="flex items-center justify-between mb-10">
+                <h2 class="text-3xl md:text-4xl font-bold text-black dark:text-white tracking-tight">Clients.</h2>
+                <div class="flex gap-2">
+                    <div class="nav-arrow custom-prev bg-white dark:bg-black">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                    </div>
+                    <div class="nav-arrow custom-next bg-white dark:bg-black">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="swiper swiper-testimonials w-full">
+                <div class="swiper-wrapper pb-10">
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-gray-900/40 p-8 box-rounded h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=11" class="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700" loading="lazy">
+                                <div><h5 class="text-sm font-bold text-black dark:text-white tracking-tight">Rohan Sharma</h5><p class="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase mt-0.5">Software Engineer</p></div>
+                            </div>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">"I was struggling to get calls for 6 months. After Squarelay rewrote my CV, I got interview calls from 3 MNCs in the first week. The design is clean and professional."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-black dark:bg-[#111] text-white p-8 box-rounded h-full flex flex-col justify-between border-black dark:border-gray-800">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=5" class="w-12 h-12 rounded-full border border-gray-700 dark:border-gray-600" loading="lazy">
+                                <div><h5 class="text-sm font-bold text-white tracking-tight">Ananya Iyer</h5><p class="text-[10px] text-gray-400 font-bold uppercase mt-0.5">UI/UX Designer</p></div>
+                            </div>
+                            <p class="text-sm text-gray-300 leading-relaxed font-medium">"The ₹1499 Plan is a game changer. The professional format they built is stunning and helped me showcase my work. HRs were really impressed."</p>
+                        </div>
+                    </div>
+                    <div class="swiper-slide h-auto">
+                        <div class="bg-white dark:bg-gray-900/40 p-8 box-rounded h-full flex flex-col justify-between">
+                            <div class="flex items-center gap-4 mb-6">
+                                <img src="https://i.pravatar.cc/150?img=32" class="w-12 h-12 rounded-full border border-gray-200 dark:border-gray-700" loading="lazy">
+                                <div><h5 class="text-sm font-bold text-black dark:text-white tracking-tight">Sana Malik</h5><p class="text-[10px] text-gray-500 dark:text-gray-400 font-bold uppercase mt-0.5">Data Analyst</p></div>
+                            </div>
+                            <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-medium">"Shortlisted at Microsoft within 10 days. The keyword optimization is elite level. I highly recommend their services to anyone serious about their career."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="max-w-3xl mx-auto py-20 px-6 reveal">
+        <h2 class="text-3xl font-bold mb-10 text-black dark:text-white tracking-tight">FAQ</h2>
+        <div class="space-y-4">
+            <div class="faq-item border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-900/40 cursor-pointer box-rounded hover:border-gray-300 dark:hover:border-gray-600 transition-colors" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-sm font-bold text-black dark:text-white">Are these resumes AI generated or Human-made?</h4>
+                    <svg class="w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-sm text-gray-600 dark:text-gray-400 font-medium py-3 mt-2 border-t border-gray-100 dark:border-gray-800 leading-relaxed">Our resumes are 100% human-made. We have a team of experts with over 15 years of experience in resume writing and HR recruitment.</p></div>
+            </div>
+            <div class="faq-item border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-900/40 cursor-pointer box-rounded hover:border-gray-300 dark:hover:border-gray-600 transition-colors" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-sm font-bold text-black dark:text-white">Why is ATS compliance important?</h4>
+                    <svg class="w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-sm text-gray-600 dark:text-gray-400 font-medium py-3 mt-2 border-t border-gray-100 dark:border-gray-800 leading-relaxed">Most companies use Applicant Tracking Systems (ATS) to filter resumes before a human sees them. Our resumes are designed with correct formatting and keywords to bypass these bots and get you shortlisted.</p></div>
+            </div>
+            <div class="faq-item border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-900/40 cursor-pointer box-rounded hover:border-gray-300 dark:hover:border-gray-600 transition-colors" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-sm font-bold text-black dark:text-white">How will you collect my details?</h4>
+                    <svg class="w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-sm text-gray-600 dark:text-gray-400 font-medium py-3 mt-2 border-t border-gray-100 dark:border-gray-800 leading-relaxed">Simply select a plan and click on 'Order Now'. Our resume expert will connect with you to gather your old CV and specific requirements.</p></div>
+            </div>
+            <!-- Added New FAQ Item as requested -->
+            <div class="faq-item border border-gray-200 dark:border-gray-800 p-5 bg-white dark:bg-gray-900/40 cursor-pointer box-rounded hover:border-gray-300 dark:hover:border-gray-600 transition-colors" onclick="this.classList.toggle('active')">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-sm font-bold text-black dark:text-white">Can I discuss my resume details on WhatsApp?</h4>
+                    <svg class="w-5 h-5 text-gray-400 dark:text-gray-500 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+                </div>
+                <div class="faq-ans"><p class="text-sm text-gray-600 dark:text-gray-400 font-medium py-3 mt-2 border-t border-gray-100 dark:border-gray-800 leading-relaxed">Yes, you will be chatting directly with our professionals on WhatsApp. Sometimes we also run exclusive discounts there, so you might even get an extra off on your package!</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-50 dark:bg-black border-t border-gray-200 dark:border-gray-900 pt-16 pb-24 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+            <div>
+                <div class="h-10 md:h-12 mb-4">
+                    <img src="https://raw.githubusercontent.com/Squarelaycom/squarelay.in/main/file/Blacklogo.png" alt="Squarelay" class="h-full w-auto block object-contain dark:invert">
+                </div>
+                <p class="text-[11px] font-bold text-black dark:text-white uppercase tracking-widest">India's Best Resume Writing Service</p>
+            </div>
+            <div>
+                <h5 class="text-[10px] text-gray-400 dark:text-gray-500 uppercase font-bold tracking-widest mb-4">Support</h5>
+                <div class="flex flex-col space-y-3 text-xs text-black dark:text-white font-semibold uppercase tracking-wide">
+                    <!-- Updated WA Number -->
+                    <a href="https://wa.me/919517369969?text=Hi%20Squarelay,%20I%20have%20a%20query." class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">WA: +91 9517369969</a>
+                    
+                    <!-- Added 3 Level Support Interactive UI -->
+                    <div>
+                        <button onclick="document.getElementById('level-support').classList.toggle('max-h-[200px]'); this.classList.toggle('text-gray-500')" class="text-[10px] bg-gray-200/50 dark:bg-gray-800/50 text-black dark:text-white px-2 py-1 rounded-md font-bold flex items-center gap-1 w-max transition-colors">
+                            3 Level Support
+                            <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
+                        <div id="level-support" class="overflow-hidden max-h-0 transition-all duration-500 ease-in-out mt-3 pl-1">
+                            <div class="flex flex-col space-y-3 text-[10px] text-gray-600 dark:text-gray-400 font-semibold tracking-wide normal-case">
+                                <div class="flex flex-col gap-1">
+                                    <span class="text-black dark:text-white uppercase">1st Level:</span>
+                                    <span>WA +91 9517369969</span>
+                                    <a href="/cdn-cgi/l/email-protection#5c2f292c2c332e281c2f2d293d2e39303d25723f3331" class="hover:text-black dark:hover:text-white transition-colors"><span class="__cf_email__" data-cfemail="93e0e6e3e3fce1e7d3e0e2e6f2e1f6fff2eabdf0fcfe">[email&#160;protected]</span></a>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <span class="text-black dark:text-white uppercase">2nd Level:</span>
+                                     <a href="/cdn-cgi/l/email-protection#1c7774696f74755c6f6d697d6e79707d65327f7371" class="hover:text-black dark:hover:text-white transition-colors"><span class="__cf_email__" data-cfemail="2843405d5b4041685b595d495a4d444951064b4745">[email&#160;protected]</span></a>
+                                </div>
+                                <div class="flex flex-col gap-1">
+                                    <span class="text-black dark:text-white uppercase">3rd Level:</span>
+                                     <a href="/cdn-cgi/l/email-protection#cbacaabeb9aabd8bb8babeaab9aea7aab2e5a8a4a6" class="hover:text-black dark:hover:text-white transition-colors"><span class="__cf_email__" data-cfemail="85e2e4f0f7e4f3c5f6f4f0e4f7e0e9e4fcabe6eae8">[email&#160;protected]</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-[10px] text-gray-400 dark:text-gray-500 uppercase font-bold tracking-widest mb-4">Links</h5>
+                <div class="flex flex-col space-y-3 text-xs text-black dark:text-white font-semibold uppercase tracking-wide">
+                    <a href="#" class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">Home</a>
+                    <a href="#pricing" class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">Pricing</a>
+                    <a href="#clients" class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">Client Reviews</a>
+                </div>
+            </div>
+            <div>
+                <h5 class="text-[10px] text-gray-400 dark:text-gray-500 uppercase font-bold tracking-widest mb-4">Legal</h5>
+                <div class="flex flex-col space-y-3 text-xs text-black dark:text-white font-semibold uppercase tracking-wide">
+                    <a href="https://squarelay.com/policies" class="hover:text-gray-500 dark:hover:text-gray-400 transition-colors">Policies</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto text-[10px] text-gray-400 dark:text-gray-500 font-bold uppercase tracking-widest text-center md:text-left border-t border-gray-200 dark:border-gray-900 pt-6">
+            © Squarelay. All Rights Reserved.
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        function toggleMenu() { document.getElementById('mobileMenu').classList.toggle('active'); }
+        
+        // Swiper slider setup
+        var swiper = new Swiper(".swiper-testimonials", {
+            slidesPerView: 1.1,
+            spaceBetween: 16,
+            loop: true,
+            navigation: {
+                nextEl: '.custom-next',
+                prevEl: '.custom-prev',
+            },
+            breakpoints: { 768: { slidesPerView: 2.2, spaceBetween: 24 } }
+        });
+
+        // Reveal animations on scroll
+        function reveal() {
+            var revs = document.querySelectorAll(".reveal");
+            for (var i = 0; i < revs.length; i++) {
+                var wh = window.innerHeight;
+                var top = revs[i].getBoundingClientRect().top;
+                if (top < wh - 50) { revs[i].classList.add("active"); }
+            }
+        }
+        window.addEventListener("scroll", reveal); 
+        window.onload = reveal;
+
+        // 10,000+ Counter Animation
+        document.addEventListener("DOMContentLoaded", () => {
+            const counterEls = document.querySelectorAll(".hero-counter");
+            let count = 0;
+            const target = 10000;
+            const increment = target / 50; 
+            const timer = setInterval(() => {
+                count += increment;
+                if(count >= target) {
+                    count = target;
+                    clearInterval(timer);
+                }
+                counterEls.forEach(el => el.innerText = count.toLocaleString());
+            }, 30);
+        });
+
+        // Global Audio Player Setup (For both Main and Package Buttons)
+        const audio = document.getElementById("realAudio");
+        
+        // Main Player UI
+        const mainPlayBtn = document.getElementById("customPlayBtn");
+        const mainPlayIcon = document.getElementById("playIcon");
+        const mainPauseIcon = document.getElementById("pauseIcon");
+        const mainProgressBarFill = document.getElementById("progressBarFill");
+        const mainProgressBarContainer = document.getElementById("progressBarContainer");
+        const mainCurrentTimeDisplay = document.getElementById("currentTimeDisplay");
+        const mainDurationDisplay = document.getElementById("durationDisplay");
+
+        // Package Buttons UI
+        const packageAudioBtns = document.querySelectorAll('.package-audio-btn');
+
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return "0:00";
+            let min = Math.floor(seconds / 60);
+            let sec = Math.floor(seconds % 60);
+            return min + ":" + (sec < 10 ? "0" : "") + sec;
+        }
+
+        // Centralized Toggle Function
+        function toggleGlobalAudio() {
+            if (audio.paused) {
+                audio.play().catch(e => console.error("Audio playback blocked:", e));
+            } else {
+                audio.pause();
+            }
+        }
+
+        // Update all UIs together
+        function updateAudioUIs() {
+            const isPaused = audio.paused;
+            
+            // Sync Main Player UI
+            if(isPaused) {
+                mainPlayIcon.classList.remove("hidden");
+                mainPauseIcon.classList.add("hidden");
+            } else {
+                mainPlayIcon.classList.add("hidden");
+                mainPauseIcon.classList.remove("hidden");
+            }
+
+            // Sync Package Buttons UI
+            packageAudioBtns.forEach(btn => {
+                const playSvg = btn.querySelector('.play-icon');
+                const pauseSvg = btn.querySelector('.pause-icon');
+                if (isPaused) {
+                    playSvg.classList.remove("hidden");
+                    pauseSvg.classList.add("hidden");
+                } else {
+                    playSvg.classList.add("hidden");
+                    pauseSvg.classList.remove("hidden");
+                }
+            });
+        }
+
+        // Listeners for Play/Pause
+        if(mainPlayBtn) mainPlayBtn.addEventListener("click", toggleGlobalAudio);
+        packageAudioBtns.forEach(btn => btn.addEventListener("click", toggleGlobalAudio));
+
+        if(audio) {
+            audio.addEventListener("play", updateAudioUIs);
+            audio.addEventListener("pause", updateAudioUIs);
+
+            audio.addEventListener("timeupdate", () => {
+                if(audio.duration){
+                    const progressPercent = (audio.currentTime / audio.duration) * 100;
+                    const timeStr = formatTime(audio.currentTime);
+                    
+                    // Update Main Player
+                    if(mainProgressBarFill) mainProgressBarFill.style.width = progressPercent + "%";
+                    if(mainCurrentTimeDisplay) mainCurrentTimeDisplay.textContent = timeStr;
+
+                    // Update Package Buttons (Background Fill & Time)
+                    packageAudioBtns.forEach(btn => {
+                        const progressFill = btn.querySelector('.progress-fill');
+                        const timeEl = btn.querySelector('.btn-time');
+                        if(progressFill) progressFill.style.width = progressPercent + "%";
+                        if(timeEl) {
+                            timeEl.classList.remove("hidden");
+                            timeEl.textContent = timeStr;
+                        }
+                    });
+                }
+            });
+
+            audio.addEventListener("loadedmetadata", () => {
+                if(mainDurationDisplay) mainDurationDisplay.textContent = formatTime(audio.duration);
+            });
+
+            if(mainProgressBarContainer) {
+                mainProgressBarContainer.addEventListener("click", (e) => {
+                    const width = mainProgressBarContainer.clientWidth;
+                    const clickX = e.offsetX;
+                    const newTime = (clickX / width) * audio.duration;
+                    audio.currentTime = newTime;
+                });
+            }
+
+            audio.addEventListener("ended", () => {
+                audio.currentTime = 0;
+                updateAudioUIs();
+                
+                if(mainProgressBarFill) mainProgressBarFill.style.width = "0%";
+                if(mainCurrentTimeDisplay) mainCurrentTimeDisplay.textContent = "0:00";
+                
+                packageAudioBtns.forEach(btn => {
+                    const progressFill = btn.querySelector('.progress-fill');
+                    const timeEl = btn.querySelector('.btn-time');
+                    if(progressFill) progressFill.style.width = "0%";
+                    if(timeEl) timeEl.classList.add("hidden");
+                });
+            });
+        }
+    </script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"0c54281b9e264fbdbcf36ae513ece1fd","r":1,"spa":2}' crossorigin="anonymous"></script>
+    <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v31edd6df95cf4e85bb4c19e7a9bdbcba1788362987495" integrity="sha512-iIg7k2xntmwu6/uSb5tpc/hySgZc4eoL31yB29W6tJFo2akwjPWcEqnCEdJvGexCL0KEQwVYv5BlowfhVz26hg==" data-cf-beacon='{"version":"2024.11.0","token":"7485ce7abe2b4459861f4ba35a5c3418","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body>
+</html>
